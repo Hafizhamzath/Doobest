@@ -1,6 +1,5 @@
 import Hero from "@/sections/professional-services/Hero";
 import ServicesExplorer from "@/sections/professional-services/ServicesExplorer";
-import ComprehensiveSolutions from "@/sections/professional-services/ComprehensiveSolutions";
 import OurProcess from "@/sections/professional-services/OurProcess";
 import Industries from "@/sections/professional-services/Industries";
 import WhyChooseCaseStudies from "@/sections/professional-services/WhyChooseCaseStudies";
@@ -17,7 +16,6 @@ export default function ProfessionalServicesPage() {
     <>
       <Hero />
       <ServicesExplorer />
-      <ComprehensiveSolutions />
       <OurProcess />
       <Industries />
       <WhyChooseCaseStudies />
