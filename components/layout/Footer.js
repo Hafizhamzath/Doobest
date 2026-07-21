@@ -11,6 +11,7 @@ export default function Footer({
   thirdColumnTitle = "Our Services",
   thirdColumnLinks = footerServiceLinks,
   showNewsletter = true,
+  legalColumn,
 }) {
   return (
     <footer className="bg-ink text-white">
@@ -135,17 +136,38 @@ export default function Footer({
           </ul>
         </div>
 
-        {showNewsletter && (
+        {legalColumn ? (
           <div>
             <h3 className="mb-2 text-[13px] font-bold tracking-wide text-gold">
-              Stay Updated
+              {legalColumn.title}
             </h3>
             <span className="mb-4 block h-0.5 w-4 bg-gold" aria-hidden="true" />
-            <p className="mb-4 text-[13px] leading-relaxed text-white/60">
-              Subscribe to get the latest updates and insights.
-            </p>
-            <NewsletterForm />
+            <ul className="flex flex-col gap-3">
+              {legalColumn.links.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-[13.5px] text-white/70 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
+        ) : (
+          showNewsletter && (
+            <div>
+              <h3 className="mb-2 text-[13px] font-bold tracking-wide text-gold">
+                Stay Updated
+              </h3>
+              <span className="mb-4 block h-0.5 w-4 bg-gold" aria-hidden="true" />
+              <p className="mb-4 text-[13px] leading-relaxed text-white/60">
+                Subscribe to get the latest updates and insights.
+              </p>
+              <NewsletterForm />
+            </div>
+          )
         )}
       </Container>
 
@@ -155,14 +177,16 @@ export default function Footer({
             © {new Date().getFullYear()} Doobest Consultancy (PVT) LTD. All
             Rights Reserved.
           </p>
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-white/80">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="hover:text-white/80">
-              Terms &amp; Conditions
-            </Link>
-          </div>
+          {!legalColumn && (
+            <div className="flex gap-6">
+              <Link href="#" className="hover:text-white/80">
+                Privacy Policy
+              </Link>
+              <Link href="#" className="hover:text-white/80">
+                Terms &amp; Conditions
+              </Link>
+            </div>
+          )}
         </Container>
       </div>
     </footer>

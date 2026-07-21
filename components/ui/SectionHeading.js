@@ -6,6 +6,7 @@ export default function SectionHeading({
   description,
   align = "left",
   tone = "light",
+  divider = true,
   className,
   titleClassName,
   descriptionClassName,
@@ -24,17 +25,19 @@ export default function SectionHeading({
       {eyebrow && (
         <span
           className={cn(
-            "text-xs font-bold tracking-[0.2em] uppercase",
+            "mb-4 text-xs font-bold tracking-[0.2em] uppercase",
             isDark ? "text-gold" : "text-maroon"
           )}
         >
           {eyebrow}
         </span>
       )}
-      <span
-        aria-hidden="true"
-        className={cn("my-4 h-0.5 w-9", isDark ? "bg-gold" : "bg-maroon")}
-      />
+      {divider && (
+        <span
+          aria-hidden="true"
+          className={cn("mb-4 h-0.5 w-9", isDark ? "bg-gold" : "bg-maroon")}
+        />
+      )}
       <h2
         className={cn(
           "font-serif text-3xl leading-tight font-semibold md:text-4xl",
