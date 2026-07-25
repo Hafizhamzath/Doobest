@@ -10,6 +10,8 @@ import { siteConfig } from "@/constants/site";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 
+const primaryNavLinks = navLinks.filter((link) => link.label !== "Get Started");
+
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -44,7 +46,7 @@ export default function Navbar() {
           aria-label="Primary"
           className="hidden flex-1 items-center justify-center gap-x-5 gap-y-4 lg:flex"
         >
-          {navLinks.map((link) => {
+          {primaryNavLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
@@ -98,7 +100,7 @@ export default function Navbar() {
           aria-label="Mobile"
           className="flex flex-col gap-1 border-t border-ink/[0.06] bg-cream px-6 py-4 lg:hidden"
         >
-          {navLinks.map((link) => {
+          {primaryNavLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
