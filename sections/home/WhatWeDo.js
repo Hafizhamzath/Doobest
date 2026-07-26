@@ -97,23 +97,6 @@ function ServicesWheel() {
         </p>
       </div>
 
-      <button
-        type="button"
-        tabIndex={-1}
-        aria-hidden="true"
-        className="absolute top-[68%] left-[23%] z-[2] hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-gold/50 bg-[#1a0808] text-gold transition-colors hover:border-maroon hover:bg-maroon sm:flex"
-      >
-        ←
-      </button>
-      <button
-        type="button"
-        tabIndex={-1}
-        aria-hidden="true"
-        className="absolute top-[68%] right-[23%] z-[2] hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-gold/50 bg-[#1a0808] text-gold transition-colors hover:border-maroon hover:bg-maroon sm:flex"
-      >
-        →
-      </button>
-
       {serviceArc.map((service) => (
         <div
           key={service.label}

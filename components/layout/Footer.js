@@ -19,19 +19,14 @@ export default function Footer({
         <div className="sm:col-span-2 lg:col-span-1">
           <Link href="/" className="mb-4 flex items-center gap-2.5">
             <Image
-              src={siteConfig.logoGold}
-              alt="Doobest D mark"
-              width={414}
-              height={448}
+              src={siteConfig.logo}
+              alt="Doobest"
+              width={1536}
+              height={1024}
               className="h-7 w-auto"
             />
-            <span className="leading-[1.15]">
-              <span className="block font-serif text-base font-bold tracking-wide">
-                DOOBEST
-              </span>
-              <span className="block text-[8.5px] tracking-[0.15em] text-white/50">
-                CONSULTANCY (PVT) LTD
-              </span>
+            <span className="text-[8.5px] tracking-[0.15em] text-white/50">
+              CONSULTANCY (PVT) LTD
             </span>
           </Link>
           <p className="mb-5 max-w-xs text-[13.5px] leading-relaxed text-white/55">

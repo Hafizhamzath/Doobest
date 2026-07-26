@@ -4,8 +4,7 @@ export const siteConfig = {
   tagline: "Consultancy (Pvt) Ltd",
   description:
     "Professional accounting and business support solutions for modern businesses in Sri Lanka and the UAE.",
-  logo: "/assets/doobest-logo-mark.png",
-  logoGold: "/assets/doobest-logo-mark-gold.png",
+  logo: "/assets/LOGO.png",
   phone: {
     sriLanka: "+94 77 123 4567",
     uae: "+971 58 123 4567",

@@ -19,27 +19,15 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink/[0.06] bg-cream/90 backdrop-blur-md">
       <div className="flex flex-wrap items-center justify-between gap-3.5 px-6 py-4 lg:px-8">
-        <Link
-          href="/"
-          className="flex items-center gap-2.5"
-          onClick={() => setOpen(false)}
-        >
+        <Link href="/" onClick={() => setOpen(false)}>
           <Image
             src={siteConfig.logo}
-            alt="Doobest D mark"
-            width={414}
-            height={448}
-            className="h-8 w-auto"
+            alt="Doobest"
+            width={1536}
+            height={1024}
+            className="h-12 w-auto"
             priority
           />
-          <span className="leading-[1.15]">
-            <span className="block font-serif text-lg font-bold tracking-wide text-ink">
-              DOOBEST
-            </span>
-            <span className="block text-[8.5px] tracking-[0.13em] text-faint">
-              CONSULTANCY (PVT) LTD
-            </span>
-          </span>
         </Link>
 
         <nav
