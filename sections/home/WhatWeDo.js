@@ -52,9 +52,27 @@ const ringDividers = [0, 36, 72, 108, 144, 180].map((angle) => {
   };
 });
 
+function ServicesMobileList() {
+  return (
+    <div className="flex flex-col gap-3 sm:hidden">
+      {serviceArc.map((service) => (
+        <div
+          key={service.label}
+          className="flex items-center gap-3.5 rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5"
+        >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-maroon/20">
+            <Icon paths={service.icon.paths} size={18} strokeWidth={1.6} className="text-gold" />
+          </div>
+          <p className="text-[13px] leading-snug font-bold text-white/90">{service.label}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function ServicesWheel() {
   return (
-    <div className="relative mx-auto aspect-[2/1] w-full max-w-[820px]">
+    <div className="relative mx-auto hidden aspect-[2/1] w-full max-w-[820px] sm:block">
       <svg viewBox="0 0 700 350" className="absolute inset-0 block h-full w-full" aria-hidden="true">
         <defs>
           <linearGradient id="ringFill" x1="0" y1="0" x2="0" y2="1">
@@ -117,7 +135,7 @@ function ServicesWheel() {
               className="hidden text-maroon transition-colors group-hover:text-white sm:block"
             />
           </div>
-          <p className="text-center text-[9px] leading-tight font-bold text-[#221a15] sm:text-xs">
+          <p className="w-full max-w-[105px] mx-auto text-center text-[9px] leading-tight font-bold text-[#221a15] sm:text-xs">
             {service.label}
           </p>
         </div>
@@ -160,6 +178,7 @@ export default function WhatWeDo() {
             </Button>
           </div>
 
+          <ServicesMobileList />
           <ServicesWheel />
         </div>
 
