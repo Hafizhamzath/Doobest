@@ -50,10 +50,18 @@ export default function OurJourney() {
           Focused on Impact.
         </h2>
         <span className="mb-5 block h-[3px] w-11 bg-maroon" aria-hidden="true" />
+        <p className="mb-4 text-sm leading-relaxed text-body">
+          <span className="font-bold text-ink">Our Vision — </span>
+          To become a trusted global provider of affordable accounting
+          solutions and professional development programs, connecting
+          businesses with skilled expertise and empowering future
+          accounting professionals.
+        </p>
         <p className="mb-7 text-sm leading-relaxed text-body">
-          From our beginning to where we are today, our journey has been
-          about one thing — helping businesses thrive through financial
-          clarity, trust, and tailored solutions.
+          <span className="font-bold text-ink">Our Mission — </span>
+          To deliver reliable, cost-effective, and professional accounting
+          services while helping businesses improve financial efficiency
+          and individuals build successful careers in accounting.
         </p>
         <Button href="#">Explore Our Journey</Button>
       </div>

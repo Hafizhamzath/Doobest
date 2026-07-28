@@ -37,8 +37,8 @@ export default function Hero() {
           Professional Services
         </p>
         <h1 className="mb-6 max-w-[600px] font-serif text-4xl leading-[1.1] font-semibold text-ink sm:text-5xl lg:text-[56px]">
-          Complete Financial Solutions for{" "}
-          <span className="text-maroon">Modern Businesses.</span>
+          Smart Services for{" "}
+          <span className="text-maroon">Smart Business.</span>
         </h1>
         <p className="mb-9 max-w-[480px] text-base leading-relaxed text-body">
           Doobest provides end-to-end accounting and financial solutions that

@@ -31,7 +31,7 @@ export default function Hero() {
             </div>
             <div>
               <p className="text-xs text-muted">Or Call Us Directly</p>
-              <p className="text-base font-bold text-maroon">+94 77 123 4567</p>
+              <p className="text-base font-bold text-maroon">+94 74 041 0943</p>
             </div>
           </div>
         </div>
@@ -64,8 +64,8 @@ export default function Hero() {
             confidence, and achieve greatness together.
           </p>
           <span className="mb-4 block h-px w-full bg-white/15" aria-hidden="true" />
-          <p className="mb-2.5 font-serif text-xl text-gold italic">Hisham M.</p>
-          <p className="text-[13px] font-bold text-white">Hisham Muhammed</p>
+          <p className="mb-2.5 font-serif text-xl text-gold italic">Mohamed A.</p>
+          <p className="text-[13px] font-bold text-white">Mohamed Amjath</p>
           <p className="mt-0.5 text-xs text-gold">Founder &amp; CEO</p>
         </div>
       </div>

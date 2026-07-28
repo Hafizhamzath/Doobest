@@ -6,7 +6,7 @@ const batches = [
   {
     day: "05",
     month: "JUN",
-    title: "Practical Accounting Training",
+    title: "Junior Accountant Program",
     type: "Weekend Batch",
     days: "Sat & Sun",
     time: "10:00 AM - 01:00 PM",
@@ -15,7 +15,7 @@ const batches = [
   {
     day: "10",
     month: "JUN",
-    title: "TallyPrime & ERP Training",
+    title: "Accounting Software Courses",
     type: "Evening Batch",
     days: "Mon - Fri",
     time: "07:00 PM - 09:00 PM",
@@ -24,7 +24,7 @@ const batches = [
   {
     day: "15",
     month: "JUN",
-    title: "Taxation & VAT Course",
+    title: "Accountant Program",
     type: "Weekend Batch",
     days: "Sat & Sun",
     time: "02:00 PM - 05:00 PM",
@@ -33,7 +33,7 @@ const batches = [
   {
     day: "20",
     month: "JUN",
-    title: "Excel for Accountants",
+    title: "Advanced Excel Programs",
     type: "Evening Batch",
     days: "Mon - Fri",
     time: "07:00 PM - 09:00 PM",

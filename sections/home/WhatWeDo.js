@@ -93,7 +93,7 @@ function ServicesWheel() {
         </p>
         <span className="mx-auto mb-2.5 block h-[1.5px] w-7 bg-gold" aria-hidden="true" />
         <p className="text-[10px] leading-snug text-white/75 sm:text-[11.5px]">
-          Accurate records, financial reporting and better control.
+          Accurate records, timely reports, and better financial control.
         </p>
       </div>
 
@@ -148,11 +148,12 @@ export default function WhatWeDo() {
             </p>
             <span className="mb-4 block h-0.5 w-9 bg-gold" aria-hidden="true" />
             <h2 className="mb-5 font-serif text-3xl leading-tight font-semibold text-white md:text-4xl">
-              Comprehensive Solutions for Every Business Need
+              Our Key Services
             </h2>
             <p className="mb-6 text-[14.5px] leading-relaxed text-white/60">
-              From day-to-day bookkeeping to strategic financial guidance, we
-              provide end-to-end support for your business.
+              From bookkeeping and reporting to taxation and business
+              support, we provide a complete range of solutions under one
+              platform.
             </p>
             <Button href="/professional-services" variant="text" tone="gold">
               View All Services

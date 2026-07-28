@@ -78,8 +78,8 @@ export default function Hero() {
           <span className="text-maroon">Future.</span>
         </h1>
         <p className="mb-8 max-w-[420px] text-base leading-relaxed text-body">
-          Practical learning programs designed to shape confident accounting
-          professionals and future business leaders.
+          Practical knowledge, professional coaching, and industry-relevant
+          skills to build successful careers in accounting and finance.
         </p>
         <div className="mb-11 flex flex-wrap items-center gap-7">
           <Button href="#our-programs">Explore Courses</Button>

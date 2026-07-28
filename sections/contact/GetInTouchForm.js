@@ -10,7 +10,7 @@ import { footerServiceLinks } from "@/constants/footer";
 const contactItems = [
   {
     label: "Call Us",
-    lines: ["+94 77 123 4567", "+971 58 123 4567"],
+    lines: ["+94 74 041 0943 (Sri Lanka)", "+971 54 374 8522 (UAE)"],
     icon: {
       paths: [
         "M6.6 10.8c1.4 2.8 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1.1z",
@@ -19,12 +19,12 @@ const contactItems = [
   },
   {
     label: "Email Us",
-    lines: ["info@doobest.com", "academy@doobest.com"],
+    lines: ["info@doobestco.com"],
     icon: { paths: ["M3 6h18v12H3z", "M3 6l9 7 9-7"] },
   },
   {
     label: "Visit Us",
-    lines: ["No. 15, Station Road,", "Dehiwala, Sri Lanka."],
+    lines: ["148, Office 2, Eravur Town, Batticaloa", "Postal Code: 30300"],
     icon: {
       paths: [
         "M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z",
@@ -36,6 +36,11 @@ const contactItems = [
     label: "Business Hours",
     lines: ["Mon - Fri : 9:00 AM - 6:00 PM", "Saturday : 9:00 AM - 1:00 PM"],
     icon: { paths: ["M12 21a9 9 0 100-18 9 9 0 000 18z", "M12 7v5l3 3"] },
+  },
+  {
+    label: "Company No",
+    lines: ["PV 00316023"],
+    icon: { paths: ["M4 21V9l8-6 8 6v12", "M9 21v-6h6v6", "M4 9h16"] },
   },
 ];
 

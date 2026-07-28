@@ -12,10 +12,10 @@ export default function WhyChoose() {
         align="center"
         title={
           <>
-            Smart Support. <em className="text-maroon">Real Impact.</em>
+            Your Trusted Partner for <em className="text-maroon">Accounting Excellence</em>
           </>
         }
-        description="We go beyond numbers to deliver expertise, guidance, and solutions that help your business grow with confidence."
+        description="Managing finances effectively is essential for every successful business. Our team provides practical accounting solutions that help businesses maintain accurate records, improve reporting, stay compliant, and make better financial decisions."
       />
 
       <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-6 lg:gap-x-4">

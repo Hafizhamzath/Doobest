@@ -59,8 +59,8 @@ export default function Hero() {
               exceptional outcomes.
             </p>
             <span className="mb-4 block h-px w-full bg-white/15" aria-hidden="true" />
-            <p className="mb-2.5 font-serif text-xl text-gold italic">Hisham M.</p>
-            <p className="text-[13px] font-bold text-white">Hisham Muhammed</p>
+            <p className="mb-2.5 font-serif text-xl text-gold italic">Mohamed A.</p>
+            <p className="text-[13px] font-bold text-white">Mohamed Amjath</p>
             <p className="mt-0.5 text-xs text-gold">Founder &amp; CEO</p>
           </div>
         </div>

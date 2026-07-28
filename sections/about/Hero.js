@@ -16,13 +16,15 @@ export default function Hero() {
         </h1>
         <span className="mb-6 block h-[3px] w-13 bg-maroon" aria-hidden="true" />
         <p className="mb-5 text-[14.5px] leading-relaxed text-body">
-          Doobest Consultancy (Pvt) Ltd. was built with a simple belief - that
-          every business deserves accurate numbers, clear guidance, and a
-          partner who truly cares about their growth.
+          Doobest Consultancy (Pvt) Ltd is a professional accounting and
+          financial consultancy firm incorporated under the Companies Act No.
+          07 of 2007 of Sri Lanka, proudly serving businesses across Sri
+          Lanka and the UAE.
         </p>
         <p className="mb-8 text-[14.5px] leading-relaxed text-body">
-          We go beyond numbers to create clarity, ensure compliance, and
-          empower you to move forward with confidence.
+          We deliver IFRS, IAS and SLFRS-compliant accounting, bookkeeping,
+          taxation and company secretarial services that help organizations
+          stay compliant and make informed business decisions.
         </p>
         <div className="flex flex-wrap items-center gap-6">
           <Button href="#our-journey">Our Journey</Button>
@@ -58,8 +60,9 @@ export default function Hero() {
             66
           </div>
           <p className="mb-4.5 text-[13px] leading-relaxed text-white">
-            Our purpose is to turn numbers into success and help businesses
-            build a stronger future.
+            My mission is to bridge the gap between businesses and
+            professional accounting expertise — delivering high-quality,
+            affordable, technology-driven solutions.
           </p>
           <span className="mb-4 block h-px w-full bg-white/15" aria-hidden="true" />
           <p className="mb-4.5 text-[11.5px] leading-relaxed text-white/75">
@@ -67,9 +70,9 @@ export default function Hero() {
             <br />
             A Team You Can Rely On.
           </p>
-          <p className="mb-2.5 font-serif text-xl text-gold italic">Furheen S.</p>
+          <p className="mb-2.5 font-serif text-xl text-gold italic">Mohamed Amjath</p>
           <p className="text-[11px] font-bold tracking-wide text-gold">
-            FURHEEN S <span className="font-semibold text-white/60">CEO</span>
+            MOHAMED AMJATH <span className="font-semibold text-white/60">DIRECTOR &amp; CEO</span>
           </p>
         </div>
 

@@ -7,23 +7,26 @@ export default function OurPrograms() {
   return (
     <section id="our-programs" className="bg-ink py-16 md:py-20">
       <Container className="flex flex-wrap gap-10">
-        <div className="flex-1 basis-[260px] lg:max-w-[300px]">
+        <div className="flex-1 basis-[260px] lg:max-w-[320px]">
           <p className="mb-4 text-xs font-bold tracking-[0.2em] text-gold uppercase">
-            Our Programs
+            Courses and Programs
           </p>
           <h2 className="mb-5 font-serif text-3xl leading-tight font-semibold text-white md:text-4xl">
-            Learn. Practice. <em className="text-[#d99a9a]">Grow.</em>
+            Department of Career <em className="text-[#d99a9a]">Development</em>
           </h2>
-          <p className="mb-6 max-w-[280px] text-sm leading-relaxed text-white/60">
-            Industry-relevant courses designed to sharpen your skills and
-            accelerate your professional growth.
+          <p className="mb-6 max-w-[320px] text-sm leading-relaxed text-white/60">
+            Empowering individuals with practical knowledge, professional
+            coaching, and industry-relevant skills to build successful
+            careers in accounting and finance — bridging theory and
+            real-world practice through practical training, Excel and
+            reporting skills, and modern AI-assisted tools.
           </p>
           <Button href="#" variant="text" tone="gold">
             View All Courses
           </Button>
         </div>
 
-        <div className="grid flex-1 basis-[600px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid flex-1 basis-[600px] grid-cols-1 gap-4 sm:grid-cols-2">
           {academyCourses.map((course) => (
             <div
               key={course.title}

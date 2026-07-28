@@ -1,7 +1,7 @@
 export const features = [
   {
     title: "Cost Effective",
-    desc: "Save on hiring, salary and office costs with our flexible support.",
+    desc: "Professional accounting support at an affordable price, without full-time hiring costs.",
     icon: {
       paths: [
         "M8 12a5 5 0 105-5",
@@ -12,8 +12,8 @@ export const features = [
     },
   },
   {
-    title: "Expert Team",
-    desc: "Qualified professionals with practical business experience.",
+    title: "Practical Approach",
+    desc: "Simple, practical and effective solutions based on real business requirements.",
     icon: {
       paths: [
         "M8 11a3 3 0 100-6 3 3 0 000 6z",
@@ -25,7 +25,7 @@ export const features = [
   },
   {
     title: "Complete Support",
-    desc: "From bookkeeping to advisory, all under one trusted partner.",
+    desc: "From bookkeeping and reporting to taxation and business support, all in one place.",
     icon: {
       paths: [
         "M4 13a8 8 0 0116 0",
@@ -37,7 +37,7 @@ export const features = [
   },
   {
     title: "Technology Driven",
-    desc: "Modern tools and data insights for accuracy and efficiency.",
+    desc: "Modern systems, digital tools and AI-assisted solutions for accuracy and efficiency.",
     icon: {
       paths: [
         "M9 9h6v6H9z",
@@ -58,7 +58,7 @@ export const features = [
   },
   {
     title: "Career Focused",
-    desc: "Empowering individuals through practical training and development.",
+    desc: "Helping individuals improve their skills through career-focused learning programs.",
     icon: {
       paths: ["M4 20V10M10 20V4M16 20v-7M22 20V13", "M15 6l5-2 2 5"],
     },

@@ -4,28 +4,21 @@ import Container from "@/components/ui/Container";
 const offices = [
   {
     name: "Sri Lanka (Head Office)",
-    address: "No. 15, Station Road, Dehiwala, Sri Lanka.",
-    phone: "+94 77 123 4567",
+    address: "148, Office 2, Eravur Town, Batticaloa. Postal Code: 30300",
+    phone: "+94 74 041 0943",
     photo: "/assets/contact-office-srilanka.png",
   },
   {
-    name: "UAE Office",
-    address: "Dubai, United Arab Emirates",
-    phone: "+971 58 123 4567",
+    name: "UAE",
+    address: "Remote & on-site support across the UAE",
+    phone: "+971 54 374 8522",
     photo: "/assets/contact-office-uae.png",
-  },
-  {
-    name: "Qatar Office",
-    address: "Doha, Qatar",
-    phone: "+974 55 123 456",
-    photo: "/assets/contact-office-qatar.png",
   },
 ];
 
 const mapPins = [
   { label: "Sri Lanka", top: "44%", left: "22%" },
-  { label: "UAE", top: "34%", left: "50%" },
-  { label: "Qatar", top: "44%", left: "75%" },
+  { label: "UAE", top: "34%", left: "55%" },
 ];
 
 export default function OurOffices() {
@@ -35,7 +28,7 @@ export default function OurOffices() {
         <h2 className="mb-4 font-serif text-3xl font-semibold text-ink">Our Offices</h2>
         <span className="mb-5 block h-[3px] w-11 bg-gold" aria-hidden="true" />
         <p className="mb-6 text-sm leading-relaxed text-body">
-          We are proud to serve businesses across multiple locations.
+          We are proud to serve businesses across Sri Lanka and the UAE.
         </p>
         <button
           type="button"
@@ -45,7 +38,7 @@ export default function OurOffices() {
         </button>
       </div>
 
-      <div className="grid flex-[3] basis-[600px] grid-cols-2 gap-5 sm:grid-cols-4">
+      <div className="grid flex-[3] basis-[600px] grid-cols-2 gap-5 sm:grid-cols-3">
         {offices.map((office) => (
           <div
             key={office.name}
@@ -56,7 +49,7 @@ export default function OurOffices() {
                 src={office.photo}
                 alt={`${office.name} office building`}
                 fill
-                sizes="(min-width: 640px) 22vw, 45vw"
+                sizes="(min-width: 640px) 30vw, 45vw"
                 className="object-cover"
               />
             </div>

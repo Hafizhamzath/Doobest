@@ -8,17 +8,19 @@ export default function Hero() {
     <Container as="section" className="flex flex-wrap items-center gap-10 pt-12 md:pt-16">
       <div className="max-w-[520px] flex-1 basis-[420px]">
         <p className="mb-5 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
-          Your Partner in Financial Excellence
+          Welcome to Doobest
         </p>
-        <h1 className="mb-6 font-serif text-5xl leading-[1.08] font-semibold text-ink sm:text-6xl lg:text-[66px]">
-          We Turn
-          <br className="hidden sm:block" /> Numbers into
-          <br className="hidden sm:block" /> <span className="text-maroon">Confidence.</span>
+        <h1 className="mb-6 font-serif text-5xl leading-[1.08] font-semibold text-ink sm:text-6xl lg:text-[58px]">
+          Professional Accounting &amp;
+          <br className="hidden sm:block" /> <span className="text-maroon">Business Support Solutions</span>
         </h1>
         <p className="mb-9 max-w-[440px] text-base leading-relaxed text-body">
-          Reliable accounting solutions, expert guidance, and career
-          development programs to help your business grow and your future
-          shine.
+          At Doobest Consultancy, we help businesses simplify their financial
+          management through reliable, affordable, and professional
+          accounting solutions. We provide online accounting support,
+          taxation services, business support services, and career
+          development programs designed to meet the needs of modern
+          businesses and aspiring accounting professionals.
         </p>
         <div className="flex flex-wrap items-center gap-6">
           <Button href="/professional-services">Explore Our Services</Button>

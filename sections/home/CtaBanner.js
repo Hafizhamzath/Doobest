@@ -28,8 +28,9 @@ export default function CtaBanner() {
         <span aria-hidden="true" className="hidden h-16 w-px bg-white/25 lg:block" />
 
         <p className="max-w-[320px] text-sm leading-relaxed text-white/80">
-          Reduce costs, stay compliant and focus on growing your business.
-          Let Doobest handle your accounting with accuracy and care.
+          Reduce your accounting costs and get reliable financial assistance
+          from Doobest. Contact us today and discover smarter accounting
+          solutions for your business.
         </p>
 
         <div className="flex flex-col items-start gap-3.5">

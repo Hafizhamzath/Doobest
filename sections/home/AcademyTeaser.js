@@ -18,8 +18,9 @@ export default function AcademyTeaser() {
             <em className="text-maroon">Future.</em>
           </h2>
           <p className="mb-7 max-w-[300px] text-sm leading-relaxed text-muted">
-            Practical learning programs to shape confident accounting
-            professionals and future leaders.
+            Our Career Development Department focuses on preparing
+            individuals for successful accounting careers through practical
+            learning and professional coaching.
           </p>
           <Button href="/doobest-academy">Explore Academy</Button>
         </div>

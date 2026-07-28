@@ -38,8 +38,8 @@ const stats = [
     },
   },
   {
-    value: "5+",
-    label: "Countries Supported",
+    value: "2",
+    label: "Countries Served",
     icon: {
       paths: ["M12 21a9 9 0 100-18 9 9 0 000 18z", "M3 12h18", "M12 3a13 13 0 010 18 13 13 0 010-18z"],
     },

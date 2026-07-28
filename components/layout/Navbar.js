@@ -19,13 +19,17 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink/[0.06] bg-cream/90 backdrop-blur-md">
       <div className="flex flex-wrap items-center justify-between gap-3.5 px-6 py-4 lg:px-8">
-        <Link href="/" onClick={() => setOpen(false)}>
+        <Link
+          href="/"
+          onClick={() => setOpen(false)}
+          className="relative block h-[41px] w-[93px] shrink-0 overflow-hidden"
+        >
           <Image
             src={siteConfig.logo}
             alt="Doobest"
             width={1536}
             height={1024}
-            className="h-12 w-auto"
+            className="absolute -top-[33px] -left-[38px] h-28 w-auto max-w-none"
             priority
           />
         </Link>

@@ -8,27 +8,6 @@ import Icon from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
 import { services } from "@/constants/services";
 
-function ServiceList({ title, items }) {
-  return (
-    <div>
-      <p className="mb-4 text-[14.5px] font-bold text-ink">{title}</p>
-      <ul className="flex flex-col gap-3">
-        {items.map((item) => (
-          <li
-            key={item}
-            className="flex items-start gap-2 text-[13.5px] leading-snug text-body"
-          >
-            <span className="mt-0.5 shrink-0 text-maroon" aria-hidden="true">
-              ✓
-            </span>
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 export default function ServicesExplorer() {
   const [selected, setSelected] = useState(0);
   const current = services[selected];
@@ -47,7 +26,7 @@ export default function ServicesExplorer() {
               Our Services
             </p>
             <h2 className="mb-5 font-serif text-3xl leading-tight font-semibold text-white md:text-4xl">
-              Explore Our Professional Solutions
+              Smart Services for <em className="text-gold">Smart Business</em>
             </h2>
             <p className="max-w-[300px] text-sm leading-relaxed text-white/65">
               Tailored services designed to meet your business needs at every
@@ -107,19 +86,26 @@ export default function ServicesExplorer() {
             <p className="mb-3.5 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
               {current.name}
             </p>
-            <p className="mb-8 text-lg font-semibold text-ink">
-              {current.tagline}
+            <p className="mb-8 max-w-[620px] text-[15px] leading-relaxed text-body">
+              {current.intro}
             </p>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-              <ServiceList title="Problems We Solve" items={current.problems} />
-              <ServiceList title="Our Solutions" items={current.solutions} />
-              <ServiceList title="Benefits" items={current.benefits} />
-            </div>
-            <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-ink/[0.08] pt-6">
-              <p className="text-sm text-body">
-                <span className="font-bold">Estimated Timeline:</span>{" "}
-                {current.timeline}
-              </p>
+            <p className="mb-4 text-[14.5px] font-bold text-ink">
+              What&apos;s Included
+            </p>
+            <ul className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+              {current.features.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2 text-[13.5px] leading-snug text-body"
+                >
+                  <span className="mt-0.5 shrink-0 text-maroon" aria-hidden="true">
+                    ✓
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-7 flex justify-end border-t border-ink/[0.08] pt-6">
               <Button href="/contact" size="sm">
                 Learn More
               </Button>

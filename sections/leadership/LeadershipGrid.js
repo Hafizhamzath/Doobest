@@ -4,28 +4,46 @@ import Button from "@/components/ui/Button";
 
 const leaders = [
   {
-    name: "Hisham Muhammed",
+    name: "Mohamed Amjath",
     role: "Founder & CEO",
-    desc: "Over 15 years of experience in accounting, finance and business advisory.",
+    qualifications: "MBus (Acc.Spcl), BBA (Hons), CMASL, AATPF",
+    desc: "Leads the firm's vision, strategic growth, and client trust across all services.",
     photo: "/assets/about-leader-1.png",
   },
   {
-    name: "Shamla Parveen",
-    role: "Director – Operations",
-    desc: "Expert in operational excellence and client relationship management.",
+    name: "Fathima Amna",
+    role: "Associate Director",
+    qualifications: "BBA (Hons), AATPF",
+    desc: "Drives business development, service quality, and financial strategy across client portfolios.",
     photo: "/assets/about-leader-2.png",
   },
   {
-    name: "Faisal Nizar",
-    role: "Director – Advisory",
-    desc: "Specializes in strategic planning, compliance and financial consulting.",
+    name: "Peter Stasan Fernando",
+    role: "Finance Manager",
+    qualifications: "ACCA, BBA (Hons), AAT",
+    desc: "Leads financial operations, budgeting, forecasting, and performance reporting.",
     photo: "/assets/about-leader-3.png",
   },
   {
-    name: "Rashid V.K.",
-    role: "Head – Taxation",
-    desc: "Tax expert with deep knowledge in VAT, corporate tax and international taxation.",
+    name: "Mohamed Najath",
+    role: "Accounts Lead",
+    qualifications: "HNDA, BBA (Hons)",
+    desc: "Supervises the accounting team, workflow, and reporting accuracy.",
     photo: "/assets/about-leader-4.png",
+  },
+  {
+    name: "Imthath Hussain",
+    role: "Lead in Financial Reporting",
+    qualifications: "ACCA®, CA®, BBA (Acc.Spcl)",
+    desc: "Manages financial statement preparation, IFRS compliance, and audit coordination.",
+    photo: "/assets/about-leader-1.png",
+  },
+  {
+    name: "Lokenthiran Anujan",
+    role: "Senior Accountant",
+    qualifications: "MBus (Acc.Spcl), BBA (Hons), CMA",
+    desc: "Handles daily accounting, bookkeeping, reconciliations, and monthly closings.",
+    photo: "/assets/about-leader-2.png",
   },
 ];
 
@@ -34,7 +52,7 @@ export default function LeadershipGrid() {
     <Container id="our-leadership" as="section" className="flex flex-wrap gap-10 pb-20 md:pb-24">
       <div className="max-w-[300px] flex-1 basis-[260px]">
         <p className="mb-4 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
-          Our Leadership
+          My Team
         </p>
         <h2 className="mb-4 font-serif text-3xl leading-snug font-semibold text-ink">
           Visionary Leadership.
@@ -51,7 +69,7 @@ export default function LeadershipGrid() {
         </Button>
       </div>
 
-      <div className="grid flex-1 basis-[600px] grid-cols-2 gap-5 sm:grid-cols-4">
+      <div className="grid flex-1 basis-[600px] grid-cols-2 gap-5 sm:grid-cols-3">
         {leaders.map((leader) => (
           <div
             key={leader.name}
@@ -62,13 +80,14 @@ export default function LeadershipGrid() {
                 src={leader.photo}
                 alt={`${leader.name} portrait`}
                 fill
-                sizes="(min-width: 640px) 25vw, 50vw"
+                sizes="(min-width: 640px) 30vw, 50vw"
                 className="object-cover"
               />
             </div>
             <div className="px-4 py-4.5">
               <p className="mb-0.5 font-serif text-[17px] font-bold text-maroon">{leader.name}</p>
-              <p className="mb-2.5 text-[12.5px] font-semibold text-ink">{leader.role}</p>
+              <p className="mb-1 text-[12.5px] font-semibold text-ink">{leader.role}</p>
+              <p className="mb-2.5 text-[10.5px] leading-snug text-faint">{leader.qualifications}</p>
               <span className="mb-2.5 block h-0.5 w-5 bg-gold" aria-hidden="true" />
               <p className="mb-3.5 text-xs leading-snug text-muted">{leader.desc}</p>
               <span className="flex h-6.5 w-6.5 items-center justify-center rounded-md border-[1.2px] border-maroon text-maroon">
