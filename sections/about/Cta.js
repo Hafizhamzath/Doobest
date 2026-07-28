@@ -1,24 +1,22 @@
-import CtaSplit from "@/components/sections/CtaSplit";
+import CtaContact from "@/components/sections/CtaContact";
 
 export default function Cta() {
   return (
-    <CtaSplit
-      image={{
-        src: "/assets/about-cta-arch.png",
-        alt: "Marble archway opening onto a sunset city skyline with lit staircase",
+    <CtaContact
+      bgImage="/assets/leadership-cta-bg2.png"
+      archImage={{
+        src: "/assets/leadership-cta-arch4.png",
+        alt: "Marble archway with staircase opening onto a sunset Dubai skyline",
       }}
       heading={
         <>
-          Let&rsquo;s Build a Stronger
-          <br />
-          <span className="text-gold">Future</span> Together.
+          Great People. <span className="text-gold">Stronger Together.</span>
         </>
       }
       description="We’re here to help you achieve your goals with clarity, confidence and care."
-      icon={{ paths: ["M9 14l2 2 4-4"], rects: [{ x: 3, y: 5, width: 18, height: 16, rx: 2 }] }}
-      panelTitle="Book a Free Consultation"
-      panelDescription="Talk to our experts and discover how we can support your business."
-      buttonLabel="Book Now"
+      panelTitle="Let’s Work Together"
+      panelDescription="Have a project in mind or want to learn more about our team?"
+      buttonLabel="Contact Us"
       buttonHref="/contact"
     />
   );

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
@@ -43,6 +46,7 @@ const heroBadges = [
   {
     label: "PRACTICAL LEARNING",
     icon: { paths: ["M4 5a2 2 0 012-2h13v18H6a2 2 0 01-2-2z", "M4 5v14", "M8 7h6M8 11h6"] },
+    style: { left: "1%", top: "18%" },
   },
   {
     label: "EXPERT TRAINERS",
@@ -54,14 +58,17 @@ const heroBadges = [
         "M16 3.13a4 4 0 010 7.75",
       ],
     },
+    style: { left: "29%", top: "-8%" },
   },
   {
     label: "INDUSTRY RELEVANT",
     icon: { paths: ["M3 17l6-6 4 4 8-8", "M15 6h6v6"] },
+    style: { left: "71%", top: "-8%" },
   },
   {
     label: "CAREER FOCUSED",
     icon: { paths: ["M4 20V10M10 20V4M16 20v-7M22 20V13", "M15 6l5-2 2 5"] },
+    style: { left: "99%", top: "18%" },
   },
 ];
 
@@ -110,22 +117,53 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="flex min-w-[280px] flex-1 basis-[660px] items-start justify-center gap-6">
-        <div className="relative w-full max-w-[700px] pb-5">
+      <div className="flex min-w-[280px] flex-1 basis-[500px] items-center justify-center">
+        <div className="relative w-full max-w-[480px] pt-9 pb-5 sm:pt-11">
           <div
             aria-hidden="true"
             className="absolute top-3.5 -right-3.5 bottom-[86px] left-3.5 hidden rounded-t-full border-[1.3px] border-dashed border-maroon/30 sm:block"
           />
-          <div className="relative aspect-[4/3.4] w-full overflow-hidden rounded-t-full shadow-[0_30px_70px_rgba(17,17,17,0.18)]">
-            <Image
-              src="/assets/academy-hero-desk.png"
-              alt="Desk with laptop showing Doobest Academy, books and study notes"
-              fill
-              priority
-              sizes="(min-width: 1024px) 45vw, 90vw"
-              className="object-cover"
-            />
+
+          <div className="relative">
+            <div className="relative aspect-[4/3.4] w-full overflow-hidden rounded-t-full shadow-[0_30px_70px_rgba(17,17,17,0.18)]">
+              <Image
+                src="/assets/academy-hero-desk.png"
+                alt="Desk with laptop showing Doobest Academy, books and study notes"
+                fill
+                priority
+                sizes="(min-width: 1024px) 32vw, 90vw"
+                className="object-cover"
+              />
+            </div>
+
+            <div className="pointer-events-none absolute inset-0 hidden sm:block">
+              {heroBadges.map((badge, index) => (
+                <motion.div
+                  key={badge.label}
+                  initial={{ opacity: 1, scale: 0.85, y: 8 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.15, duration: 0.45, ease: "easeOut" }}
+                  whileHover={{ scale: 1.12, y: -3 }}
+                  className="group pointer-events-auto absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+                  style={badge.style}
+                  tabIndex={0}
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border-[1.3px] border-maroon/30 bg-white shadow-[0_10px_24px_rgba(17,17,17,0.15)] transition-colors duration-300 group-hover:border-maroon group-hover:bg-maroon group-focus-visible:border-maroon group-focus-visible:bg-maroon">
+                    <Icon
+                      paths={badge.icon.paths}
+                      size={20}
+                      strokeWidth={1.6}
+                      className="text-maroon transition-colors duration-300 group-hover:text-white group-focus-visible:text-white"
+                    />
+                  </div>
+                  <p className="pointer-events-none absolute top-full left-1/2 mt-2 w-max max-w-[110px] -translate-x-1/2 rounded-lg bg-ink px-2.5 py-1.5 text-center text-[10.5px] leading-tight font-bold tracking-wide text-white opacity-0 shadow-[0_10px_20px_rgba(17,17,17,0.25)] transition-all duration-300 group-hover:translate-y-1 group-hover:opacity-100 group-focus-visible:translate-y-1 group-focus-visible:opacity-100">
+                    {badge.label}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
+
           <svg
             viewBox="0 0 100 26"
             preserveAspectRatio="none"
@@ -137,25 +175,13 @@ export default function Hero() {
               fill="currentColor"
             />
           </svg>
-        </div>
 
-        <div className="hidden flex-shrink-0 flex-col gap-5 pt-2.5 md:flex">
-          {heroBadges.map((badge) => (
-            <div key={badge.label} className="flex items-center gap-3">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-[1.3px] border-maroon/30">
-                <Icon paths={badge.icon.paths} size={20} strokeWidth={1.6} className="text-maroon" />
-              </div>
-              <p className="max-w-[100px] text-xs leading-tight font-bold tracking-wide text-ink/85">
-                {badge.label}
-              </p>
-            </div>
-          ))}
-          <div className="mt-1 flex max-w-[150px] items-start gap-2.5">
+          <div className="mt-4 flex items-center justify-center gap-2.5">
             <Icon
               paths={["M12 22s7-3.5 7-10V5l-7-3-7 3v7c0 6.5 7 10 7 10z"]}
-              size={18}
+              size={16}
               strokeWidth={1.8}
-              className="mt-0.5 shrink-0 text-maroon"
+              className="shrink-0 text-maroon"
             />
             <p className="text-[11.5px] leading-snug font-bold text-ink/85">
               INVEST IN SKILLS. SECURE YOUR FUTURE.
