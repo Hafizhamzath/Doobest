@@ -42,9 +42,24 @@ export default function OurPrograms() {
                 <p className="mb-2.5 font-serif text-[17px] leading-tight font-bold text-ink">
                   {course.title}
                 </p>
-                <p className="mb-4 text-[12.5px] leading-relaxed text-muted">
+                <p className="mb-3 text-[12.5px] leading-relaxed text-muted">
                   {course.desc}
                 </p>
+                {course.items && (
+                  <ul className="mb-4 flex flex-col gap-1.5">
+                    {course.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-1.5 text-[11.5px] leading-snug text-ink/75"
+                      >
+                        <span className="mt-0.5 shrink-0 text-maroon" aria-hidden="true">
+                          ✓
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <a
                   href="#"
                   className="inline-flex items-center gap-1.5 text-[13px] font-bold text-ink hover:text-maroon"

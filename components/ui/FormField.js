@@ -1,7 +1,14 @@
 import { cn } from "@/lib/cn";
+import Icon from "@/components/ui/Icon";
 
-const fieldClasses =
-  "w-full rounded-[10px] border border-ink/[0.14] bg-white px-3.5 py-3 font-sans text-[13.5px] text-ink placeholder:text-faint focus:border-maroon focus:outline-none";
+function fieldClasses(hasError) {
+  return cn(
+    "w-full rounded-[10px] border bg-white px-3.5 py-3 font-sans text-[13.5px] text-ink placeholder:text-faint transition-colors duration-150 focus:outline-none",
+    hasError
+      ? "border-[#D64545] focus:border-[#D64545]"
+      : "border-ink/[0.14] focus:border-maroon"
+  );
+}
 
 export default function FormField({
   label,
@@ -10,9 +17,11 @@ export default function FormField({
   type = "text",
   options,
   className,
+  error,
   ...props
 }) {
   const id = props.id ?? props.name;
+  const errorId = error ? `${id}-error` : undefined;
 
   return (
     <div className={className}>
@@ -22,7 +31,13 @@ export default function FormField({
         </label>
       )}
       {as === "select" ? (
-        <select id={id} required={required} className={cn(fieldClasses, "text-faint")} {...props}>
+        <select
+          id={id}
+          aria-invalid={!!error}
+          aria-describedby={errorId}
+          className={cn(fieldClasses(error), "text-faint")}
+          {...props}
+        >
           <option value="">Select a service</option>
           {options?.map((option) => (
             <option key={option} value={option} className="text-ink">
@@ -33,13 +48,36 @@ export default function FormField({
       ) : as === "textarea" ? (
         <textarea
           id={id}
-          required={required}
+          aria-invalid={!!error}
+          aria-describedby={errorId}
           rows={props.rows ?? 4}
-          className={cn(fieldClasses, "min-h-[110px] resize-y")}
+          className={cn(fieldClasses(error), "min-h-[110px] resize-y")}
           {...props}
         />
       ) : (
-        <input id={id} type={type} required={required} className={fieldClasses} {...props} />
+        <input
+          id={id}
+          type={type}
+          aria-invalid={!!error}
+          aria-describedby={errorId}
+          className={fieldClasses(error)}
+          {...props}
+        />
+      )}
+      {error && (
+        <p
+          id={errorId}
+          className="mt-1.5 flex items-center gap-1.5 text-[12px] font-semibold text-[#D64545]"
+        >
+          <Icon
+            paths={["M12 9v4", "M12 16.5h.01"]}
+            circles={[{ cx: 12, cy: 12, r: 9 }]}
+            size={13}
+            strokeWidth={2}
+            className="shrink-0"
+          />
+          {error}
+        </p>
       )}
     </div>
   );

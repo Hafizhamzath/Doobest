@@ -35,7 +35,7 @@ export default function Leadership() {
     <Container id="leadership" as="section" className="pb-20 text-center md:pb-24">
       <SectionHeading
         align="center"
-        eyebrow="Our Leadership"
+        eyebrow="Team Members"
         title={
           <>
             Experienced Leaders. <span className="text-maroon">Dedicated Team.</span>

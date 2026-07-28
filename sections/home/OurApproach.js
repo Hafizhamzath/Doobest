@@ -25,13 +25,13 @@ export default function OurApproach() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 md:grid-cols-5 md:gap-x-3">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-4 lg:grid-cols-8 lg:gap-x-3">
             {approachSteps.map((step, index) => (
               <div key={step.num} className="relative text-center">
                 {index < approachSteps.length - 1 && (
                   <span
                     aria-hidden="true"
-                    className="absolute top-[29px] left-[calc(50%+30px)] hidden h-0 w-[calc(100%-20px)] border-t-[1.5px] border-dashed border-gold/40 md:block"
+                    className="absolute top-[29px] left-[calc(50%+30px)] hidden h-0 w-[calc(100%-20px)] border-t-[1.5px] border-dashed border-gold/40 lg:block"
                   />
                 )}
                 <p className="mb-3 text-[13px] font-bold tracking-wide text-gold">

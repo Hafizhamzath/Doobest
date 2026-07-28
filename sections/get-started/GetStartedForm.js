@@ -6,12 +6,47 @@ import Icon from "@/components/ui/Icon";
 import FormField from "@/components/ui/FormField";
 import { footerServiceLinks } from "@/constants/footer";
 
+function validate(formData) {
+  const errors = {};
+  if (!formData.get("name")?.trim()) {
+    errors.name = "Please enter your full name.";
+  }
+  const email = formData.get("email")?.trim();
+  if (!email) {
+    errors.email = "Please enter your email address.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.email = "Please enter a valid email address.";
+  }
+  if (!formData.get("phone")?.trim()) {
+    errors.phone = "Please enter your phone number.";
+  }
+  if (!formData.get("service")?.trim()) {
+    errors.service = "Please select a service.";
+  }
+  return errors;
+}
+
 export default function GetStartedForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
 
   function handleSubmit(event) {
     event.preventDefault();
-    setSubmitted(true);
+    const formData = new FormData(event.currentTarget);
+    const nextErrors = validate(formData);
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length === 0) {
+      setSubmitted(true);
+    }
+  }
+
+  function clearError(field) {
+    setErrors((current) => {
+      if (!current[field]) return current;
+      const next = { ...current };
+      delete next[field];
+      return next;
+    });
   }
 
   return (
@@ -40,14 +75,23 @@ export default function GetStartedForm() {
           shortly.
         </p>
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4.5">
-          <FormField label="Full Name" required name="name" placeholder="Enter your full name" />
+        <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4.5">
+          <FormField
+            label="Full Name"
+            required
+            name="name"
+            placeholder="Enter your full name"
+            error={errors.name}
+            onChange={() => clearError("name")}
+          />
           <FormField
             label="Email Address"
             required
             type="email"
             name="email"
             placeholder="Enter your email address"
+            error={errors.email}
+            onChange={() => clearError("email")}
           />
           <FormField
             label="Phone Number"
@@ -55,6 +99,8 @@ export default function GetStartedForm() {
             type="tel"
             name="phone"
             placeholder="Enter your phone number"
+            error={errors.phone}
+            onChange={() => clearError("phone")}
           />
           <FormField
             label="How Can We Help You?"
@@ -62,6 +108,8 @@ export default function GetStartedForm() {
             as="select"
             name="service"
             options={footerServiceLinks}
+            error={errors.service}
+            onChange={() => clearError("service")}
           />
 
           <Button type="submit" className="mt-1 w-full justify-center">

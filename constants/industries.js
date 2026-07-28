@@ -80,4 +80,19 @@ export const industries = [
       paths: ["M4 21V10l8-6 8 6v11", "M9 21v-6h6v6"],
     },
   },
+  {
+    name: "Transports",
+    icon: {
+      paths: [
+        "M3 16V7a1 1 0 011-1h9v10",
+        "M13 10h4l3 3v3h-2",
+        "M3 16h2",
+        "M13 16h5",
+      ],
+      circles: [
+        { cx: 7, cy: 17, r: 2 },
+        { cx: 17, cy: 17, r: 2 },
+      ],
+    },
+  },
 ];

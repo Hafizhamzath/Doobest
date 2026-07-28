@@ -52,16 +52,16 @@ export default function OurJourney() {
         <span className="mb-5 block h-[3px] w-11 bg-maroon" aria-hidden="true" />
         <p className="mb-4 text-sm leading-relaxed text-body">
           <span className="font-bold text-ink">Our Vision — </span>
-          To become a trusted global provider of affordable accounting
-          solutions and professional development programs, connecting
-          businesses with skilled expertise and empowering future
-          accounting professionals.
+          To become the most trusted accounting and business consultancy
+          partner, empowering businesses with financial clarity, compliance,
+          and sustainable growth.
         </p>
         <p className="mb-7 text-sm leading-relaxed text-body">
           <span className="font-bold text-ink">Our Mission — </span>
-          To deliver reliable, cost-effective, and professional accounting
-          services while helping businesses improve financial efficiency
-          and individuals build successful careers in accounting.
+          To deliver affordable, professional, and technology-driven
+          accounting, taxation, and business support services that help
+          businesses make informed decisions, achieve compliance, and focus
+          on growth.
         </p>
         <Button href="#">Explore Our Journey</Button>
       </div>

@@ -52,7 +52,7 @@ export default function LeadershipGrid() {
     <Container id="our-leadership" as="section" className="flex flex-wrap gap-10 pb-20 md:pb-24">
       <div className="max-w-[300px] flex-1 basis-[260px]">
         <p className="mb-4 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
-          My Team
+          Team Members
         </p>
         <h2 className="mb-4 font-serif text-3xl leading-snug font-semibold text-ink">
           Visionary Leadership.

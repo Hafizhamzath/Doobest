@@ -5,7 +5,7 @@ import Icon from "@/components/ui/Icon";
 export default function CtaBanner() {
   return (
     <Container as="section" size="narrow" className="mb-20 md:mb-24">
-      <div className="relative grid grid-cols-1 items-center gap-8 overflow-hidden rounded-[28px] bg-[linear-gradient(120deg,#5a1010,#6D1414_55%,#4a0d0d)] px-8 py-12 md:px-14 md:py-14 lg:grid-cols-[auto_1fr_auto_1fr_auto]">
+      <div className="relative grid grid-cols-1 items-center gap-8 overflow-hidden rounded-[28px] bg-[linear-gradient(120deg,#5a1010,#641010_55%,#4a0d0d)] px-8 py-12 md:px-14 md:py-14 lg:grid-cols-[auto_1fr_auto_1fr_auto]">
         <span
           aria-hidden="true"
           className="absolute top-1/2 -left-2.5 hidden h-[150px] w-[150px] -translate-y-1/2 rounded-full border border-dashed border-gold/35 lg:block"

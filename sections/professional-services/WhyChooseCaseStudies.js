@@ -3,12 +3,14 @@ import Container from "@/components/ui/Container";
 const othersList = ["Generic Advice", "Slow Response", "Hidden Costs", "Manual Reports"];
 
 const doobestList = [
+  "Affordable Expertise",
   "Dedicated Advisor",
   "Fast Response",
   "Transparent Pricing",
   "Digital Reporting",
-  "Compliance Assured",
-  "Long-term Partner",
+  "Compliance Assurance",
+  "Business Growth",
+  "Long-Term Partnership",
 ];
 
 const caseStudies = [

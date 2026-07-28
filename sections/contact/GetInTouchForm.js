@@ -44,12 +44,50 @@ const contactItems = [
   },
 ];
 
+function validate(formData) {
+  const errors = {};
+  if (!formData.get("name")?.trim()) {
+    errors.name = "Please enter your full name.";
+  }
+  const email = formData.get("email")?.trim();
+  if (!email) {
+    errors.email = "Please enter your email address.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.email = "Please enter a valid email address.";
+  }
+  if (!formData.get("phone")?.trim()) {
+    errors.phone = "Please enter your phone number.";
+  }
+  if (!formData.get("message")?.trim()) {
+    errors.message = "Please tell us how we can help.";
+  }
+  if (!formData.get("agree")) {
+    errors.agree = "Please agree to the Privacy Policy and Terms & Conditions.";
+  }
+  return errors;
+}
+
 export default function GetInTouchForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
 
   function handleSubmit(event) {
     event.preventDefault();
-    setSubmitted(true);
+    const formData = new FormData(event.currentTarget);
+    const nextErrors = validate(formData);
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length === 0) {
+      setSubmitted(true);
+    }
+  }
+
+  function clearError(field) {
+    setErrors((current) => {
+      if (!current[field]) return current;
+      const next = { ...current };
+      delete next[field];
+      return next;
+    });
   }
 
   return (
@@ -114,13 +152,15 @@ export default function GetInTouchForm() {
               team will be in touch shortly.
             </p>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} noValidate>
               <div className="mb-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <FormField
                   label="Full Name"
                   required
                   name="name"
                   placeholder="Enter your full name"
+                  error={errors.name}
+                  onChange={() => clearError("name")}
                 />
                 <FormField
                   label="Email Address"
@@ -128,6 +168,8 @@ export default function GetInTouchForm() {
                   type="email"
                   name="email"
                   placeholder="Enter your email address"
+                  error={errors.email}
+                  onChange={() => clearError("email")}
                 />
                 <FormField
                   label="Phone Number"
@@ -135,6 +177,8 @@ export default function GetInTouchForm() {
                   type="tel"
                   name="phone"
                   placeholder="Enter your phone number"
+                  error={errors.phone}
+                  onChange={() => clearError("phone")}
                 />
                 <FormField label="Company Name" name="company" placeholder="Enter your company name" />
                 <FormField
@@ -150,14 +194,35 @@ export default function GetInTouchForm() {
                   name="message"
                   rows={1}
                   placeholder="Tell us about your business needs..."
+                  error={errors.message}
+                  onChange={() => clearError("message")}
                 />
               </div>
 
-              <label className="mb-6.5 flex cursor-pointer items-center gap-2.5 text-[13px] text-body">
-                <input type="checkbox" required className="h-4 w-4 accent-maroon" />
-                I agree to the <a href="#">Privacy Policy</a> and{" "}
-                <a href="#">Terms &amp; Conditions</a>
-              </label>
+              <div className="mb-6.5">
+                <label className="flex cursor-pointer items-center gap-2.5 text-[13px] text-body">
+                  <input
+                    type="checkbox"
+                    name="agree"
+                    className="h-4 w-4 accent-maroon"
+                    onChange={() => clearError("agree")}
+                  />
+                  I agree to the <a href="#">Privacy Policy</a> and{" "}
+                  <a href="#">Terms &amp; Conditions</a>
+                </label>
+                {errors.agree && (
+                  <p className="mt-1.5 flex items-center gap-1.5 text-[12px] font-semibold text-[#D64545]">
+                    <Icon
+                      paths={["M12 9v4", "M12 16.5h.01"]}
+                      circles={[{ cx: 12, cy: 12, r: 9 }]}
+                      size={13}
+                      strokeWidth={2}
+                      className="shrink-0"
+                    />
+                    {errors.agree}
+                  </p>
+                )}
+              </div>
 
               <div className="flex flex-wrap items-center gap-6">
                 <Button type="submit">Schedule Consultation</Button>

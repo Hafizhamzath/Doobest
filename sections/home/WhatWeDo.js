@@ -7,34 +7,40 @@ import { features } from "@/constants/features";
 
 const serviceArc = [
   {
-    label: "Accounting & Bookkeeping",
+    label: "Accounting and Bookkeeping",
     x: "12.7%",
     y: "75.8%",
-    icon: { paths: ["M4 4h16v16H4z", "M8 8h3v3H8z", "M13 8h3M13 12h3", "M8 13h3", "M8 17h8"] },
+    icon: { paths: ["M6 3h12v18H6z", "M9 7h6M9 11h6M9 15h4"] },
   },
   {
-    label: "Taxation Services",
+    label: "Taxation",
     x: "27%",
     y: "36.6%",
-    icon: { paths: ["M8 3h8l2 4H6l2-4z", "M6 7v13a1 1 0 001 1h10a1 1 0 001-1V7", "M9 12h6M9 15h6"] },
+    icon: { paths: ["M6 3h9l3 3v15H6z", "M15 3v3h3", "M9 12h6M9 16h6"] },
   },
   {
-    label: "Business Support",
+    label: "Accounting Software Implementation",
     x: "50%",
     y: "21.6%",
-    icon: { paths: ["M9 6V4a2 2 0 012-2h2a2 2 0 012 2v2", "M3 8h18v11a2 2 0 01-2 2H5a2 2 0 01-2-2V8z", "M3 12h18"] },
-  },
-  {
-    label: "Software Implementation",
-    x: "73%",
-    y: "36.6%",
     icon: { paths: ["M4 4h16v13H4z", "M9 20h6", "M12 17v3", "M8 8h5", "M8 11h8"] },
   },
   {
-    label: "Career Development",
+    label: "Corporate Secretary Services",
+    x: "73%",
+    y: "36.6%",
+    icon: { paths: ["M4 21V9l8-6 8 6v12", "M9 21v-6h6v6", "M4 9h16"] },
+  },
+  {
+    label: "Payroll",
     x: "87.3%",
     y: "75.8%",
-    icon: { paths: ["M12 3l10 5-10 5L2 8l10-5z", "M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"] },
+    icon: {
+      paths: [
+        "M9 11a3 3 0 100-6 3 3 0 000 6z",
+        "M4 20c0-3 2.5-5 5-5s5 2 5 5",
+        "M16 8h4M16 12h4M16 16h4",
+      ],
+    },
   },
 ];
 
@@ -107,7 +113,7 @@ function ServicesWheel() {
           <span className="inline-block h-px w-5 bg-gold" aria-hidden="true" />
         </div>
         <p className="mb-2.5 font-serif text-base leading-tight font-semibold text-white sm:text-xl">
-          Accounting &amp; Bookkeeping
+          Accounting and Bookkeeping
         </p>
         <span className="mx-auto mb-2.5 block h-[1.5px] w-7 bg-gold" aria-hidden="true" />
         <p className="text-[10px] leading-snug text-white/75 sm:text-[11.5px]">

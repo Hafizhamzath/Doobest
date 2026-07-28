@@ -23,6 +23,7 @@ export default function Industries() {
             >
               <Icon
                 paths={industry.icon.paths}
+                circles={industry.icon.circles}
                 size={22}
                 strokeWidth={1.6}
                 className="text-gold"
