@@ -6,12 +6,12 @@ export const siteConfig = {
     "Professional accounting and business support solutions for modern businesses in Sri Lanka and the UAE.",
   logo: "/assets/LOGO.png",
   phone: {
-    sriLanka: "+94 77 123 4567",
-    uae: "+971 58 123 4567",
+    sriLanka: "+94 74 041 0943",
+    uae: "+971 54 374 8522",
   },
-  email: "info@doobest.com",
+  email: "info@doobestco.com",
   addresses: {
-    sriLanka: "No. 15, Station Road, Dehiwala, Sri Lanka.",
-    uae: "Dubai, UAE",
+    headOffice: "148, Office 2, Eravur Town, Batticaloa. Postal Code: 30300",
   },
+  companyNo: "PV 00316023",
 };

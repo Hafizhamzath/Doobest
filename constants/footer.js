@@ -8,10 +8,9 @@ export const footerServiceLinks = [
 ];
 
 export const socialLinks = [
+  { name: "LinkedIn", href: "#", icon: "linkedin" },
   { name: "Facebook", href: "#", icon: "facebook" },
   { name: "Instagram", href: "#", icon: "instagram" },
-  { name: "LinkedIn", href: "#", icon: "linkedin" },
-  { name: "Twitter", href: "#", icon: "twitter" },
 ];
 
 export const legalLinks = [

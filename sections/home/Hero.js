@@ -5,8 +5,8 @@ import Icon from "@/components/ui/Icon";
 
 export default function Hero() {
   return (
-    <Container as="section" className="flex flex-wrap items-center gap-10 pt-12 md:pt-16">
-      <div className="max-w-[520px] flex-1 basis-[420px]">
+    <Container as="section" className="flex flex-col items-start gap-10 pt-6 md:pt-8 lg:flex-row lg:flex-nowrap">
+      <div className="min-w-0 max-w-[520px] flex-1 basis-[420px] pb-10 md:pb-14">
         <p className="mb-5 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           Welcome to Doobest
         </p>
@@ -35,7 +35,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="flex min-w-[280px] flex-1 basis-[700px] flex-col items-center">
+      <div className="flex w-full min-w-0 flex-1 basis-[700px] flex-col items-center lg:min-w-[280px] lg:self-end">
         <Image
           src="/assets/hero-full-visual.png"
           alt="Man walking through marble archway on red carpet, surrounded by accuracy, compliance, growth, expertise, integrity and trust badges"

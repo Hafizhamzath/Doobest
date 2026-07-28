@@ -97,7 +97,7 @@ export default function Footer({
                 strokeWidth={2}
                 className="mt-0.5 shrink-0 text-maroon"
               />
-              <span>{siteConfig.addresses.sriLanka}</span>
+              <span>{siteConfig.addresses.headOffice}</span>
             </li>
             <li className="flex items-center gap-2.5">
               <Icon
@@ -106,7 +106,16 @@ export default function Footer({
                 strokeWidth={2}
                 className="shrink-0 text-maroon"
               />
-              {siteConfig.phone.sriLanka}
+              {siteConfig.phone.sriLanka} (Sri Lanka)
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Icon
+                name="phone"
+                size={15}
+                strokeWidth={2}
+                className="shrink-0 text-maroon"
+              />
+              {siteConfig.phone.uae} (UAE)
             </li>
             <li className="flex items-center gap-2.5">
               <Icon
@@ -117,16 +126,14 @@ export default function Footer({
               />
               {siteConfig.email}
             </li>
-            <li className="flex items-start gap-2.5">
+            <li className="flex items-center gap-2.5">
               <Icon
-                name="mapPin"
+                paths={["M4 21V9l8-6 8 6v12", "M9 21v-6h6v6", "M4 9h16"]}
                 size={15}
                 strokeWidth={2}
-                className="mt-0.5 shrink-0 text-maroon"
+                className="shrink-0 text-maroon"
               />
-              <span>
-                {siteConfig.addresses.uae}, {siteConfig.phone.uae}
-              </span>
+              Company No: {siteConfig.companyNo}
             </li>
           </ul>
         </div>
