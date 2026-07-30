@@ -17,16 +17,16 @@ export default function Footer({
     <footer className="bg-ink text-white">
       <Container className="grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-5">
         <div className="sm:col-span-2 lg:col-span-1">
-          <Link href="/" className="mb-4 flex items-center gap-2.5">
+          <Link href="/" className="mb-4 flex flex-col items-start gap-2.5">
             <Image
-              src={siteConfig.logo}
+              src={siteConfig.logoMaroon}
               alt="Doobest"
-              width={1536}
-              height={1024}
-              className="h-7 w-auto"
+              width={286}
+              height={286}
+              className="h-12 w-12 rounded-lg border border-white/15"
             />
-            <span className="text-[8.5px] tracking-[0.15em] text-white/50">
-              CONSULTANCY (PVT) LTD
+            <span className="text-[13px] font-bold tracking-wide text-white">
+              {siteConfig.legalName}
             </span>
           </Link>
           <p className="mb-5 max-w-xs text-[13.5px] leading-relaxed text-white/55">
@@ -125,6 +125,15 @@ export default function Footer({
                 className="shrink-0 text-maroon"
               />
               {siteConfig.email}
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Icon
+                name="mail"
+                size={15}
+                strokeWidth={2}
+                className="shrink-0 text-maroon"
+              />
+              {siteConfig.academyEmail}
             </li>
             <li className="flex items-center gap-2.5">
               <Icon

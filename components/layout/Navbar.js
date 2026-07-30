@@ -22,14 +22,14 @@ export default function Navbar() {
         <Link
           href="/"
           onClick={() => setOpen(false)}
-          className="relative block h-[41px] w-[93px] shrink-0 overflow-hidden"
+          className="relative block h-12 w-auto shrink-0"
         >
           <Image
-            src={siteConfig.logo}
+            src={siteConfig.logoLetterTransparent}
             alt="Doobest"
-            width={1536}
-            height={1024}
-            className="absolute -top-[33px] -left-[38px] h-28 w-auto max-w-none"
+            width={230}
+            height={108}
+            className="h-full w-auto object-contain"
             priority
           />
         </Link>

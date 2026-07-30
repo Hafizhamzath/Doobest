@@ -1,158 +1,243 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
-import FeatureCard from "@/components/cards/FeatureCard";
-import { features } from "@/constants/features";
+import { services } from "@/constants/services";
+import { cn } from "@/lib/cn";
 
-const serviceArc = [
-  {
-    label: "Accounting and Bookkeeping",
-    x: "12.7%",
-    y: "75.8%",
-    icon: { paths: ["M6 3h12v18H6z", "M9 7h6M9 11h6M9 15h4"] },
-  },
-  {
-    label: "Taxation",
-    x: "27%",
-    y: "36.6%",
-    icon: { paths: ["M6 3h9l3 3v15H6z", "M15 3v3h3", "M9 12h6M9 16h6"] },
-  },
-  {
-    label: "Accounting Software Implementation",
-    x: "50%",
-    y: "21.6%",
-    icon: { paths: ["M4 4h16v13H4z", "M9 20h6", "M12 17v3", "M8 8h5", "M8 11h8"] },
-  },
-  {
-    label: "Corporate Secretary Services",
-    x: "73%",
-    y: "36.6%",
-    icon: { paths: ["M4 21V9l8-6 8 6v12", "M9 21v-6h6v6", "M4 9h16"] },
-  },
-  {
-    label: "Payroll",
-    x: "87.3%",
-    y: "75.8%",
-    icon: {
-      paths: [
-        "M9 11a3 3 0 100-6 3 3 0 000 6z",
-        "M4 20c0-3 2.5-5 5-5s5 2 5 5",
-        "M16 8h4M16 12h4M16 16h4",
-      ],
-    },
-  },
-];
+const AUTO_ROTATE_MS = 3500;
+const WHEEL_CX = 350;
+const WHEEL_CY = 350;
+const WHEEL_RI = 165;
+const WHEEL_RO = 340;
+const WHEEL_R_MID = (WHEEL_RI + WHEEL_RO) / 2;
+const STEP_DEG = 360 / services.length;
+const STEP_MS = 500;
 
-const ringDividers = [0, 36, 72, 108, 144, 180].map((angle) => {
-  const rad = (angle * Math.PI) / 180;
-  const cx = 350;
-  const cy = 350;
-  const ri = 207;
-  const ro = 345;
+// index 0 starts at the apex (90deg); each further index sits STEP_DEG
+// clockwise around the full circle.
+function arcAngle(index) {
+  return 90 - index * STEP_DEG;
+}
+
+function arcPosition(index, radius) {
+  const rad = (arcAngle(index) * Math.PI) / 180;
   return {
-    x1: cx + ri * Math.cos(rad),
-    y1: cy - ri * Math.sin(rad),
-    x2: cx + ro * Math.cos(rad),
-    y2: cy - ro * Math.sin(rad),
+    xPercent: ((WHEEL_CX + radius * Math.cos(rad)) / 700) * 100,
+    yPercent: ((WHEEL_CY - radius * Math.sin(rad)) / 700) * 100,
+  };
+}
+
+// CSS rotate(R) shifts a point's arc angle to (angle - R), so bringing
+// index's tile to the apex (90deg) needs R = arcAngle(index) - 90 = -index*STEP_DEG.
+function baseRotationFor(index) {
+  return arcAngle(index) - 90;
+}
+
+const ringDividers = Array.from({ length: services.length }, (_, i) => {
+  const rad = (arcAngle(i) * Math.PI) / 180;
+  const midRad = ((arcAngle(i) - STEP_DEG / 2) * Math.PI) / 180;
+  return {
+    x1: WHEEL_CX + WHEEL_RI * Math.cos(midRad),
+    y1: WHEEL_CY - WHEEL_RI * Math.sin(midRad),
+    x2: WHEEL_CX + WHEEL_RO * Math.cos(midRad),
+    y2: WHEEL_CY - WHEEL_RO * Math.sin(midRad),
+    dotX: WHEEL_CX + WHEEL_RO * Math.cos(rad),
+    dotY: WHEEL_CY - WHEEL_RO * Math.sin(rad),
   };
 });
 
-function ServicesMobileList() {
+function ServicesMobileList({ active, onSelect }) {
   return (
     <div className="flex flex-col gap-3 sm:hidden">
-      {serviceArc.map((service) => (
-        <div
-          key={service.label}
-          className="flex items-center gap-3.5 rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5"
-        >
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-maroon/20">
-            <Icon paths={service.icon.paths} size={18} strokeWidth={1.6} className="text-gold" />
-          </div>
-          <p className="text-[13px] leading-snug font-bold text-white/90">{service.label}</p>
-        </div>
-      ))}
+      {services.map((service, index) => {
+        const isActive = index === active;
+        return (
+          <button
+            key={service.slug}
+            type="button"
+            onClick={() => onSelect(index)}
+            className={cn(
+              "flex w-full items-center gap-3.5 rounded-2xl border px-4 py-3.5 text-left transition-colors",
+              isActive
+                ? "border-gold/50 bg-maroon/30"
+                : "border-white/10 bg-white/5"
+            )}
+          >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-maroon/20">
+              <Icon paths={service.icon.paths} size={18} strokeWidth={1.6} className="text-gold" />
+            </div>
+            <div>
+              <p className="text-[13px] leading-snug font-bold text-white/90">{service.name}</p>
+              {isActive && (
+                <p className="mt-1 text-[11.5px] leading-snug text-white/65">{service.tagline}</p>
+              )}
+            </div>
+          </button>
+        );
+      })}
     </div>
   );
 }
 
-function ServicesWheel() {
-  return (
-    <div className="relative mx-auto hidden aspect-[2/1] w-full max-w-[820px] sm:block">
-      <svg viewBox="0 0 700 350" className="absolute inset-0 block h-full w-full" aria-hidden="true">
-        <defs>
-          <linearGradient id="ringFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#F2EBDC" />
-            <stop offset="100%" stopColor="#E4D7BE" />
-          </linearGradient>
-          <radialGradient id="centerFill" cx="50%" cy="100%" r="100%">
-            <stop offset="0%" stopColor="#7a1818" />
-            <stop offset="80%" stopColor="#4a0d0d" />
-          </radialGradient>
-        </defs>
-        <path
-          d="M 5,350 A 345,345 0 0 1 695,350 L 5,350 Z M 143,350 A 207,207 0 0 1 557,350 L 143,350 Z"
-          fill="url(#ringFill)"
-          fillRule="evenodd"
-        />
-        {ringDividers.map((rd, i) => (
-          <g key={i}>
-            <line x1={rd.x1} y1={rd.y1} x2={rd.x2} y2={rd.y2} stroke="#C9B28A" strokeOpacity="0.2" strokeWidth="1" />
-            <circle cx={rd.x2} cy={rd.y2} r="4" fill="#C89D54" />
-          </g>
-        ))}
-        <path
-          d="M 143,350 A 207,207 0 0 1 557,350 L 143,350 Z"
-          fill="url(#centerFill)"
-        />
-      </svg>
+function ServicesWheel({ active, rotation, transitionMs, onSelect }) {
+  const current = services[active];
+  const spinTransition = `transform ${transitionMs}ms cubic-bezier(0.65,0,0.35,1)`;
 
-      <div className="absolute top-[68%] left-1/2 z-[2] w-[80%] max-w-[220px] min-w-[150px] -translate-x-1/2 -translate-y-1/2 text-center">
-        <div className="mb-2 flex items-center justify-center gap-2 text-[10px] font-bold tracking-[0.2em] text-gold">
-          <span>01</span>
-          <span className="inline-block h-px w-5 bg-gold" aria-hidden="true" />
-        </div>
-        <p className="mb-2.5 font-serif text-base leading-tight font-semibold text-white sm:text-xl">
-          Accounting and Bookkeeping
-        </p>
-        <span className="mx-auto mb-2.5 block h-[1.5px] w-7 bg-gold" aria-hidden="true" />
-        <p className="text-[10px] leading-snug text-white/75 sm:text-[11.5px]">
-          Accurate records, timely reports, and better financial control.
-        </p>
+  return (
+    <div className="relative mx-auto hidden aspect-square w-full max-w-[540px] sm:block">
+      {/* fixed pointer marking the "slot" tiles rotate into */}
+      <div className="pointer-events-none absolute top-0 left-1/2 z-[3] -translate-x-1/2">
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true">
+          <path d="M1 0L10 13L19 0Z" fill="#C89D54" />
+        </svg>
       </div>
 
-      {serviceArc.map((service) => (
-        <div
-          key={service.label}
-          className="group absolute z-[1] flex w-[22%] min-w-[70px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5 sm:gap-2"
-          style={{ left: service.x, top: service.y }}
-        >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-maroon/30 bg-white transition-colors group-hover:border-maroon group-hover:bg-maroon sm:h-[46px] sm:w-[46px]">
-            <Icon
-              paths={service.icon.paths}
-              size={18}
-              strokeWidth={1.5}
-              className="text-maroon transition-colors group-hover:text-white sm:hidden"
-            />
-            <Icon
-              paths={service.icon.paths}
-              size={24}
-              strokeWidth={1.5}
-              className="hidden text-maroon transition-colors group-hover:text-white sm:block"
-            />
+      {/* rotating ring: band + dividers + tiles, spun as one rigid disc */}
+      <div
+        className="absolute inset-0"
+        style={{ transformOrigin: "50% 50%", transform: `rotate(${rotation}deg)`, transition: spinTransition }}
+      >
+        <svg viewBox="0 0 700 700" className="absolute inset-0 block h-full w-full" aria-hidden="true">
+          <defs>
+            <linearGradient id="ringFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#F2EBDC" />
+              <stop offset="100%" stopColor="#E4D7BE" />
+            </linearGradient>
+          </defs>
+          <circle cx={WHEEL_CX} cy={WHEEL_CY} r={WHEEL_RO} fill="url(#ringFill)" />
+          {ringDividers.map((rd, i) => (
+            <g key={i}>
+              <line x1={rd.x1} y1={rd.y1} x2={rd.x2} y2={rd.y2} stroke="#C9B28A" strokeOpacity="0.25" strokeWidth="1" />
+              <circle cx={rd.dotX} cy={rd.dotY} r="4" fill="#C89D54" />
+            </g>
+          ))}
+        </svg>
+
+        {services.map((service, index) => {
+          const { xPercent, yPercent } = arcPosition(index, WHEEL_R_MID);
+          const isActive = index === active;
+          return (
+            <button
+              key={service.slug}
+              type="button"
+              onClick={() => onSelect(index)}
+              aria-pressed={isActive}
+              aria-label={service.name}
+              className="absolute z-[1] w-[15%] min-w-[58px]"
+              style={{ left: `${xPercent}%`, top: `${yPercent}%`, transform: "translate(-50%, -50%)" }}
+            >
+              <div
+                className="group flex flex-col items-center gap-1.5 sm:gap-2"
+                style={{ transform: `rotate(${-rotation}deg) scale(${isActive ? 1.18 : 1})`, transition: spinTransition }}
+              >
+                <div
+                  className={cn(
+                    "flex h-8 w-8 items-center justify-center rounded-full border transition-colors duration-300 sm:h-10 sm:w-10",
+                    isActive
+                      ? "border-maroon bg-maroon shadow-[0_0_0_6px_rgba(100,16,16,0.2)]"
+                      : "border-maroon/30 bg-white group-hover:border-maroon group-hover:bg-maroon"
+                  )}
+                >
+                  <Icon
+                    paths={service.icon.paths}
+                    size={16}
+                    strokeWidth={1.5}
+                    className={cn(
+                      "transition-colors duration-300 sm:hidden",
+                      isActive ? "text-white" : "text-maroon group-hover:text-white"
+                    )}
+                  />
+                  <Icon
+                    paths={service.icon.paths}
+                    size={19}
+                    strokeWidth={1.5}
+                    className={cn(
+                      "hidden transition-colors duration-300 sm:block",
+                      isActive ? "text-white" : "text-maroon group-hover:text-white"
+                    )}
+                  />
+                </div>
+                <p
+                  className={cn(
+                    "mx-auto w-full max-w-[85px] text-center text-[8px] leading-tight font-bold transition-colors duration-300 sm:text-[10px]",
+                    isActive ? "text-maroon" : "text-[#221a15]"
+                  )}
+                >
+                  {service.name}
+                </p>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* fixed red core: never rotates, always shows whichever tile reached the arrow */}
+      <div
+        className="pointer-events-none absolute top-1/2 left-1/2 z-[2] -translate-x-1/2 -translate-y-1/2 rounded-full shadow-[0_20px_45px_rgba(0,0,0,0.35)]"
+        style={{
+          width: `${(WHEEL_RI * 2 * 100) / 700}%`,
+          height: `${(WHEEL_RI * 2 * 100) / 700}%`,
+          background: "radial-gradient(circle at 50% 35%, #7a1818 0%, #4a0d0d 80%)",
+        }}
+      >
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+          <div className="mb-2 flex items-center justify-center gap-2 text-[10px] font-bold tracking-[0.2em] text-gold">
+            <span>{String(active + 1).padStart(2, "0")}</span>
+            <span className="inline-block h-px w-5 bg-gold" aria-hidden="true" />
           </div>
-          <p className="w-full max-w-[105px] mx-auto text-center text-[9px] leading-tight font-bold text-[#221a15] sm:text-xs">
-            {service.label}
+          <p className="mb-2.5 font-serif text-base leading-tight font-semibold text-white sm:text-lg">
+            {current.name}
+          </p>
+          <span className="mx-auto mb-2.5 block h-[1.5px] w-7 bg-gold" aria-hidden="true" />
+          <p className="text-[10px] leading-snug text-white/75 sm:text-[11px]">
+            {current.tagline}
           </p>
         </div>
-      ))}
+      </div>
     </div>
   );
 }
 
 export default function WhatWeDo() {
+  const [active, setActive] = useState(0);
+  const [rotation, setRotation] = useState(() => baseRotationFor(0));
+  const [transitionMs, setTransitionMs] = useState(700);
+  const [paused, setPaused] = useState(false);
+  const activeRef = useRef(active);
+  activeRef.current = active;
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(() => {
+      setTransitionMs(700);
+      setActive((current) => (current + 1) % services.length);
+      setRotation((current) => current - STEP_DEG);
+    }, AUTO_ROTATE_MS);
+    return () => clearInterval(timer);
+  }, [paused]);
+
+  function handleSelect(index) {
+    const steps = (index - activeRef.current + services.length) % services.length;
+    if (steps === 0) {
+      setPaused(true);
+      return;
+    }
+    setTransitionMs(Math.min(600 + steps * STEP_MS, 2200));
+    setActive(index);
+    setRotation((current) => current - steps * STEP_DEG);
+    setPaused(true);
+  }
+
   return (
-    <section className="relative overflow-hidden rounded-b-[70px] bg-charcoal pt-16 pb-16 md:pt-20">
+    <section
+      className="relative overflow-hidden rounded-b-[70px] bg-charcoal pt-16 pb-16 md:pt-20"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <Image
         src="/assets/about-marble-dark.png"
         alt=""
@@ -184,19 +269,13 @@ export default function WhatWeDo() {
             </Button>
           </div>
 
-          <ServicesMobileList />
-          <ServicesWheel />
-        </div>
-
-        <div className="mt-14 grid grid-cols-2 gap-x-4 gap-y-8 rounded-3xl bg-cream px-6 pt-9 shadow-[0_-20px_50px_rgba(0,0,0,0.25)] sm:grid-cols-3 md:px-10 lg:grid-cols-6">
-          {features.map((feature, index) => (
-            <FeatureCard
-              key={feature.title}
-              feature={feature}
-              variant="compact"
-              showDivider={index < features.length - 1}
-            />
-          ))}
+          <ServicesMobileList active={active} onSelect={handleSelect} />
+          <ServicesWheel
+            active={active}
+            rotation={rotation}
+            transitionMs={transitionMs}
+            onSelect={handleSelect}
+          />
         </div>
       </Container>
     </section>

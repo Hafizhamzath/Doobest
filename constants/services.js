@@ -2,6 +2,7 @@ export const services = [
   {
     slug: "accounting-bookkeeping",
     name: "Accounting and Bookkeeping",
+    tagline: "Accurate records, timely reports, and better financial control.",
     intro:
       "We provide accurate accounting and bookkeeping services that ensure businesses meet regulatory compliance in both the UAE and Sri Lanka. From maintaining ledgers to preparing financial statements, we help clients maintain transparency and control. Our team uses updated software aligned with IFRS and local tax rules to deliver timely reporting.",
     icon: { paths: ["M6 3h12v18H6z", "M9 7h6M9 11h6M9 15h4"] },
@@ -21,6 +22,7 @@ export const services = [
   {
     slug: "taxation",
     name: "Taxation",
+    tagline: "Compliant, accurate tax filing across the UAE and Sri Lanka.",
     intro:
       "We provide end-to-end taxation services, including Corporate Tax, VAT (UAE), and Income Tax (Sri Lanka). Our experts ensure accurate tax filings, strategic tax planning, and compliance with evolving laws. We help businesses legally minimize liabilities and avoid penalties while adhering to the latest regulatory requirements in both jurisdictions.",
     icon: { paths: ["M6 3h9l3 3v15H6z", "M15 3v3h3", "M9 12h6M9 16h6"] },
@@ -43,6 +45,7 @@ export const services = [
   {
     slug: "accounting-software-implementation",
     name: "Accounting Software Implementation",
+    tagline: "Smooth setup and migration to modern accounting systems.",
     intro:
       "We provide professional accounting software implementation services to help businesses establish reliable and efficient accounting systems. Our support includes software setup, initial configuration, data migration assistance, and user guidance to ensure a smooth implementation process. We help businesses improve accounting accuracy, streamline financial operations, and enhance reporting capabilities.",
     icon: {
@@ -69,6 +72,7 @@ export const services = [
   {
     slug: "corporate-secretary-services",
     name: "Corporate Secretary Services",
+    tagline: "Full statutory compliance and company governance support.",
     intro:
       "We provide expert corporate secretarial services in Sri Lanka, including company incorporation, statutory filings, maintaining registers, and organizing board meetings. Our services ensure full compliance with the Companies Act and regulations issued by the Registrar of Companies. We help businesses maintain proper governance and avoid legal and regulatory penalties.",
     icon: { paths: ["M4 21V9l8-6 8 6v12", "M9 21v-6h6v6", "M4 9h16"] },
@@ -89,6 +93,7 @@ export const services = [
   {
     slug: "payroll",
     name: "Payroll",
+    tagline: "Accurate, on-time payroll processed with total confidentiality.",
     intro:
       "We manage the full payroll cycle, salary calculations, WPS processing (UAE), EPF/ETF compliance (Sri Lanka), and employee benefits. Our payroll service ensures confidentiality, accuracy, and compliance with local labor laws. We also provide monthly pay-slips, leave records, and tax or gratuity calculations with minimal administrative burden for clients.",
     icon: {
@@ -118,6 +123,7 @@ export const services = [
   {
     slug: "costing-management-accounting",
     name: "Costing and Management Accounting",
+    tagline: "Sharper costing insight for smarter business decisions.",
     intro:
       "Our management accounting services support internal decision-making by analyzing cost behavior, product profitability, and operational efficiency. We help businesses in Sri Lanka and the UAE identify cost-saving opportunities, price products effectively, and allocate resources better, ultimately improving performance and driving strategic business decisions.",
     icon: { paths: ["M4 20V10M10 20V4M16 20v-7M22 20V13"] },
@@ -142,6 +148,7 @@ export const services = [
   {
     slug: "fixed-asset-management",
     name: "Fixed Asset Management",
+    tagline: "Complete visibility and control over company-owned assets.",
     intro:
       "We maintain comprehensive asset registers, conduct asset tagging, and perform periodic reconciliations to ensure accurate fixed asset accounting. We help clients manage depreciation, impairment, and revaluation in line with IFRS standards and local reporting requirements, ensuring transparency and control over company-owned resources across both markets.",
     icon: {
@@ -172,6 +179,7 @@ export const services = [
   {
     slug: "budgeting-forecasting",
     name: "Budgeting and Forecasting",
+    tagline: "Data-driven budgets and forecasts aligned to your goals.",
     intro:
       "We provide tailored budgeting and forecasting services to help businesses set financial goals, anticipate trends, and make data-driven decisions. By analyzing historical data and market trends in Sri Lanka and the UAE, we help companies prepare rolling budgets and financial models aligned with strategic plans and cash flow targets.",
     icon: { paths: ["M3 17l6-6 4 4 8-8", "M15 6h6v6"] },
@@ -196,6 +204,7 @@ export const services = [
   {
     slug: "consultations",
     name: "Consultations",
+    tagline: "Expert guidance for every financial and compliance challenge.",
     intro:
       "Our expert consultation services guide businesses through financial challenges, operational restructuring, and compliance requirements in the UAE and Sri Lanka. We provide insights on business setup, tax optimization, process improvements, and financial planning to help organizations thrive in dynamic and competitive environments.",
     icon: {
