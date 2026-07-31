@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 
@@ -18,17 +19,17 @@ const caseStudies = [
   {
     category: "Restaurant Business",
     desc: "Streamlined accounting and payroll helped reduce costs and save 25% hours per month.",
-    bgClass: "bg-gradient-to-br from-[#e9ddca] to-[#ddcda9]",
+    image: "/assets/case-study-restaurant.jpg",
   },
   {
     category: "Transportation",
     desc: "Better fleet expense tracking and cash flow visibility helped cut fuel and maintenance costs.",
-    bgClass: "bg-gradient-to-br from-[#d8c7ab] to-[#c7ae87]",
+    image: "/assets/case-study-transportation.jpg",
   },
   {
     category: "SME - Retail Business",
     desc: "Accurate reporting and tax planning led to increased profits and better financial control.",
-    bgClass: "bg-gradient-to-br from-[#e2d3ba] to-[#d0bb96]",
+    image: "/assets/case-study-sme-retail.jpg",
   },
 ];
 
@@ -96,12 +97,14 @@ export default function WhyChooseCaseStudies() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {caseStudies.map((study, index) => (
             <Reveal key={study.category} delay={index * 110} className="group">
-              <div className="mb-4 h-[150px] overflow-hidden rounded-2xl shadow-[0_10px_24px_rgba(0,0,0,0.06)] transition-shadow duration-300 group-hover:shadow-[0_18px_36px_rgba(100,16,16,0.18)]">
-                <div
-                  className={`flex h-full items-center justify-center font-mono text-[10px] tracking-wide text-ink/35 transition-transform duration-500 group-hover:scale-110 ${study.bgClass}`}
-                >
-                  {study.category} photo
-                </div>
+              <div className="relative mb-4 h-[150px] overflow-hidden rounded-2xl shadow-[0_10px_24px_rgba(0,0,0,0.06)] transition-shadow duration-300 group-hover:shadow-[0_18px_36px_rgba(100,16,16,0.18)]">
+                <Image
+                  src={study.image}
+                  alt={study.category}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
               </div>
               <p className="mb-2 text-[11.5px] font-bold tracking-wide text-maroon uppercase">
                 {study.category}
