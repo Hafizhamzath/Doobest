@@ -1,4 +1,5 @@
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 
 const processSteps = [
   {
@@ -48,18 +49,20 @@ export default function OurProcess() {
 
         <div className="relative flex-1 basis-[600px]">
           <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3">
-            {processSteps.map((step) => (
-              <div key={step.num} className="relative z-[1] text-center">
-                <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-maroon text-sm font-bold text-white">
-                  {step.num}
+            {processSteps.map((step, index) => (
+              <Reveal key={step.num} delay={index * 90} className="relative z-[1] text-center">
+                <div className="group cursor-default">
+                  <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-maroon text-sm font-bold text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-gold group-hover:text-maroon group-hover:shadow-[0_8px_20px_rgba(201,162,75,0.4)]">
+                    {step.num}
+                  </div>
+                  <p className="mb-2 font-serif text-[15px] leading-tight font-bold text-ink transition-colors duration-300 group-hover:text-maroon">
+                    {step.title}
+                  </p>
+                  <p className="text-[12.5px] leading-relaxed text-muted">
+                    {step.desc}
+                  </p>
                 </div>
-                <p className="mb-2 font-serif text-[15px] leading-tight font-bold text-ink">
-                  {step.title}
-                </p>
-                <p className="text-[12.5px] leading-relaxed text-muted">
-                  {step.desc}
-                </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

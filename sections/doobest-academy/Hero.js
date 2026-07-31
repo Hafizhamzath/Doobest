@@ -58,12 +58,12 @@ const heroBadges = [
         "M16 3.13a4 4 0 010 7.75",
       ],
     },
-    style: { left: "29%", top: "-8%" },
+    style: { left: "29%", top: "-2%" },
   },
   {
     label: "INDUSTRY RELEVANT",
     icon: { paths: ["M3 17l6-6 4 4 8-8", "M15 6h6v6"] },
-    style: { left: "71%", top: "-8%" },
+    style: { left: "71%", top: "-2%" },
   },
   {
     label: "CAREER FOCUSED",
@@ -118,12 +118,7 @@ export default function Hero() {
       </div>
 
       <div className="flex min-w-[280px] flex-1 basis-[500px] items-center justify-center">
-        <div className="relative w-full max-w-[480px] pt-9 pb-5 sm:pt-11">
-          <div
-            aria-hidden="true"
-            className="absolute top-3.5 -right-3.5 bottom-[86px] left-3.5 hidden rounded-t-full border-[1.3px] border-dashed border-maroon/30 sm:block"
-          />
-
+        <div className="relative w-full max-w-[520px] pt-6 pb-5">
           <div className="relative">
             <div className="relative aspect-[4/3.4] w-full overflow-hidden rounded-t-full shadow-[0_30px_70px_rgba(17,17,17,0.18)]">
               <Image

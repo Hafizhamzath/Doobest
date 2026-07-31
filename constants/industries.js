@@ -81,7 +81,7 @@ export const industries = [
     },
   },
   {
-    name: "Transports",
+    name: "Transportation",
     icon: {
       paths: [
         "M3 16V7a1 1 0 011-1h9v10",

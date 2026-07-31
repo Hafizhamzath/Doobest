@@ -1,4 +1,5 @@
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 
 const othersList = ["Generic Advice", "Slow Response", "Hidden Costs", "Manual Reports"];
 
@@ -20,8 +21,8 @@ const caseStudies = [
     bgClass: "bg-gradient-to-br from-[#e9ddca] to-[#ddcda9]",
   },
   {
-    category: "Construction Company",
-    desc: "Improved cash flow management and project tracking, resulting in better project profitability.",
+    category: "Transportation",
+    desc: "Better fleet expense tracking and cash flow visibility helped cut fuel and maintenance costs.",
     bgClass: "bg-gradient-to-br from-[#d8c7ab] to-[#c7ae87]",
   },
   {
@@ -44,7 +45,7 @@ export default function WhyChooseCaseStudies() {
           We Build Confidence.
         </h2>
 
-        <div className="grid grid-cols-2 overflow-hidden rounded-2xl shadow-[0_14px_34px_rgba(0,0,0,0.08)]">
+        <Reveal className="grid grid-cols-2 overflow-hidden rounded-2xl shadow-[0_14px_34px_rgba(0,0,0,0.08)]">
           <div className="border border-ink/[0.08] bg-white px-4 py-5 sm:px-5">
             <p className="mb-4 text-xs font-bold tracking-wide text-faint uppercase">
               Others
@@ -53,7 +54,7 @@ export default function WhyChooseCaseStudies() {
               {othersList.map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-2 text-[13.5px] text-muted"
+                  className="flex items-center gap-2 rounded-lg px-1.5 py-0.5 text-[13.5px] text-muted transition-all duration-200 hover:translate-x-1 hover:bg-ink/[0.03]"
                 >
                   <span className="text-maroon" aria-hidden="true">
                     ✕
@@ -71,7 +72,7 @@ export default function WhyChooseCaseStudies() {
               {doobestList.map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-2 text-[13.5px] font-semibold"
+                  className="flex items-center gap-2 rounded-lg px-1.5 py-0.5 text-[13.5px] font-semibold transition-all duration-200 hover:translate-x-1 hover:bg-white/10"
                 >
                   <span className="text-gold" aria-hidden="true">
                     ✓
@@ -81,7 +82,7 @@ export default function WhyChooseCaseStudies() {
               ))}
             </ul>
           </div>
-        </div>
+        </Reveal>
       </div>
 
       <div>
@@ -93,12 +94,14 @@ export default function WhyChooseCaseStudies() {
         </h2>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {caseStudies.map((study) => (
-            <div key={study.category}>
-              <div
-                className={`mb-4 flex h-[150px] items-center justify-center rounded-2xl font-mono text-[10px] tracking-wide text-ink/35 ${study.bgClass}`}
-              >
-                {study.category} photo
+          {caseStudies.map((study, index) => (
+            <Reveal key={study.category} delay={index * 110} className="group">
+              <div className="mb-4 h-[150px] overflow-hidden rounded-2xl shadow-[0_10px_24px_rgba(0,0,0,0.06)] transition-shadow duration-300 group-hover:shadow-[0_18px_36px_rgba(100,16,16,0.18)]">
+                <div
+                  className={`flex h-full items-center justify-center font-mono text-[10px] tracking-wide text-ink/35 transition-transform duration-500 group-hover:scale-110 ${study.bgClass}`}
+                >
+                  {study.category} photo
+                </div>
               </div>
               <p className="mb-2 text-[11.5px] font-bold tracking-wide text-maroon uppercase">
                 {study.category}
@@ -108,11 +111,17 @@ export default function WhyChooseCaseStudies() {
               </p>
               <a
                 href="#"
-                className="inline-flex items-center gap-1.5 text-[13px] font-bold text-ink hover:text-maroon"
+                className="inline-flex items-center gap-1.5 text-[13px] font-bold text-ink transition-colors duration-200 group-hover:text-maroon"
               >
-                Read Full Story <span aria-hidden="true">→</span>
+                Read Full Story{" "}
+                <span
+                  aria-hidden="true"
+                  className="inline-block transition-transform duration-200 group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </a>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

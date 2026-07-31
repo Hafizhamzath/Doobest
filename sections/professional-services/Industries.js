@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import Icon from "@/components/ui/Icon";
+import Reveal from "@/components/ui/Reveal";
 import { industries } from "@/constants/industries";
 
 export default function Industries() {
@@ -16,22 +17,23 @@ export default function Industries() {
         </div>
 
         <div className="grid flex-1 basis-[600px] grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5">
-          {industries.map((industry) => (
-            <div
-              key={industry.name}
-              className="flex flex-col items-center gap-2.5 rounded-xl border border-white/[0.08] px-2 py-4.5 transition-colors hover:bg-white/[0.08]"
-            >
-              <Icon
-                paths={industry.icon.paths}
-                circles={industry.icon.circles}
-                size={22}
-                strokeWidth={1.6}
-                className="text-gold"
-              />
-              <p className="text-center text-[12.5px] font-semibold text-white">
-                {industry.name}
-              </p>
-            </div>
+          {industries.map((industry, index) => (
+            <Reveal key={industry.name} delay={index * 60}>
+              <div className="group flex flex-col items-center gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] px-2 py-4.5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:bg-white/[0.08]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#F0E6DC] transition-transform duration-300 group-hover:scale-110">
+                  <Icon
+                    paths={industry.icon.paths}
+                    circles={industry.icon.circles}
+                    size={20}
+                    strokeWidth={1.6}
+                    className="text-maroon"
+                  />
+                </div>
+                <p className="text-center text-[12.5px] font-semibold text-white">
+                  {industry.name}
+                </p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </Container>

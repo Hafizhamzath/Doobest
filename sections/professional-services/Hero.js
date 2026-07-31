@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
+import Reveal from "@/components/ui/Reveal";
 
 const heroCards = [
   {
@@ -63,14 +64,26 @@ export default function Hero() {
           className="rounded-tl-[100px] object-cover sm:rounded-tl-[150px] lg:rounded-tl-[200px]"
         />
         <div className="absolute top-1/2 right-4 z-[2] hidden -translate-y-1/2 flex-col gap-4 sm:right-6 md:flex">
-          {heroCards.map((card) => (
-            <div
-              key={card.label}
-              className="flex items-center gap-3 rounded-2xl bg-white px-5 py-3.5 whitespace-nowrap shadow-[0_14px_30px_rgba(0,0,0,0.18)]"
-            >
-              <Icon paths={card.icon.paths} size={20} strokeWidth={1.6} className="text-maroon" />
-              <span className="text-sm font-bold text-ink">{card.label}</span>
-            </div>
+          {heroCards.map((card, index) => (
+            <Reveal key={card.label} delay={index * 150}>
+              <div
+                className="group flex items-center gap-3 rounded-2xl bg-white px-5 py-3.5 whitespace-nowrap shadow-[0_14px_30px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-x-1.5 hover:shadow-[0_18px_36px_rgba(100,16,16,0.28)]"
+                style={{
+                  animation: "floatY 3.6s ease-in-out infinite",
+                  animationDelay: `${index * 0.3}s`,
+                }}
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F0E6DC] transition-colors duration-300 group-hover:bg-maroon">
+                  <Icon
+                    paths={card.icon.paths}
+                    size={17}
+                    strokeWidth={1.6}
+                    className="text-maroon transition-colors duration-300 group-hover:text-white"
+                  />
+                </div>
+                <span className="text-sm font-bold text-ink">{card.label}</span>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

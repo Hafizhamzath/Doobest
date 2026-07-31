@@ -3,6 +3,7 @@ import ServicesExplorer from "@/sections/professional-services/ServicesExplorer"
 import OurProcess from "@/sections/professional-services/OurProcess";
 import Industries from "@/sections/professional-services/Industries";
 import WhyChooseCaseStudies from "@/sections/professional-services/WhyChooseCaseStudies";
+import FAQ from "@/sections/professional-services/FAQ";
 import CtaNewsletter from "@/sections/professional-services/CtaNewsletter";
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function ProfessionalServicesPage() {
       <OurProcess />
       <Industries />
       <WhyChooseCaseStudies />
+      <FAQ />
       <CtaNewsletter />
     </>
   );
