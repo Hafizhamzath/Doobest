@@ -3,6 +3,7 @@ import WhatWeDo from "@/sections/home/WhatWeDo";
 import WhyChoose from "@/sections/home/WhyChoose";
 import OurApproach from "@/sections/home/OurApproach";
 import AcademyTeaser from "@/sections/home/AcademyTeaser";
+import ToolsCarousel from "@/sections/home/ToolsCarousel";
 import CtaBanner from "@/sections/home/CtaBanner";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <WhyChoose />
       <OurApproach />
       <AcademyTeaser />
+      <ToolsCarousel />
       <CtaBanner />
     </>
   );
