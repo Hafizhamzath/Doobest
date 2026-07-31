@@ -1,5 +1,5 @@
 export const tools = [
-  { name: "Tally", logo: "/assets/tools/tally.svg" },
+  { name: "TallyPrime", logo: "/assets/tools/tallyprime.png" },
   { name: "QuickBooks", logo: "/assets/tools/quickbooks.svg" },
   { name: "Power BI", logo: "/assets/tools/powerbi.svg" },
   { name: "Excel", logo: "/assets/tools/excel.svg" },
