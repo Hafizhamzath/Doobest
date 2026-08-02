@@ -38,18 +38,12 @@ const values = [
 
 export default function TeamValues() {
   return (
-    <Container as="section" className="relative overflow-hidden pb-20 md:pb-24">
-      <p className="relative z-[1] mb-7 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
+    <Container as="section" className="pb-20 md:pb-24">
+      <p className="mb-7 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
         Our Team Values
       </p>
-      <p
-        aria-hidden="true"
-        className="pointer-events-none absolute top-3 left-0 z-0 font-serif text-[220px] leading-none font-bold text-maroon/[0.045] select-none sm:text-[280px]"
-      >
-        D
-      </p>
 
-      <div className="relative z-[1] grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-0">
+      <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-0">
         {values.map((value, index) => (
           <div
             key={value.title}

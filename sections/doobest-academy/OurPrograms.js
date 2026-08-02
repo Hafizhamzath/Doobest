@@ -42,9 +42,9 @@ export default function OurPrograms() {
 
         <div className="grid flex-1 basis-[600px] grid-cols-1 gap-5 sm:grid-cols-2">
           {academyCourses.map((course, index) => (
-            <Reveal key={course.title} delay={index * 90}>
-              <div className="group overflow-hidden rounded-2xl border border-gold/25 bg-cream transition-shadow duration-300 hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)]">
-                <div className="relative h-[150px] w-full overflow-hidden">
+            <Reveal key={course.title} delay={index * 90} className="h-full">
+              <div className="group flex h-full min-h-[450px] flex-col overflow-hidden rounded-2xl border border-gold/25 bg-cream transition-shadow duration-300 hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)]">
+                <div className="relative h-[150px] w-full shrink-0 overflow-hidden">
                   <Image
                     src={course.image}
                     alt=""
@@ -62,7 +62,7 @@ export default function OurPrograms() {
                     />
                   </div>
                 </div>
-                <div className="p-5">
+                <div className="flex flex-1 flex-col p-5">
                   <p className="mb-2.5 font-serif text-[17px] leading-tight font-bold text-ink">
                     {course.title}
                   </p>
@@ -86,7 +86,7 @@ export default function OurPrograms() {
                   )}
                   <a
                     href="#"
-                    className="inline-flex items-center gap-1.5 text-[13px] font-bold text-ink transition-colors duration-200 hover:text-maroon"
+                    className="mt-auto inline-flex items-center gap-1.5 text-[13px] font-bold text-ink transition-colors duration-200 hover:text-maroon"
                   >
                     Learn More{" "}
                     <span

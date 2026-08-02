@@ -8,7 +8,8 @@ const leaders = [
     role: "Founder & CEO",
     qualifications: "MBus (Acc.Spcl), BBA (Hons), CMASL, AATPF",
     desc: "Leads the firm's vision, strategic growth, and client trust across all services.",
-    photo: "/assets/about-leader-1.png",
+    photo: "/assets/team-amjath.jpg",
+    linkedin: "https://www.linkedin.com/in/nazeer-amjath-aa8292215",
   },
   {
     name: "Fathima Amna",
@@ -16,34 +17,39 @@ const leaders = [
     qualifications: "BBA (Hons), AATPF",
     desc: "Drives business development, service quality, and financial strategy across client portfolios.",
     photo: "/assets/about-leader-2.png",
+    linkedin: "https://www.linkedin.com/in/naseer-fathima-amna-3b2212289",
   },
   {
-    name: "Peter Stasan Fernando",
+    name: "Steshan Placidus Fernando",
     role: "Finance Manager",
     qualifications: "ACCA, BBA (Hons), AAT",
     desc: "Leads financial operations, budgeting, forecasting, and performance reporting.",
-    photo: "/assets/about-leader-3.png",
+    photo: "/assets/team-stasan.jpg",
+    linkedin: "https://www.linkedin.com/in/steshanfernando",
   },
   {
     name: "Mohamed Najath",
     role: "Accounts Lead",
     qualifications: "HNDA, BBA (Hons)",
     desc: "Supervises the accounting team, workflow, and reporting accuracy.",
-    photo: "/assets/about-leader-4.png",
+    photo: "/assets/team-najath.jpg",
+    linkedin: "https://www.linkedin.com/in/mohamed-najath",
   },
   {
-    name: "Imthath Hussain",
+    name: "Imthath Husain",
     role: "Lead in Financial Reporting",
     qualifications: "ACCA®, CA®, BBA (Acc.Spcl)",
     desc: "Manages financial statement preparation, IFRS compliance, and audit coordination.",
-    photo: "/assets/about-leader-1.png",
+    photo: "/assets/team-imthath.jpg",
+    linkedin: "https://www.linkedin.com/in/imthath-husain-90958b268",
   },
   {
     name: "Lokenthiran Anujan",
     role: "Senior Accountant",
     qualifications: "MBus (Acc.Spcl), BBA (Hons), CMA",
     desc: "Handles daily accounting, bookkeeping, reconciliations, and monthly closings.",
-    photo: "/assets/about-leader-2.png",
+    photo: "/assets/team-anujan.jpg",
+    linkedin: "https://www.linkedin.com/in/lokenthiran-anujan-6a4160225",
   },
 ];
 
@@ -73,28 +79,34 @@ export default function LeadershipGrid() {
         {leaders.map((leader) => (
           <div
             key={leader.name}
-            className="overflow-hidden rounded-2xl border border-ink/[0.06] bg-white shadow-[0_10px_30px_rgba(17,17,17,0.06)] transition-transform duration-300 hover:-translate-y-1"
+            className="group overflow-hidden rounded-2xl border border-ink/[0.06] bg-white shadow-[0_10px_30px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(100,16,16,0.16)]"
           >
-            <div className="relative aspect-[4/3.3] w-full">
+            <div className="relative aspect-[4/3.3] w-full overflow-hidden">
               <Image
                 src={leader.photo}
                 alt={`${leader.name} portrait`}
                 fill
                 sizes="(min-width: 640px) 30vw, 50vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </div>
             <div className="px-4 py-4.5">
               <p className="mb-0.5 font-serif text-[17px] font-bold text-maroon">{leader.name}</p>
               <p className="mb-1 text-[12.5px] font-semibold text-ink">{leader.role}</p>
               <p className="mb-2.5 text-[10.5px] leading-snug text-faint">{leader.qualifications}</p>
-              <span className="mb-2.5 block h-0.5 w-5 bg-gold" aria-hidden="true" />
+              <span className="mb-2.5 block h-0.5 w-5 bg-gold transition-all duration-300 group-hover:w-8" aria-hidden="true" />
               <p className="mb-3.5 text-xs leading-snug text-muted">{leader.desc}</p>
-              <span className="flex h-6.5 w-6.5 items-center justify-center rounded-md border-[1.2px] border-maroon text-maroon">
+              <a
+                href={leader.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${leader.name} on LinkedIn`}
+                className="flex h-6.5 w-6.5 items-center justify-center rounded-md border-[1.2px] border-maroon text-maroon transition-colors duration-200 hover:bg-maroon hover:text-white group-hover:bg-maroon group-hover:text-white"
+              >
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-7.1c0-1.7-.03-3.9-2.37-3.9-2.38 0-2.74 1.85-2.74 3.78V23h-4V8z" />
                 </svg>
-              </span>
+              </a>
             </div>
           </div>
         ))}

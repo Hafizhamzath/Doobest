@@ -1,8 +1,9 @@
 import Hero from "@/sections/leadership/Hero";
 import StatsBar from "@/sections/leadership/StatsBar";
+import DirectorProfile from "@/sections/leadership/DirectorProfile";
+import Foreword from "@/sections/leadership/Foreword";
 import LeadershipGrid from "@/sections/leadership/LeadershipGrid";
 import TeamValues from "@/sections/leadership/TeamValues";
-import TeamGallery from "@/sections/leadership/TeamGallery";
 import Cta from "@/sections/leadership/Cta";
 
 export const metadata = {
@@ -16,9 +17,10 @@ export default function LeadershipPage() {
     <>
       <Hero />
       <StatsBar />
+      <DirectorProfile />
+      <Foreword />
       <LeadershipGrid />
       <TeamValues />
-      <TeamGallery />
       <Cta />
     </>
   );

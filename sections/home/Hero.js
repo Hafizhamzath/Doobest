@@ -108,7 +108,6 @@ export default function Hero() {
                 className="group pointer-events-auto absolute h-[9%] w-[9%] -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full outline-none"
                 style={{ left: badge.left, top: badge.top }}
               >
-                <span className="absolute inset-0 rounded-full ring-0 ring-gold/0 transition-all duration-300 group-hover:ring-[3px] group-hover:ring-gold/70 group-focus-visible:ring-[3px] group-focus-visible:ring-gold/70" />
                 <span className="absolute inset-0 scale-100 rounded-full bg-gold/0 transition-all duration-500 group-hover:scale-125 group-hover:bg-gold/10 group-focus-visible:scale-125 group-focus-visible:bg-gold/10" />
 
                 <div

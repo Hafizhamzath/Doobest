@@ -1,6 +1,7 @@
 import Hero from "@/sections/about/Hero";
 import StatsBar from "@/sections/about/StatsBar";
 import OurJourney from "@/sections/about/OurJourney";
+import OurFoundation from "@/sections/about/OurFoundation";
 import Leadership from "@/sections/about/Leadership";
 import Cta from "@/sections/about/Cta";
 
@@ -16,6 +17,7 @@ export default function AboutPage() {
       <Hero />
       <StatsBar />
       <OurJourney />
+      <OurFoundation />
       <Leadership />
       <Cta />
     </>

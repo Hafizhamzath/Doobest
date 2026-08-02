@@ -5,13 +5,13 @@ import Icon from "@/components/ui/Icon";
 
 const journey = [
   {
-    year: "2012",
+    year: "2022",
     title: "The Beginning",
     desc: "Doobest Consultancy Ltd was founded with a vision to deliver trusted accounting and advisory services.",
     icon: { paths: ["M4 21V4l14 4-6 3 6 3H4"] },
   },
   {
-    year: "2016",
+    year: "2023",
     title: "Growing Stronger",
     desc: "Expanded our team and services to support businesses across multiple industries.",
     icon: {
@@ -24,13 +24,13 @@ const journey = [
     },
   },
   {
-    year: "2021",
+    year: "2024",
     title: "New Horizons",
     desc: "Launched Doobest Academy to empower professionals with practical financial knowledge.",
     icon: { paths: ["M3 21h18", "M6 21V9l6-5 6 5v12", "M10 21v-6h4v6"] },
   },
   {
-    year: "2024 & Beyond",
+    year: "2025 & Beyond",
     title: "Building the Future",
     desc: "Continuing to innovate, grow and create lasting value for our clients and communities.",
     icon: { paths: ["M12 2l2.4 6.8L21 10l-5 4.6L17.4 22 12 18.3 6.6 22 8 14.6 3 10l6.6-1.2z"] },
@@ -50,18 +50,10 @@ export default function OurJourney() {
           Focused on Impact.
         </h2>
         <span className="mb-5 block h-[3px] w-11 bg-maroon" aria-hidden="true" />
-        <p className="mb-4 text-sm leading-relaxed text-body">
-          <span className="font-bold text-ink">Our Vision — </span>
-          To become the most trusted accounting and business consultancy
-          partner, empowering businesses with financial clarity, compliance,
-          and sustainable growth.
-        </p>
         <p className="mb-7 text-sm leading-relaxed text-body">
-          <span className="font-bold text-ink">Our Mission — </span>
-          To deliver affordable, professional, and technology-driven
-          accounting, taxation, and business support services that help
-          businesses make informed decisions, achieve compliance, and focus
-          on growth.
+          From our founding to where we are today, every milestone reflects
+          our commitment to helping businesses grow with clarity, compliance,
+          and confidence.
         </p>
         <Button href="#">Explore Our Journey</Button>
       </div>

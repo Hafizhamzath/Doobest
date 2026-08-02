@@ -19,7 +19,7 @@ const contactItems = [
   },
   {
     label: "Email Us",
-    lines: ["info@doobestco.com"],
+    lines: ["info@doobestco.com", "academy@doobestco.com"],
     icon: { paths: ["M3 6h18v12H3z", "M3 6l9 7 9-7"] },
   },
   {

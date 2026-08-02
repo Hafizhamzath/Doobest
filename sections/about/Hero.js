@@ -71,9 +71,7 @@ export default function Hero() {
             A Team You Can Rely On.
           </p>
           <p className="mb-2.5 font-serif text-xl text-gold italic">Mohamed Amjath</p>
-          <p className="text-[11px] font-bold tracking-wide text-gold">
-            MOHAMED AMJATH <span className="font-semibold text-white/60">DIRECTOR &amp; CEO</span>
-          </p>
+          <p className="text-[11px] font-bold tracking-wide text-gold">FOUNDER &amp; CEO</p>
         </div>
 
         <svg viewBox="0 0 100 26" preserveAspectRatio="none" className="-mt-0.5 block h-14 w-full text-maroon" aria-hidden="true">

@@ -4,7 +4,7 @@ import Icon from "@/components/ui/Icon";
 
 const stats = [
   {
-    value: "50+",
+    value: "10+",
     label: "Team Members",
     icon: {
       paths: [
@@ -16,7 +16,7 @@ const stats = [
     },
   },
   {
-    value: "15+",
+    value: "10+",
     label: "Qualified Professionals",
     icon: { paths: ["M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2", "M12 11a4 4 0 100-8 4 4 0 000 8z"] },
   },
