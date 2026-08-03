@@ -17,7 +17,7 @@ export default function AcademyTeaser() {
           <h2 className="mb-4 font-serif text-3xl leading-tight font-semibold text-ink md:text-4xl">
             Build Skills.
             <br className="hidden sm:block" /> Build Your{" "}
-            <em className="text-maroon">Future.</em>
+            <em className="font-bold text-maroon not-italic">Future.</em>
           </h2>
           <p className="mb-7 max-w-[300px] text-sm leading-relaxed text-muted">
             Our Career Development Department focuses on preparing

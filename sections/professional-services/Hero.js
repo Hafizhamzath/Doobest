@@ -56,8 +56,8 @@ export default function Hero() {
 
       <div className="relative min-h-[360px] flex-1 basis-[640px] sm:min-h-[440px] lg:min-h-[520px]">
         <Image
-          src="/assets/services-hero-desk.png"
-          alt="Laptop with financial dashboard on marble desk"
+          src="/assets/services-hero-desk-v2.jpg"
+          alt="Doobest financial analytics dashboard"
           fill
           priority
           sizes="(min-width: 1024px) 50vw, 100vw"

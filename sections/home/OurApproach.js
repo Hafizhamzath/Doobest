@@ -14,7 +14,7 @@ export default function OurApproach() {
             </p>
             <span className="mb-4 block h-0.5 w-9 bg-gold" aria-hidden="true" />
             <h2 className="mb-5 font-serif text-3xl leading-tight font-semibold text-white md:text-4xl">
-              A Simple Process That <em className="text-gold">Works</em>
+              A Simple Process That <em className="font-bold text-gold not-italic">Works</em>
             </h2>
             <p className="mb-6 max-w-xs text-sm leading-relaxed text-white/60">
               We follow a proven methodology to understand, plan, implement

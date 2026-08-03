@@ -96,7 +96,7 @@ export default function LearningApproach() {
           Our Learning Approach
         </p>
         <h2 className="mb-5 font-serif text-2xl leading-snug font-semibold text-ink md:text-3xl">
-          Practical Learning That Makes a <em className="text-maroon">Difference</em>
+          Practical Learning That Makes a <em className="font-bold text-maroon not-italic">Difference</em>
         </h2>
         <p className="mb-10 max-w-[420px] text-sm leading-relaxed text-muted">
           Our programs combine expert instruction with hands-on practice,

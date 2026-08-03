@@ -48,12 +48,12 @@ export default function Hero() {
         />
         <div className="absolute inset-0 z-[1] overflow-hidden drop-shadow-[0_30px_55px_rgba(17,17,17,0.3)]">
           <Image
-            src="/assets/contact-hero-blob.png"
-            alt="Doobest executive boardroom with Dubai skyline view and branded desk items"
+            src="/assets/contact-hero-reception.jpg"
+            alt="Doobest reception area with branded wall signage and seating"
             fill
             priority
             sizes="(min-width: 1024px) 55vw, 90vw"
-            className="object-cover object-right"
+            className="object-cover object-center"
           />
         </div>
         <div className="absolute top-[6%] right-0 z-[2] w-[210px] rounded-2xl bg-[#2A0808] px-6 py-7 shadow-[0_25px_50px_rgba(0,0,0,0.35)] sm:right-[-2%] sm:w-[230px]">
@@ -65,7 +65,7 @@ export default function Hero() {
             confidence, and achieve greatness together.
           </p>
           <span className="mb-4 block h-px w-full bg-white/15" aria-hidden="true" />
-          <p className="mb-2.5 font-serif text-xl text-gold italic">Mohamed Amjath</p>
+          <p className="mb-2.5 font-serif text-xl font-bold text-gold">Mohamed Amjath</p>
           <p className="text-xs font-bold tracking-wide text-gold">FOUNDER &amp; CEO</p>
         </div>
       </div>

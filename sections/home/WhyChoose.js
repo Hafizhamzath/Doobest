@@ -12,7 +12,7 @@ export default function WhyChoose() {
         align="center"
         title={
           <>
-            Your Trusted Partner for <em className="text-maroon">Accounting Excellence</em>
+            Your Trusted Partner for <em className="font-bold text-maroon not-italic">Accounting Excellence</em>
           </>
         }
         description="Managing finances effectively is essential for every successful business. Our team provides practical accounting solutions that help businesses maintain accurate records, improve reporting, stay compliant, and make better financial decisions."

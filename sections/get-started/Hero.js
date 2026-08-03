@@ -65,8 +65,8 @@ export default function Hero() {
 
       <div className="relative min-h-[300px] min-w-[280px] flex-[1.5] basis-[440px]">
         <Image
-          src="/assets/getstarted-hero-desk.png"
-          alt="Doobest executive office desk with Dubai skyline view"
+          src="/assets/getstarted-hero-desk-v2.jpg"
+          alt="Doobest executive office with branded wall art"
           fill
           priority
           sizes="(min-width: 1024px) 35vw, 90vw"

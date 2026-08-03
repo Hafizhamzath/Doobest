@@ -13,7 +13,7 @@ export default function CtaNewsletter() {
         <div className="flex-1 basis-[320px]">
           <h2 className="mb-4 font-serif text-3xl leading-tight font-semibold text-white md:text-4xl">
             Ready to Simplify Your Business{" "}
-            <em className="text-gold">Finances?</em>
+            <em className="font-bold text-gold not-italic">Finances?</em>
           </h2>
           <p className="mb-6 text-[14.5px] text-white/70">
             Let&rsquo;s build a stronger financial future together.

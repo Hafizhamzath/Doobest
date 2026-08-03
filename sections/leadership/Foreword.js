@@ -54,7 +54,7 @@ export default function Foreword() {
         </div>
 
         <div className="relative z-[1] mt-9 border-t border-ink/[0.08] pt-7 text-center">
-          <p className="mb-1 font-serif text-2xl text-maroon italic">Mohamed Amjath</p>
+          <p className="mb-1 font-serif text-2xl font-bold text-maroon">Mohamed Amjath</p>
           <p className="text-[13px] font-semibold text-ink">Director/Founder and CEO</p>
           <p className="text-[12.5px] text-muted">Doobest Consultancy (Pvt) Ltd</p>
         </div>

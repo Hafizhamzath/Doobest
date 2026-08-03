@@ -26,7 +26,7 @@ export default function ServicesExplorer() {
               Our Services
             </p>
             <h2 className="mb-5 font-serif text-3xl leading-tight font-semibold text-white md:text-4xl">
-              Smart Services for <em className="text-gold">Smart Business</em>
+              Smart Services for <em className="font-bold text-gold not-italic">Smart Business</em>
             </h2>
             <p className="max-w-[300px] text-sm leading-relaxed text-white/65">
               Tailored services designed to meet your business needs at every

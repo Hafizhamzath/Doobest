@@ -122,8 +122,8 @@ export default function Hero() {
           <div className="relative">
             <div className="relative aspect-[4/3.4] w-full overflow-hidden rounded-t-full shadow-[0_30px_70px_rgba(17,17,17,0.18)]">
               <Image
-                src="/assets/academy-hero-desk.png"
-                alt="Desk with laptop showing Doobest Academy, books and study notes"
+                src="/assets/academy-hero-desk-v2.jpg"
+                alt="Doobest Academy classroom with career growth presentation screen"
                 fill
                 priority
                 sizes="(min-width: 1024px) 32vw, 90vw"

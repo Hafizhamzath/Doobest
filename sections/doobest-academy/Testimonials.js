@@ -41,7 +41,7 @@ export default function Testimonials() {
         <h2 className="mb-4 font-serif text-2xl leading-snug font-semibold text-ink">
           Real People.
           <br />
-          Real <em className="text-maroon">Growth.</em>
+          Real <em className="font-bold text-maroon not-italic">Growth.</em>
         </h2>
         <p className="mb-5 text-[13.5px] leading-relaxed text-muted">
           See how our students achieved their goals with the right guidance

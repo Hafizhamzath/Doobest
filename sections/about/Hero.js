@@ -46,8 +46,8 @@ export default function Hero() {
       <div className="relative min-w-[280px] flex-1 basis-[600px]">
         <div className="relative aspect-[16/11] w-full overflow-hidden rounded-tr-[90px] rounded-bl-[90px] shadow-[0_30px_70px_rgba(17,17,17,0.2)]">
           <Image
-            src="/assets/about-hero-reception.png"
-            alt="Doobest Consultancy reception desk with marble wall signage and skyline view through an arch"
+            src="/assets/about-hero-reception-v2.jpg"
+            alt="Doobest Consultancy reception desk with branded marble wall signage"
             fill
             priority
             sizes="(min-width: 1024px) 50vw, 90vw"
@@ -70,7 +70,7 @@ export default function Hero() {
             <br />
             A Team You Can Rely On.
           </p>
-          <p className="mb-2.5 font-serif text-xl text-gold italic">Mohamed Amjath</p>
+          <p className="mb-2.5 font-serif text-xl font-bold text-gold">Mohamed Amjath</p>
           <p className="text-[11px] font-bold tracking-wide text-gold">FOUNDER &amp; CEO</p>
         </div>
 

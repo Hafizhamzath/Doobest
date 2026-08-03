@@ -15,7 +15,7 @@ export default function OurPrograms() {
           </p>
           <h2 className="mb-5 font-serif text-3xl leading-tight font-semibold text-white md:text-4xl">
             Introducing the Department of Career{" "}
-            <em className="text-[#d99a9a]">Booster</em> with Master Classes
+            <em className="font-bold text-[#d99a9a] not-italic">Booster</em> with Master Classes
           </h2>
           <p className="mb-4 max-w-[360px] text-sm leading-relaxed text-white/60">
             The Department of Career Development at Doobest Consultancy is

@@ -42,8 +42,8 @@ export default function Hero() {
       <div className="flex min-w-[280px] flex-1 basis-[600px] justify-center">
         <div className="relative w-full max-w-[760px]">
           <Image
-            src="/assets/leadership-hero-blob.png"
-            alt="Doobest executive boardroom with marble table, city skyline view and branded notebook and mug, in an organic blob-shaped frame"
+            src="/assets/leadership-hero-blob-v2.png"
+            alt="Doobest executive boardroom with skyline view, in an organic blob-shaped frame"
             width={1536}
             height={1024}
             priority
@@ -59,7 +59,7 @@ export default function Hero() {
               exceptional outcomes.
             </p>
             <span className="mb-4 block h-px w-full bg-white/15" aria-hidden="true" />
-            <p className="mb-2.5 font-serif text-xl text-gold italic">Mohamed Amjath</p>
+            <p className="mb-2.5 font-serif text-xl font-bold text-gold">Mohamed Amjath</p>
             <p className="text-xs font-bold tracking-wide text-gold">FOUNDER &amp; CEO</p>
           </div>
         </div>

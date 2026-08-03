@@ -22,7 +22,7 @@ export default function CtaBanner() {
         </div>
 
         <p className="font-serif text-2xl leading-snug font-semibold text-white md:text-[30px]">
-          Need Professional Accounting <em className="text-gold">Support?</em>
+          Need Professional Accounting <em className="font-bold text-gold not-italic">Support?</em>
         </p>
 
         <span aria-hidden="true" className="hidden h-16 w-px bg-white/25 lg:block" />
