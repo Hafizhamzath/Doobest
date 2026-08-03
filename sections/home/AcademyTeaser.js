@@ -3,6 +3,7 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
+import Reveal from "@/components/ui/Reveal";
 import { courses } from "@/constants/courses";
 
 export default function AcademyTeaser() {
@@ -29,11 +30,11 @@ export default function AcademyTeaser() {
 
         <div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {courses.map((course) => (
+            {courses.map((course, index) => (
+              <Reveal key={course.title} delay={index * 70}>
               <Link
-                key={course.title}
                 href="/doobest-academy"
-                className="group overflow-hidden rounded-2xl bg-white shadow-[0_14px_30px_rgba(17,17,17,0.08)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(100,16,16,0.18)]"
+                className="group block overflow-hidden rounded-2xl bg-white shadow-[0_14px_30px_rgba(17,17,17,0.08)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(100,16,16,0.18)]"
               >
                 <div className="relative h-[150px] w-full overflow-hidden">
                   <Image
@@ -60,6 +61,7 @@ export default function AcademyTeaser() {
                   </span>
                 </div>
               </Link>
+              </Reveal>
             ))}
           </div>
         </div>

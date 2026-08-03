@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import Icon from "@/components/ui/Icon";
+import Reveal from "@/components/ui/Reveal";
 
 const values = [
   {
@@ -45,19 +46,20 @@ export default function TeamValues() {
 
       <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-0">
         {values.map((value, index) => (
-          <div
+          <Reveal
             key={value.title}
-            className={`px-3 text-center ${
+            delay={index * 90}
+            className={`group px-3 text-center ${
               index < values.length - 1 ? "lg:border-r lg:border-ink/[0.08]" : ""
             }`}
           >
-            <div className="mx-auto mb-4.5 flex h-[76px] w-[76px] items-center justify-center rounded-full border-[1.3px] border-maroon/20 text-maroon">
+            <div className="mx-auto mb-4.5 flex h-[76px] w-[76px] items-center justify-center rounded-full border-[1.3px] border-maroon/20 text-maroon transition-all duration-300 group-hover:scale-110 group-hover:border-maroon group-hover:bg-maroon group-hover:text-white">
               <Icon paths={value.icon.paths} size={26} strokeWidth={1.5} />
             </div>
             <p className="mb-2.5 font-serif text-lg font-bold text-ink">{value.title}</p>
             <p className="mb-2.5 text-[12.5px] leading-relaxed text-muted">{value.desc}</p>
-            <span className="mx-auto block h-0.5 w-6 bg-gold" aria-hidden="true" />
-          </div>
+            <span className="mx-auto block h-0.5 w-6 bg-gold transition-all duration-300 group-hover:w-10" aria-hidden="true" />
+          </Reveal>
         ))}
       </div>
     </Container>

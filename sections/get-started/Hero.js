@@ -52,8 +52,8 @@ export default function Hero() {
         </p>
         <div className="flex flex-wrap gap-5">
           {heroFeatures.map((feature) => (
-            <div key={feature.title} className="flex max-w-[120px] flex-col items-start gap-2.5">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F0E6DC] text-maroon">
+            <div key={feature.title} className="group flex max-w-[120px] flex-col items-start gap-2.5">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F0E6DC] text-maroon transition-all duration-300 group-hover:scale-110 group-hover:bg-maroon group-hover:text-white">
                 <Icon paths={feature.icon.paths} size={19} strokeWidth={1.8} />
               </div>
               <p className="text-[13px] font-bold text-ink">{feature.title}</p>

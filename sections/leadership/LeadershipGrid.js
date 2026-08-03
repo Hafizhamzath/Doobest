@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 
 const leaders = [
   {
@@ -76,9 +77,9 @@ export default function LeadershipGrid() {
       </div>
 
       <div className="grid flex-1 basis-[600px] grid-cols-2 gap-5 sm:grid-cols-3">
-        {leaders.map((leader) => (
+        {leaders.map((leader, index) => (
+          <Reveal key={leader.name} delay={index * 80}>
           <div
-            key={leader.name}
             className="group overflow-hidden rounded-2xl border border-ink/[0.06] bg-white shadow-[0_10px_30px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(100,16,16,0.16)]"
           >
             <div className="relative aspect-[4/3.3] w-full overflow-hidden">
@@ -109,6 +110,7 @@ export default function LeadershipGrid() {
               </a>
             </div>
           </div>
+          </Reveal>
         ))}
       </div>
     </Container>

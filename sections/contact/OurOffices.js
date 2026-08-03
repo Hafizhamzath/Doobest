@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
 
 const offices = [
@@ -52,9 +53,9 @@ export default function OurOffices() {
       </div>
 
       <div className="grid flex-[3] basis-[600px] grid-cols-2 gap-5 sm:grid-cols-3">
-        {offices.map((office) => (
+        {offices.map((office, index) => (
+          <Reveal key={office.name} delay={index * 100}>
           <div
-            key={office.name}
             onMouseEnter={() => setActive(office.key)}
             onMouseLeave={() => setActive((current) => (current === office.key ? null : current))}
             className={cn(
@@ -85,6 +86,7 @@ export default function OurOffices() {
               </p>
             </div>
           </div>
+          </Reveal>
         ))}
 
         <div className="relative col-span-2 flex min-h-[260px] items-center overflow-hidden rounded-2xl bg-[#E9DFCF] sm:col-span-1">

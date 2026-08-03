@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 
 const bio = [
   "Mohamed Amjath is the Founder and Visionary Director of Doobest Consultancy (Pvt) Ltd, a company incorporated under the Sri Lankan Companies Act No. 07 of 2007, providing professional services in Company Secretarial Services, Accounting Solutions, Accounting Coaching, and Accounting-related certification programs.",
@@ -12,8 +13,8 @@ const bio = [
 export default function DirectorProfile() {
   return (
     <Container as="section" className="flex flex-wrap gap-12 pb-20 md:pb-24">
-      <div className="min-w-[240px] flex-1 basis-[280px]">
-        <div className="sticky top-24 overflow-hidden rounded-[28px] shadow-[0_25px_60px_rgba(17,17,17,0.18)]">
+      <Reveal className="min-w-[240px] flex-1 basis-[280px]">
+        <div className="sticky top-24 overflow-hidden rounded-[28px] shadow-[0_25px_60px_rgba(17,17,17,0.18)] transition-transform duration-500 hover:scale-[1.02]">
           <div className="relative aspect-[4/5] w-full">
             <Image
               src="/assets/team-amjath.jpg"
@@ -24,9 +25,9 @@ export default function DirectorProfile() {
             />
           </div>
         </div>
-      </div>
+      </Reveal>
 
-      <div className="min-w-[280px] flex-[1.6] basis-[420px]">
+      <Reveal delay={120} className="min-w-[280px] flex-[1.6] basis-[420px]">
         <p className="mb-4 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           Meet Our Director
         </p>
@@ -51,7 +52,7 @@ export default function DirectorProfile() {
             </p>
           ))}
         </div>
-      </div>
+      </Reveal>
     </Container>
   );
 }

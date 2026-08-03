@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Icon from "@/components/ui/Icon";
+import Reveal from "@/components/ui/Reveal";
 
 const stats = [
   {
@@ -53,18 +54,19 @@ export default function StatsBar() {
         <Image src="/assets/about-marble-dark.png" alt="" fill className="object-cover" />
         <div className="relative z-[1] flex flex-wrap gap-x-8 gap-y-6 px-6 py-10 sm:px-10">
           {stats.map((stat, index) => (
-            <div
+            <Reveal
               key={stat.label}
-              className={`flex flex-1 basis-[160px] items-center gap-4 ${
+              delay={index * 90}
+              className={`group flex flex-1 basis-[160px] items-center gap-4 ${
                 index < stats.length - 1 ? "sm:border-r sm:border-gold/25 sm:pr-6" : ""
               }`}
             >
-              <Icon paths={stat.icon.paths} size={26} strokeWidth={1.6} className="shrink-0 text-gold" />
+              <Icon paths={stat.icon.paths} size={26} strokeWidth={1.6} className="shrink-0 text-gold transition-transform duration-300 group-hover:scale-110" />
               <div>
                 <p className="font-serif text-2xl font-bold text-white">{stat.value}</p>
                 <p className="mt-0.5 text-[12.5px] whitespace-nowrap text-white/70">{stat.label}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

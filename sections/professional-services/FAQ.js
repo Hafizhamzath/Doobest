@@ -4,6 +4,7 @@ import { useState } from "react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Icon from "@/components/ui/Icon";
+import Reveal from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
 import { professionalServicesFaq } from "@/constants/professionalServicesFaq";
 
@@ -23,8 +24,8 @@ export default function FAQ() {
         {professionalServicesFaq.map((item, index) => {
           const isOpen = index === openIndex;
           return (
+            <Reveal key={item.question} delay={index * 60}>
             <div
-              key={item.question}
               className={cn(
                 "overflow-hidden rounded-2xl border bg-white transition-colors duration-300",
                 isOpen ? "border-maroon/30 shadow-[0_14px_30px_rgba(100,16,16,0.1)]" : "border-ink/[0.08]"
@@ -68,6 +69,7 @@ export default function FAQ() {
                 </div>
               </div>
             </div>
+            </Reveal>
           );
         })}
       </div>

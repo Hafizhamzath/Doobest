@@ -5,6 +5,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import FormField from "@/components/ui/FormField";
+import Reveal from "@/components/ui/Reveal";
 import { footerServiceLinks } from "@/constants/footer";
 
 const contactItems = [
@@ -102,9 +103,9 @@ export default function GetInTouchForm() {
             We are just a call or message away.
           </p>
           <div className="flex flex-col gap-6.5">
-            {contactItems.map((item) => (
-              <div key={item.label} className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-maroon text-gold">
+            {contactItems.map((item, index) => (
+              <Reveal key={item.label} delay={index * 80} className="group flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-maroon text-gold transition-transform duration-300 group-hover:scale-110">
                   <Icon paths={item.icon.paths} size={19} strokeWidth={1.8} />
                 </div>
                 <div>
@@ -115,7 +116,7 @@ export default function GetInTouchForm() {
                     </p>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -101,12 +101,17 @@ export default function Hero() {
           />
 
           <div className="pointer-events-none absolute inset-0 hidden sm:block">
-            {valueBadges.map((badge) => (
+            {valueBadges.map((badge, index) => (
               <div
                 key={badge.label}
                 tabIndex={0}
                 className="group pointer-events-auto absolute h-[9%] w-[9%] -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full outline-none"
-                style={{ left: badge.left, top: badge.top }}
+                style={{
+                  left: badge.left,
+                  top: badge.top,
+                  animation: "floatY 3.8s ease-in-out infinite",
+                  animationDelay: `${index * 0.25}s`,
+                }}
               >
                 <span className="absolute inset-0 scale-100 rounded-full bg-gold/0 transition-all duration-500 group-hover:scale-125 group-hover:bg-gold/10 group-focus-visible:scale-125 group-focus-visible:bg-gold/10" />
 

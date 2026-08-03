@@ -2,6 +2,7 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
 
 const leaders = [
   {
@@ -51,10 +52,10 @@ export default function Leadership() {
       />
 
       <div className="mt-12 mb-10 flex flex-wrap justify-center gap-6">
-        {leaders.map((leader) => (
+        {leaders.map((leader, index) => (
+          <Reveal key={leader.name} delay={index * 90} className="flex max-w-[380px] min-w-[280px] flex-1 basis-[320px]">
           <div
-            key={leader.name}
-            className="group flex max-w-[380px] min-w-[280px] flex-1 basis-[320px] items-stretch overflow-hidden rounded-2xl border border-ink/[0.06] bg-white text-left shadow-[0_10px_30px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(100,16,16,0.16)]"
+            className="group flex w-full items-stretch overflow-hidden rounded-2xl border border-ink/[0.06] bg-white text-left shadow-[0_10px_30px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(100,16,16,0.16)]"
           >
             <div className="relative w-[130px] shrink-0 overflow-hidden">
               <Image
@@ -85,6 +86,7 @@ export default function Leadership() {
               </a>
             </div>
           </div>
+          </Reveal>
         ))}
       </div>
 

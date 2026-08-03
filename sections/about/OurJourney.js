@@ -2,6 +2,7 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
+import Reveal from "@/components/ui/Reveal";
 
 const journey = [
   {
@@ -64,9 +65,9 @@ export default function OurJourney() {
             aria-hidden="true"
             className="absolute top-2 bottom-2 left-[19px] w-px bg-maroon/25"
           />
-          {journey.map((item) => (
-            <div key={item.year} className="relative flex items-start gap-5">
-              <div className="z-[1] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-maroon text-white">
+          {journey.map((item, index) => (
+            <Reveal key={item.year} delay={index * 110} className="relative flex items-start gap-5">
+              <div className="group z-[1] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-maroon text-white transition-all duration-300 hover:scale-110 hover:bg-gold hover:text-maroon">
                 <Icon paths={item.icon.paths} size={18} strokeWidth={1.6} />
               </div>
               <div>
@@ -76,7 +77,7 @@ export default function OurJourney() {
                   {item.desc}
                 </p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

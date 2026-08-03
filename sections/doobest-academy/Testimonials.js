@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 
 const testimonials = [
   {
@@ -53,15 +54,15 @@ export default function Testimonials() {
       </div>
 
       <div className="grid flex-1 basis-[600px] grid-cols-1 gap-6 sm:grid-cols-3">
-        {testimonials.map((testimonial) => (
+        {testimonials.map((testimonial, index) => (
+          <Reveal key={testimonial.name} delay={index * 100} className="h-full">
           <div
-            key={testimonial.name}
-            className="rounded-2xl bg-white px-6 py-7 shadow-[0_14px_30px_rgba(17,17,17,0.06)]"
+            className="flex h-full flex-col rounded-2xl bg-white px-6 py-7 shadow-[0_14px_30px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(100,16,16,0.14)]"
           >
             <p className="mb-3.5 font-serif text-4xl leading-[0.5] text-maroon" aria-hidden="true">
               &ldquo;
             </p>
-            <p className="mb-5 text-[13.5px] leading-relaxed text-body">
+            <p className="mb-5 flex-1 text-[13.5px] leading-relaxed text-body">
               {testimonial.quote}
             </p>
             <div className="flex items-center gap-3">
@@ -78,6 +79,7 @@ export default function Testimonials() {
               </div>
             </div>
           </div>
+          </Reveal>
         ))}
       </div>
     </Container>

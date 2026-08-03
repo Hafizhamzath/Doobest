@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import Icon from "@/components/ui/Icon";
+import Reveal from "@/components/ui/Reveal";
 
 const processSteps = [
   {
@@ -108,10 +109,10 @@ export default function Process() {
           className="absolute top-[38px] right-[8%] left-[8%] hidden h-0 border-t-2 border-dotted border-gold/50 md:block"
         />
         <div className="grid w-full grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:grid-cols-5">
-          {processSteps.map((step) => (
-            <div key={step.num} className="relative z-[1] flex flex-col items-center px-2">
+          {processSteps.map((step, index) => (
+            <Reveal key={step.num} delay={index * 90} className="group relative z-[1] flex flex-col items-center px-2">
               <div className="mb-4.5 flex items-center gap-3.5">
-                <div className="flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-full bg-[#2A0808] text-white">
+                <div className="flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-full bg-[#2A0808] text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-maroon">
                   <Icon paths={step.icon.paths} size={22} strokeWidth={1.6} />
                 </div>
                 <div className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-gold/50 bg-cream text-sm font-bold text-maroon">
@@ -122,16 +123,17 @@ export default function Process() {
               <p className="max-w-[160px] text-[12.5px] leading-relaxed text-muted">
                 {step.desc}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
 
       <div className="flex flex-wrap rounded-2xl border border-ink/10 px-5 py-9">
         {trustPoints.map((point, index) => (
-          <div
+          <Reveal
             key={point.title}
-            className={`min-w-[150px] flex-1 basis-[160px] px-4.5 text-center ${
+            delay={index * 80}
+            className={`group min-w-[150px] flex-1 basis-[160px] px-4.5 text-center ${
               index < trustPoints.length - 1 ? "lg:border-r lg:border-ink/[0.08]" : ""
             }`}
           >
@@ -139,11 +141,11 @@ export default function Process() {
               paths={point.icon.paths}
               size={30}
               strokeWidth={1.6}
-              className="mx-auto mb-3.5 text-maroon"
+              className="mx-auto mb-3.5 text-maroon transition-transform duration-300 group-hover:scale-110"
             />
             <p className="mb-2 text-[13.5px] font-bold text-ink">{point.title}</p>
             <p className="text-xs leading-relaxed text-muted">{point.desc}</p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </Container>

@@ -1,6 +1,7 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
+import Reveal from "@/components/ui/Reveal";
 import { approachSteps } from "@/constants/approach";
 
 export default function OurApproach() {
@@ -27,26 +28,28 @@ export default function OurApproach() {
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-4 lg:grid-cols-8 lg:gap-x-3">
             {approachSteps.map((step, index) => (
-              <div key={step.num} className="relative text-center">
+              <Reveal key={step.num} delay={index * 90} className="relative text-center">
                 {index < approachSteps.length - 1 && (
                   <span
                     aria-hidden="true"
                     className="absolute top-[29px] left-[calc(50%+30px)] hidden h-0 w-[calc(100%-20px)] border-t-[1.5px] border-dashed border-gold/40 lg:block"
                   />
                 )}
-                <p className="mb-3 text-[13px] font-bold tracking-wide text-gold">
-                  {step.num}
-                </p>
-                <div className="relative z-[1] mx-auto mb-5 flex h-[58px] w-[58px] items-center justify-center rounded-full border-[1.5px] border-white/35 bg-[#1a0808]">
-                  <Icon paths={step.icon.paths} size={22} strokeWidth={1.5} className="text-white" />
+                <div className="group cursor-default">
+                  <p className="mb-3 text-[13px] font-bold tracking-wide text-gold">
+                    {step.num}
+                  </p>
+                  <div className="relative z-[1] mx-auto mb-5 flex h-[58px] w-[58px] items-center justify-center rounded-full border-[1.5px] border-white/35 bg-[#1a0808] transition-all duration-300 group-hover:scale-110 group-hover:border-gold group-hover:bg-gold">
+                    <Icon paths={step.icon.paths} size={22} strokeWidth={1.5} className="text-white transition-colors duration-300 group-hover:text-maroon" />
+                  </div>
+                  <p className="mb-2.5 font-serif text-lg font-bold text-white transition-colors duration-300 group-hover:text-gold">
+                    {step.title}
+                  </p>
+                  <p className="mx-auto max-w-[170px] text-[12.5px] leading-relaxed text-white/60">
+                    {step.desc}
+                  </p>
                 </div>
-                <p className="mb-2.5 font-serif text-lg font-bold text-white">
-                  {step.title}
-                </p>
-                <p className="mx-auto max-w-[170px] text-[12.5px] leading-relaxed text-white/60">
-                  {step.desc}
-                </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
