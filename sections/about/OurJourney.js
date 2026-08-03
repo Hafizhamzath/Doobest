@@ -84,8 +84,8 @@ export default function OurJourney() {
       <div className="min-w-[280px] flex-1 basis-[320px]">
         <div className="relative h-full min-h-[280px] overflow-hidden rounded-2xl shadow-[0_25px_50px_rgba(17,17,17,0.16)]">
           <Image
-            src="/assets/about-journey-desk.png"
-            alt="Doobest branded notebook, mug and globe on an executive desk"
+            src="/assets/about-journey-desk-v2.jpg"
+            alt="Doobest branded office desk at night with city skyline view"
             fill
             sizes="(min-width: 1024px) 30vw, 90vw"
             className="object-cover"
