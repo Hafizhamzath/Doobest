@@ -4,29 +4,29 @@ import Button from "@/components/ui/Button";
 const testimonials = [
   {
     quote:
-      "Doobest Academy helped me build strong accounting skills and gave me the confidence to start my career. The practical approach is excellent!",
-    name: "Fathima N.",
-    role: "Junior Accountant",
+      "Doobest has transformed how we manage our finances. Their bookkeeping and compliance support gives us complete peace of mind every month.",
+    name: "Nizam H.",
+    role: "Business Owner",
     location: "Sri Lanka",
-    initials: "FN",
+    initials: "NH",
     avatarClass: "bg-maroon",
   },
   {
     quote:
-      "The TallyPrime course was very practical and easy to understand. I could apply the knowledge immediately at my workplace.",
-    name: "Rashid K.",
-    role: "Accountant",
+      "The team handled our VAT registration and filing seamlessly. Professional, responsive, and always on time.",
+    name: "Priya S.",
+    role: "Finance Manager",
     location: "Sri Lanka",
-    initials: "RK",
+    initials: "PS",
     avatarClass: "bg-[#2a0808]",
   },
   {
     quote:
-      "Excel for Accountants course improved my reporting skills and saved me hours of work every week. Highly recommended!",
-    name: "Areej M.",
-    role: "Finance Executive",
+      "Outsourcing our payroll to Doobest saved us hours every month and eliminated errors completely. Highly recommend their services.",
+    name: "Fazal R.",
+    role: "Managing Director",
     location: "Sri Lanka",
-    initials: "AM",
+    initials: "FR",
     avatarClass: "bg-[#8a1c1c]",
   },
 ];
@@ -36,19 +36,19 @@ export default function Testimonials() {
     <Container as="section" className="flex flex-wrap gap-10 pb-20 md:pb-24">
       <div className="flex-1 basis-[240px] lg:max-w-[260px]">
         <p className="mb-4 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
-          Student Success Stories
+          Client Success Stories
         </p>
         <h2 className="mb-4 font-serif text-2xl leading-snug font-semibold text-ink">
-          Real People.
+          Trusted By.
           <br />
-          Real <em className="font-bold text-maroon not-italic">Growth.</em>
+          Loved <em className="font-bold text-maroon not-italic">By Clients.</em>
         </h2>
         <p className="mb-5 text-[13.5px] leading-relaxed text-muted">
-          See how our students achieved their goals with the right guidance
-          and support.
+          See how businesses across Sri Lanka and the UAE rely on Doobest for
+          accurate, compliant, and stress-free accounting.
         </p>
         <Button href="#" variant="text">
-          View All Testimonials
+          View All Reviews
         </Button>
       </div>
 

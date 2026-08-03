@@ -3,6 +3,7 @@ import ServicesExplorer from "@/sections/professional-services/ServicesExplorer"
 import OurProcess from "@/sections/professional-services/OurProcess";
 import Industries from "@/sections/professional-services/Industries";
 import WhyChooseCaseStudies from "@/sections/professional-services/WhyChooseCaseStudies";
+import Testimonials from "@/sections/professional-services/Testimonials";
 import FAQ from "@/sections/professional-services/FAQ";
 import CtaNewsletter from "@/sections/professional-services/CtaNewsletter";
 
@@ -20,6 +21,7 @@ export default function ProfessionalServicesPage() {
       <OurProcess />
       <Industries />
       <WhyChooseCaseStudies />
+      <Testimonials />
       <FAQ />
       <CtaNewsletter />
     </>
