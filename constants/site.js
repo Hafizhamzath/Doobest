@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "Doobest",
+  url: "https://doobestco.com",
   legalName: "Doobest Consultancy (Pvt) Ltd",
   tagline: "Consultancy (Pvt) Ltd",
   description:

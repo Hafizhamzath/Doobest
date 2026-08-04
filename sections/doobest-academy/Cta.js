@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import Reveal from "@/components/ui/Reveal";
+import { useEnrollModal } from "@/sections/doobest-academy/EnrollModalProvider";
 
 const ctaPoints = [
   {
@@ -31,6 +34,8 @@ const ctaPoints = [
 ];
 
 export default function Cta() {
+  const { openEnroll } = useEnrollModal();
+
   return (
     <Container as="section" className="py-14 md:py-16">
       <div className="flex flex-wrap items-center gap-10 overflow-hidden rounded-3xl bg-[linear-gradient(120deg,#5a1010,#2a0808)]">
@@ -48,7 +53,7 @@ export default function Cta() {
             Join Doobest Academy and take the first step towards a successful
             career in finance.
           </p>
-          <Button href="#" variant="inverse">
+          <Button type="button" variant="inverse" onClick={() => openEnroll()}>
             Enroll Now
           </Button>
         </div>

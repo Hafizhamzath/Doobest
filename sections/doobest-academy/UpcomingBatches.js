@@ -1,11 +1,15 @@
+"use client";
+
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import Reveal from "@/components/ui/Reveal";
+import { useEnrollModal } from "@/sections/doobest-academy/EnrollModalProvider";
 
 const batches = [
   {
     title: "Junior Accountant Program",
+    course: "Practical Accounting Training & Coaching",
     type: "Weekend Batch",
     days: "Sat & Sun",
     time: "Flexible Timing",
@@ -13,6 +17,7 @@ const batches = [
   },
   {
     title: "Accounting Software Courses",
+    course: "Accounting Software Courses",
     type: "Weekend Batch",
     days: "Sat & Sun",
     time: "Flexible Timing",
@@ -20,6 +25,7 @@ const batches = [
   },
   {
     title: "Accountant Program",
+    course: "Practical Accounting Training & Coaching",
     type: "Weekend Batch",
     days: "Sat & Sun",
     time: "Flexible Timing",
@@ -27,6 +33,7 @@ const batches = [
   },
   {
     title: "Advanced Excel Programs",
+    course: "MS Excel Programs",
     type: "Weekend Batch",
     days: "Sat & Sun",
     time: "Flexible Timing",
@@ -35,6 +42,8 @@ const batches = [
 ];
 
 export default function UpcomingBatches() {
+  const { openEnroll } = useEnrollModal();
+
   return (
     <section className="bg-ink py-16 md:py-20">
       <Container className="flex flex-wrap gap-10">
@@ -89,15 +98,16 @@ export default function UpcomingBatches() {
                 </div>
               </div>
               <div className="mt-5 flex items-center justify-between border-t border-ink/10 pt-4">
-                <a
-                  href="#"
+                <button
+                  type="button"
+                  onClick={() => openEnroll(batch.course)}
                   className="inline-flex items-center gap-1.5 text-[13px] font-bold text-ink transition-colors duration-200 hover:text-maroon"
                 >
                   Enroll Now{" "}
                   <span aria-hidden="true" className="inline-block transition-transform duration-200 group-hover:translate-x-1">
                     →
                   </span>
-                </a>
+                </button>
               </div>
             </div>
             </Reveal>

@@ -8,9 +8,9 @@ export const footerServiceLinks = [
 ];
 
 export const socialLinks = [
-  { name: "LinkedIn", href: "#", icon: "linkedin" },
-  { name: "Facebook", href: "#", icon: "facebook" },
-  { name: "Instagram", href: "#", icon: "instagram" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/doobest/", icon: "linkedin" },
+  { name: "Facebook", href: "https://www.facebook.com/share/1BTai3Xr6V/?mibextid=wwXIfr", icon: "facebook" },
+  { name: "Instagram", href: "https://www.instagram.com/doobest?igsh=MTZqcGk5YXg4bHBxdQ%3D%3D&utm_source=qr", icon: "instagram" },
 ];
 
 export const legalLinks = [

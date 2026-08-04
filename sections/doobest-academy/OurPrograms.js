@@ -1,11 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import Reveal from "@/components/ui/Reveal";
 import { academyCourses } from "@/constants/academyCourses";
+import { useEnrollModal } from "@/sections/doobest-academy/EnrollModalProvider";
 
 export default function OurPrograms() {
+  const { openEnroll } = useEnrollModal();
+
   return (
     <section id="our-programs" className="bg-ink py-16 md:py-20">
       <Container className="flex flex-wrap gap-10">
@@ -43,7 +48,7 @@ export default function OurPrograms() {
         <div className="grid flex-1 basis-[600px] grid-cols-1 gap-5 sm:grid-cols-2">
           {academyCourses.map((course, index) => (
             <Reveal key={course.title} delay={index * 90} className="h-full">
-              <div className="group flex h-full min-h-[450px] flex-col overflow-hidden rounded-2xl border border-gold/25 bg-cream transition-shadow duration-300 hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)]">
+              <div className="group flex h-full min-h-[560px] flex-col overflow-hidden rounded-2xl border border-gold/25 bg-cream transition-shadow duration-300 hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)]">
                 <div className="relative h-[150px] w-full shrink-0 overflow-hidden">
                   <Image
                     src={course.image}
@@ -63,39 +68,77 @@ export default function OurPrograms() {
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col p-5">
-                  <p className="mb-2.5 font-serif text-[17px] leading-tight font-bold text-ink">
-                    {course.title}
-                  </p>
-                  <p className="mb-3 text-[12.5px] leading-relaxed text-muted">
+                  <div className="mb-2.5 flex items-start justify-between gap-2">
+                    <p className="font-serif text-[17px] leading-tight font-bold text-ink">
+                      {course.title}
+                    </p>
+                    {course.items && (
+                      <span className="mt-0.5 inline-flex shrink-0 items-center rounded-full bg-maroon/10 px-2.5 py-1 text-[10px] font-bold whitespace-nowrap text-maroon uppercase">
+                        {course.items.length} {course.items.length === 1 ? "Module" : "Modules"}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mb-3.5 text-[12.5px] leading-relaxed text-muted">
                     {course.desc}
                   </p>
                   {course.items && (
-                    <ul className="mb-4 flex flex-col gap-1.5">
-                      {course.items.map((item) => (
-                        <li
-                          key={item}
-                          className="flex items-start gap-1.5 text-[11.5px] leading-snug text-ink/75"
-                        >
-                          <span className="mt-0.5 shrink-0 text-maroon" aria-hidden="true">
-                            ✓
+                    <div className="mb-4 flex flex-wrap gap-1.5">
+                      {course.items.map((item) =>
+                        item.logo ? (
+                          <span
+                            key={item.label}
+                            title={item.label}
+                            className="flex h-7 w-7 items-center justify-center rounded-full bg-white ring-1 ring-ink/10"
+                          >
+                            <span className="relative h-4 w-4">
+                              <Image src={item.logo} alt={item.label} fill sizes="16px" className="object-contain" />
+                            </span>
                           </span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                        ) : (
+                          <span
+                            key={item.label}
+                            className="inline-flex items-center gap-1 rounded-full bg-maroon/10 px-2.5 py-1 text-[10px] font-semibold text-maroon"
+                          >
+                            <span aria-hidden="true">✓</span>
+                            {item.label}
+                          </span>
+                        )
+                      )}
+                    </div>
                   )}
-                  <a
-                    href="#"
-                    className="mt-auto inline-flex items-center gap-1.5 text-[13px] font-bold text-ink transition-colors duration-200 hover:text-maroon"
-                  >
-                    Learn More{" "}
-                    <span
-                      aria-hidden="true"
-                      className="inline-block transition-transform duration-200 group-hover:translate-x-1"
+                  {course.outcomes && (
+                    <div className="flex flex-1 flex-col justify-center">
+                      <p className="mb-2 text-[10px] font-bold tracking-wide text-maroon/70 uppercase">
+                        What You&rsquo;ll Learn
+                      </p>
+                      <ul className="flex flex-col gap-2">
+                        {course.outcomes.map((outcome) => (
+                          <li
+                            key={outcome}
+                            className="flex items-start gap-2 text-[11.5px] leading-snug text-ink/75"
+                          >
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                            {outcome}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  <div className="mt-4 border-t border-ink/10 pt-4">
+                    <button
+                      type="button"
+                      onClick={() => openEnroll(course.title)}
+                      className="inline-flex items-center gap-1.5 text-[13px] font-bold text-ink transition-colors duration-200 hover:text-maroon"
                     >
-                      →
-                    </span>
-                  </a>
+                      Learn More{" "}
+                      <span
+                        aria-hidden="true"
+                        className="inline-block transition-transform duration-200 group-hover:translate-x-1"
+                      >
+                        →
+                      </span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </Reveal>

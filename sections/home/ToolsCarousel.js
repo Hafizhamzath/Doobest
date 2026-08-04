@@ -23,13 +23,13 @@ export default function ToolsCarousel() {
               key={`${tool.name}-${index}`}
               className="flex shrink-0 flex-col items-center gap-2.5 transition-transform duration-300 hover:-translate-y-1"
             >
-              <div className="relative h-10 w-24 sm:h-12 sm:w-28">
+              <div className="flex h-10 w-24 items-center justify-center sm:h-12 sm:w-28">
                 <Image
                   src={tool.logo}
                   alt={tool.name}
-                  fill
-                  sizes="120px"
-                  className="object-contain"
+                  width={tool.width}
+                  height={tool.height}
+                  className="h-8 w-auto object-contain sm:h-9"
                 />
               </div>
               <span className="text-[11px] font-semibold tracking-wide text-faint">

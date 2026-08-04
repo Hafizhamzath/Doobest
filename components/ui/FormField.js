@@ -33,8 +33,10 @@ export default function FormField({
       {as === "select" ? (
         <select
           id={id}
+          required={required}
           aria-invalid={!!error}
           aria-describedby={errorId}
+          aria-required={required}
           className={cn(fieldClasses(error), "text-faint")}
           {...props}
         >
@@ -48,8 +50,10 @@ export default function FormField({
       ) : as === "textarea" ? (
         <textarea
           id={id}
+          required={required}
           aria-invalid={!!error}
           aria-describedby={errorId}
+          aria-required={required}
           rows={props.rows ?? 4}
           className={cn(fieldClasses(error), "min-h-[110px] resize-y")}
           {...props}
@@ -58,8 +62,10 @@ export default function FormField({
         <input
           id={id}
           type={type}
+          required={required}
           aria-invalid={!!error}
           aria-describedby={errorId}
+          aria-required={required}
           className={fieldClasses(error)}
           {...props}
         />

@@ -8,7 +8,7 @@ import Icon from "@/components/ui/Icon";
 
 const stats = [
   {
-    value: "500+",
+    value: "50+",
     label: "Students Trained",
     icon: {
       paths: [
@@ -20,12 +20,12 @@ const stats = [
     },
   },
   {
-    value: "20+",
+    value: "5+",
     label: "Expert Instructors",
     icon: { paths: ["M4 12l8-4 8 4-8 4-8-4z", "M4 12v5c2 1.5 5 2 8 2s6-.5 8-2v-5"] },
   },
   {
-    value: "15+",
+    value: "10+",
     label: "Courses",
     icon: { paths: ["M8 3h8l2 4H6l2-4z", "M6 7v13a1 1 0 001 1h10a1 1 0 001-1V7"] },
   },
