@@ -33,20 +33,20 @@ const heroCards = [
 export default function Hero() {
   return (
     <section className="mx-auto flex max-w-[1920px] flex-wrap items-stretch">
-      <div className="flex flex-1 basis-[480px] flex-col justify-center px-6 py-16 sm:px-8 lg:px-16 lg:py-20">
+      <div className="flex flex-1 basis-[480px] flex-col justify-center px-6 py-16 text-center sm:px-8 lg:px-16 lg:py-20 lg:text-left">
         <p className="mb-5 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           Professional Services
         </p>
-        <h1 className="mb-6 max-w-[600px] font-serif text-4xl leading-[1.1] font-semibold text-ink sm:text-5xl lg:text-[56px]">
+        <h1 className="mx-auto mb-6 max-w-[600px] font-serif text-4xl leading-[1.1] font-semibold text-ink sm:text-5xl lg:mx-0 lg:text-[56px]">
           Smart Services for{" "}
           <span className="text-maroon">Smart Business.</span>
         </h1>
-        <p className="mb-9 max-w-[480px] text-base leading-relaxed text-body">
+        <p className="mx-auto mb-9 max-w-[480px] text-base leading-relaxed text-body lg:mx-0">
           Doobest provides end-to-end accounting and financial solutions that
           help you stay compliant, make better decisions, and build a
           stronger tomorrow.
         </p>
-        <div className="flex flex-wrap items-center gap-7">
+        <div className="flex flex-wrap items-center justify-center gap-7 lg:justify-start">
           <Button href="/contact">Book a Consultation</Button>
           <Button href="#services-explorer" variant="text">
             Explore Services

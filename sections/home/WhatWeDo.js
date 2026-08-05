@@ -251,11 +251,11 @@ export default function WhatWeDo() {
 
       <Container size="medium" className="relative z-[1]">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.72fr_1.28fr]">
-          <div className="max-w-[400px]">
+          <div className="mx-auto max-w-[400px] text-center lg:mx-0 lg:text-left">
             <p className="mb-4 text-xs font-bold tracking-[0.2em] text-gold uppercase">
               What We Do
             </p>
-            <span className="mb-4 block h-0.5 w-9 bg-gold" aria-hidden="true" />
+            <span className="mx-auto mb-4 block h-0.5 w-9 bg-gold lg:mx-0" aria-hidden="true" />
             <h2 className="mb-5 font-serif text-3xl leading-tight font-semibold text-white md:text-4xl">
               Our Key Services
             </h2>

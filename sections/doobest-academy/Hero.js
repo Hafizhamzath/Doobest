@@ -75,7 +75,7 @@ const heroBadges = [
 export default function Hero() {
   return (
     <Container as="section" className="flex flex-wrap gap-8 pt-12 md:pt-16">
-      <div className="max-w-[520px] flex-1 basis-[420px]">
+      <div className="mx-auto max-w-[520px] flex-1 basis-[420px] text-center lg:mx-0 lg:text-left">
         <p className="mb-5 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           Doobest Academy
         </p>
@@ -84,11 +84,11 @@ export default function Hero() {
           <br className="hidden sm:block" /> Build Your{" "}
           <span className="text-maroon">Future.</span>
         </h1>
-        <p className="mb-8 max-w-[420px] text-base leading-relaxed text-body">
+        <p className="mx-auto mb-8 max-w-[420px] text-base leading-relaxed text-body lg:mx-0">
           Practical knowledge, professional coaching, and industry-relevant
           skills to build successful careers in accounting and finance.
         </p>
-        <div className="mb-11 flex flex-wrap items-center gap-7">
+        <div className="mb-11 flex flex-wrap items-center justify-center gap-7 lg:justify-start">
           <Button href="#our-programs">Explore Courses</Button>
           <Button
             href="#"
@@ -106,10 +106,10 @@ export default function Hero() {
             Download Brochure
           </Button>
         </div>
-        <div className="grid max-w-[480px] grid-cols-2 gap-6 sm:grid-cols-4">
+        <div className="mx-auto grid max-w-[480px] grid-cols-2 gap-6 text-center sm:grid-cols-4 lg:mx-0 lg:text-left">
           {stats.map((stat) => (
             <div key={stat.label}>
-              <Icon paths={stat.icon.paths} size={24} strokeWidth={1.5} className="mb-2.5 text-maroon" />
+              <Icon paths={stat.icon.paths} size={24} strokeWidth={1.5} className="mx-auto mb-2.5 text-maroon lg:mx-0" />
               <p className="font-serif text-2xl font-bold text-ink">{stat.value}</p>
               <p className="mt-0.5 text-xs text-muted">{stat.label}</p>
             </div>

@@ -35,7 +35,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <Container as="section" className="flex flex-wrap gap-10 pb-20 md:pb-24">
-      <div className="flex-1 basis-[240px] lg:max-w-[260px]">
+      <div className="flex-1 basis-[240px] text-center lg:max-w-[260px] lg:text-left">
         <p className="mb-4 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           Client Success Stories
         </p>

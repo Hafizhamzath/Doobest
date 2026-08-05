@@ -7,32 +7,30 @@ import Icon from "@/components/ui/Icon";
 import { academyCourses } from "@/constants/academyCourses";
 import { siteConfig } from "@/constants/site";
 import { buildMailtoLink } from "@/lib/mailtoTemplate";
+import { validateRequired, validateEmail, validatePhone } from "@/lib/formValidation";
 
 const courseOptions = academyCourses.map((course) => course.title);
 
+const fieldValidators = {
+  name: (value) => validateRequired(value, "Please enter your full name."),
+  email: validateEmail,
+  phone: validatePhone,
+  course: (value) => validateRequired(value, "Please select a course."),
+};
+
 function validate(formData) {
   const errors = {};
-  if (!formData.get("name")?.trim()) {
-    errors.name = "Please enter your full name.";
-  }
-  const email = formData.get("email")?.trim();
-  if (!email) {
-    errors.email = "Please enter your email address.";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errors.email = "Please enter a valid email address.";
-  }
-  if (!formData.get("phone")?.trim()) {
-    errors.phone = "Please enter your phone number.";
-  }
-  if (!formData.get("course")?.trim()) {
-    errors.course = "Please select a course.";
-  }
+  Object.entries(fieldValidators).forEach(([field, validator]) => {
+    const message = validator(formData.get(field) ?? "");
+    if (message) errors[field] = message;
+  });
   return errors;
 }
 
 export default function EnrollForm({ course, onClose }) {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -50,10 +48,12 @@ export default function EnrollForm({ course, onClose }) {
     const mailtoLink = buildMailtoLink({
       to: siteConfig.academyEmail,
       title: `Course Enrollment Request - ${selectedCourse}`,
+      titleIcon: "🎓",
       formName: "Doobest Academy — Enrollment Form",
       sections: [
         {
           heading: "Student Details",
+          icon: "👤",
           fields: [
             { label: "Name", value: name },
             { label: "Email", value: email },
@@ -62,10 +62,12 @@ export default function EnrollForm({ course, onClose }) {
         },
         {
           heading: "Enrollment Details",
+          icon: "📚",
           fields: [{ label: "Course", value: selectedCourse }],
         },
         {
           heading: "Message",
+          icon: "💬",
           fields: [{ label: "Notes", value: message }],
         },
       ],
@@ -75,13 +77,30 @@ export default function EnrollForm({ course, onClose }) {
     setSubmitted(true);
   }
 
-  function clearError(field) {
+  function setFieldError(field, message) {
     setErrors((current) => {
-      if (!current[field]) return current;
       const next = { ...current };
-      delete next[field];
+      if (message) {
+        next[field] = message;
+      } else {
+        delete next[field];
+      }
       return next;
     });
+  }
+
+  function handleFieldBlur(event) {
+    const { name, value } = event.target;
+    setTouched((current) => ({ ...current, [name]: true }));
+    const validator = fieldValidators[name];
+    if (validator) setFieldError(name, validator(value));
+  }
+
+  function handleFieldChange(event) {
+    const { name, value } = event.target;
+    if (!touched[name]) return;
+    const validator = fieldValidators[name];
+    if (validator) setFieldError(name, validator(value));
   }
 
   return (
@@ -122,7 +141,8 @@ export default function EnrollForm({ course, onClose }) {
               name="name"
               placeholder="Enter your full name"
               error={errors.name}
-              onChange={() => clearError("name")}
+              onBlur={handleFieldBlur}
+              onChange={handleFieldChange}
             />
             <FormField
               label="Email Address"
@@ -131,7 +151,8 @@ export default function EnrollForm({ course, onClose }) {
               name="email"
               placeholder="Enter your email address"
               error={errors.email}
-              onChange={() => clearError("email")}
+              onBlur={handleFieldBlur}
+              onChange={handleFieldChange}
             />
             <FormField
               label="Phone Number"
@@ -140,7 +161,8 @@ export default function EnrollForm({ course, onClose }) {
               name="phone"
               placeholder="Enter your phone number"
               error={errors.phone}
-              onChange={() => clearError("phone")}
+              onBlur={handleFieldBlur}
+              onChange={handleFieldChange}
             />
             <FormField
               label="Course"
@@ -150,7 +172,8 @@ export default function EnrollForm({ course, onClose }) {
               defaultValue={course}
               options={courseOptions}
               error={errors.course}
-              onChange={() => clearError("course")}
+              onBlur={handleFieldBlur}
+              onChange={handleFieldChange}
             />
             <FormField
               label="Message"

@@ -10,17 +10,17 @@ export default function AcademyTeaser() {
   return (
     <Container as="section" size="medium" className="py-20 md:py-24">
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.62fr_1.6fr]">
-        <div>
+        <div className="text-center lg:text-left">
           <p className="mb-4 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
             Doobest Academy
           </p>
-          <span className="mb-4 block h-0.5 w-9 bg-maroon" aria-hidden="true" />
+          <span className="mx-auto mb-4 block h-0.5 w-9 bg-maroon lg:mx-0" aria-hidden="true" />
           <h2 className="mb-4 font-serif text-3xl leading-tight font-semibold text-ink md:text-4xl">
             Build Skills.
             <br className="hidden sm:block" /> Build Your{" "}
             <em className="font-bold text-maroon not-italic">Future.</em>
           </h2>
-          <p className="mb-7 max-w-[300px] text-sm leading-relaxed text-muted">
+          <p className="mx-auto mb-7 max-w-[300px] text-sm leading-relaxed text-muted lg:mx-0">
             Our Career Development Department focuses on preparing
             individuals for successful accounting careers through practical
             learning and professional coaching.

@@ -7,7 +7,7 @@ export default function Industries() {
   return (
     <section className="bg-[linear-gradient(120deg,#1a0808,#3a0d0d_60%,#2a0909)] py-16">
       <Container className="flex flex-wrap items-center gap-10">
-        <div className="flex-1 basis-[260px] lg:max-w-[300px]">
+        <div className="flex-1 basis-[260px] text-center lg:text-left lg:max-w-[300px]">
           <p className="mb-3.5 text-xs font-bold tracking-[0.2em] text-gold uppercase">
             Industries We Serve
           </p>

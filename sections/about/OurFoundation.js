@@ -37,7 +37,7 @@ const pillars = [
 export default function OurFoundation() {
   return (
     <Container as="section" className="flex flex-wrap gap-12 pb-20 md:pb-24">
-      <div className="max-w-[300px] flex-1 basis-[260px]">
+      <div className="mx-auto max-w-[300px] flex-1 basis-[260px] text-center lg:mx-0 lg:text-left">
         <p className="mb-4 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           Our Foundation
         </p>
@@ -46,7 +46,7 @@ export default function OurFoundation() {
           <br />
           Guided by Values.
         </h2>
-        <span className="mb-5 block h-[3px] w-11 bg-maroon" aria-hidden="true" />
+        <span className="mx-auto mb-5 block h-[3px] w-11 bg-maroon lg:mx-0" aria-hidden="true" />
         <p className="text-sm leading-relaxed text-body">
           Our mission, vision and values shape everything we do. They guide
           how we serve our clients, support our team, and contribute to our

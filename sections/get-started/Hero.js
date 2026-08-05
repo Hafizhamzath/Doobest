@@ -37,7 +37,7 @@ const heroFeatures = [
 export default function Hero() {
   return (
     <Container as="section" size="wide" className="flex flex-wrap items-stretch gap-8 pt-12 pb-8 md:pt-16">
-      <div className="max-w-[420px] flex-1 basis-[340px] pr-0 lg:pr-6">
+      <div className="mx-auto max-w-[420px] flex-1 basis-[340px] pr-0 text-center lg:mx-0 lg:pr-6 lg:text-left">
         <p className="mb-5 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           Get Started
         </p>
@@ -45,14 +45,14 @@ export default function Hero() {
           Take the First Step Towards{" "}
           <span className="text-maroon">Financial Clarity.</span>
         </h1>
-        <span className="mb-6 block h-[3px] w-13 bg-gold" aria-hidden="true" />
+        <span className="mx-auto mb-6 block h-[3px] w-13 bg-gold lg:mx-0" aria-hidden="true" />
         <p className="mb-7 text-sm leading-relaxed text-body">
           Partner with Doobest and experience accounting solutions that bring
           accuracy, compliance, and confidence to your business.
         </p>
-        <div className="flex flex-wrap gap-5">
+        <div className="flex flex-wrap justify-center gap-5 lg:justify-start">
           {heroFeatures.map((feature) => (
-            <div key={feature.title} className="group flex max-w-[120px] flex-col items-start gap-2.5">
+            <div key={feature.title} className="group flex max-w-[120px] flex-col items-center gap-2.5 text-center lg:items-start lg:text-left">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F0E6DC] text-maroon transition-all duration-300 group-hover:scale-110 group-hover:bg-maroon group-hover:text-white">
                 <Icon paths={feature.icon.paths} size={19} strokeWidth={1.8} />
               </div>

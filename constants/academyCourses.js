@@ -41,8 +41,7 @@ export const academyCourses = [
     title: "MS Excel Programs",
     desc: "Practical Excel skills for accounting, reporting, and data analysis.",
     items: [
-      { label: "Basic Excel", logo: "/assets/tools/excel.svg" },
-      { label: "Advanced Excel", logo: "/assets/tools/excel.svg" },
+      { label: "MS Excel (Basic to Advanced)", logo: "/assets/tools/excel.svg" },
     ],
     outcomes: [
       "Create professional reports",

@@ -21,14 +21,14 @@ export default function ServicesExplorer() {
 
       <Container size="medium" className="relative z-[1]">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1fr_1.8fr] lg:items-start">
-          <div className="pt-2">
+          <div className="pt-2 text-center lg:text-left">
             <p className="mb-4 text-xs font-bold tracking-[0.2em] text-gold uppercase">
               Our Services
             </p>
             <h2 className="mb-5 font-serif text-3xl leading-tight font-semibold text-white md:text-4xl">
               Smart Services for <em className="font-bold text-gold not-italic">Smart Business</em>
             </h2>
-            <p className="max-w-[300px] text-sm leading-relaxed text-white/65">
+            <p className="mx-auto max-w-[300px] text-sm leading-relaxed text-white/65 lg:mx-0">
               Tailored services designed to meet your business needs at every
               stage of growth.
             </p>

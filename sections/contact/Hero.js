@@ -5,7 +5,7 @@ import Button from "@/components/ui/Button";
 export default function Hero() {
   return (
     <Container as="section" className="flex flex-wrap gap-10 pt-12 pb-8 md:pt-16">
-      <div className="max-w-[440px] flex-1 basis-[340px]">
+      <div className="mx-auto max-w-[440px] flex-1 basis-[340px] text-center lg:mx-0 lg:text-left">
         <p className="mb-5 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           Contact &amp; Consultation
         </p>
@@ -13,17 +13,17 @@ export default function Hero() {
           Let&rsquo;s Talk.
           <br className="hidden sm:block" /> Let&rsquo;s Grow <span className="text-maroon">Together.</span>
         </h1>
-        <span className="mb-6 block h-[3px] w-13 bg-gold" aria-hidden="true" />
+        <span className="mx-auto mb-6 block h-[3px] w-13 bg-gold lg:mx-0" aria-hidden="true" />
         <p className="mb-8 text-[14.5px] leading-relaxed text-body">
           Have a question, need expert advice, or ready to take your business
           to the next level? We&rsquo;re here to help. Reach out to us today.
         </p>
-        <div className="flex flex-wrap items-center gap-5">
+        <div className="flex flex-wrap items-center justify-center gap-5 lg:justify-start">
           <Button href="#get-in-touch" size="sm">
             Book a Free Consultation
           </Button>
-          <span className="h-8.5 w-px bg-ink/10" aria-hidden="true" />
-          <div className="flex items-center gap-3">
+          <span className="hidden h-8.5 w-px bg-ink/10 lg:block" aria-hidden="true" />
+          <div className="flex items-center gap-3 text-left">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F0E6DC] text-maroon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M6.6 10.8c1.4 2.8 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1.1z" />
@@ -56,17 +56,17 @@ export default function Hero() {
             className="object-cover object-center"
           />
         </div>
-        <div className="absolute top-[6%] right-0 z-[2] w-[210px] rounded-2xl bg-[#2A0808] px-6 py-7 shadow-[0_25px_50px_rgba(0,0,0,0.35)] sm:right-[-2%] sm:w-[230px]">
-          <div className="mb-4.5 flex h-9.5 w-9.5 items-center justify-center rounded-full border-[1.3px] border-gold font-serif text-lg font-bold text-gold">
+        <div className="absolute -top-16 -left-4 z-[2] w-[150px] rounded-2xl bg-[#2A0808] px-4 py-4 shadow-[0_25px_50px_rgba(0,0,0,0.35)] sm:-top-16 sm:-left-6 sm:w-[200px] sm:px-5 sm:py-5">
+          <div className="mb-2 flex h-6 w-6 items-center justify-center rounded-full border-[1.3px] border-gold font-serif text-[10px] font-bold text-gold sm:mb-2.5 sm:h-7.5 sm:w-7.5 sm:text-sm">
             &ldquo;
           </div>
-          <p className="mb-4.5 text-[13px] leading-relaxed text-white">
+          <p className="mb-2 text-[9.5px] leading-snug text-white sm:mb-3 sm:text-[12px] sm:leading-relaxed">
             Your success is our priority. Let&rsquo;s create clarity, build
             confidence, and achieve greatness together.
           </p>
-          <span className="mb-4 block h-px w-full bg-white/15" aria-hidden="true" />
-          <p className="mb-2.5 font-serif text-xl font-bold text-gold">Mohamed Amjath</p>
-          <p className="text-xs font-bold tracking-wide text-gold">FOUNDER &amp; CEO</p>
+          <span className="mb-2 block h-px w-full bg-white/15 sm:mb-2.5" aria-hidden="true" />
+          <p className="mb-1 font-serif text-[13px] font-bold text-gold sm:text-base">Mohamed Amjath</p>
+          <p className="text-[8px] font-bold tracking-wide text-gold sm:text-[10px]">FOUNDER &amp; CEO</p>
         </div>
       </div>
     </Container>

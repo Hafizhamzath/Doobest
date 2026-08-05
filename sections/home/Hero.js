@@ -60,7 +60,7 @@ const valueBadges = [
 export default function Hero() {
   return (
     <Container as="section" className="flex flex-col items-start gap-10 pt-6 md:pt-8 lg:flex-row lg:flex-nowrap">
-      <div className="min-w-0 max-w-[520px] flex-1 basis-auto pb-10 md:pb-14 lg:basis-[420px]">
+      <div className="mx-auto min-w-0 max-w-[520px] flex-1 basis-auto pb-10 text-center md:pb-14 lg:mx-0 lg:basis-[420px] lg:text-left">
         <p className="mb-5 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           Welcome to Doobest
         </p>
@@ -68,7 +68,7 @@ export default function Hero() {
           Professional Accounting &amp;
           <br className="hidden sm:block" /> <span className="text-maroon">Business Support Solutions</span>
         </h1>
-        <p className="mb-9 max-w-[440px] text-base leading-relaxed text-body">
+        <p className="mx-auto mb-9 max-w-[440px] text-base leading-relaxed text-body lg:mx-0">
           At Doobest Consultancy, we help businesses simplify their financial
           management through reliable, affordable, and professional
           accounting solutions. We provide online accounting support,
@@ -76,7 +76,7 @@ export default function Hero() {
           development programs designed to meet the needs of modern
           businesses and aspiring accounting professionals.
         </p>
-        <div className="flex flex-wrap items-center gap-6">
+        <div className="flex flex-wrap items-center justify-center gap-6 lg:justify-start">
           <Button href="/professional-services">Explore Our Services</Button>
           <Button
             href="/contact"

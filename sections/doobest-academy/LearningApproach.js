@@ -92,14 +92,14 @@ const whyChoose = [
 export default function LearningApproach() {
   return (
     <Container as="section" className="grid grid-cols-1 gap-14 py-20 md:py-24 lg:grid-cols-[0.85fr_1.15fr]">
-      <div>
+      <div className="text-center lg:text-left">
         <p className="mb-4 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           Our Learning Approach
         </p>
         <h2 className="mb-5 font-serif text-2xl leading-snug font-semibold text-ink md:text-3xl">
           Practical Learning That Makes a <em className="font-bold text-maroon not-italic">Difference</em>
         </h2>
-        <p className="mb-10 max-w-[420px] text-sm leading-relaxed text-muted">
+        <p className="mx-auto mb-10 max-w-[420px] text-sm leading-relaxed text-muted lg:mx-0">
           Our programs combine expert instruction with hands-on practice,
           real-world projects, and continuous support.
         </p>
@@ -126,7 +126,7 @@ export default function LearningApproach() {
       </div>
 
       <div className="rounded-3xl bg-[linear-gradient(140deg,#4a0d0d,#2a0808)] px-6 py-10 sm:px-11">
-        <p className="mb-6 text-xs font-bold tracking-[0.2em] text-gold uppercase">
+        <p className="mb-6 text-center text-xs font-bold tracking-[0.2em] text-gold uppercase lg:text-left">
           Why Choose Doobest Academy?
         </p>
         <div className="grid grid-cols-1 gap-7 sm:grid-cols-2">

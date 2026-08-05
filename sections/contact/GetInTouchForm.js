@@ -9,6 +9,14 @@ import Reveal from "@/components/ui/Reveal";
 import { footerServiceLinks } from "@/constants/footer";
 import { siteConfig } from "@/constants/site";
 import { buildMailtoLink } from "@/lib/mailtoTemplate";
+import { validateRequired, validateEmail, validatePhone } from "@/lib/formValidation";
+
+const fieldValidators = {
+  name: (value) => validateRequired(value, "Please enter your full name."),
+  email: validateEmail,
+  phone: validatePhone,
+  message: (value) => validateRequired(value, "Please tell us how we can help."),
+};
 
 const contactItems = [
   {
@@ -55,21 +63,10 @@ const contactItems = [
 
 function validate(formData) {
   const errors = {};
-  if (!formData.get("name")?.trim()) {
-    errors.name = "Please enter your full name.";
-  }
-  const email = formData.get("email")?.trim();
-  if (!email) {
-    errors.email = "Please enter your email address.";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errors.email = "Please enter a valid email address.";
-  }
-  if (!formData.get("phone")?.trim()) {
-    errors.phone = "Please enter your phone number.";
-  }
-  if (!formData.get("message")?.trim()) {
-    errors.message = "Please tell us how we can help.";
-  }
+  Object.entries(fieldValidators).forEach(([field, validator]) => {
+    const message = validator(formData.get(field) ?? "");
+    if (message) errors[field] = message;
+  });
   if (!formData.get("agree")) {
     errors.agree = "Please agree to the Privacy Policy and Terms & Conditions.";
   }
@@ -79,6 +76,7 @@ function validate(formData) {
 export default function GetInTouchForm() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -97,10 +95,12 @@ export default function GetInTouchForm() {
     const mailtoLink = buildMailtoLink({
       to: siteConfig.email,
       title: `New Consultation Request from ${name}`,
+      titleIcon: "💼",
       formName: "Doobest Consultancy — Get in Touch Form",
       sections: [
         {
           heading: "Contact Details",
+          icon: "👤",
           fields: [
             { label: "Name", value: name },
             { label: "Email", value: email },
@@ -110,10 +110,12 @@ export default function GetInTouchForm() {
         },
         {
           heading: "Request Details",
+          icon: "🧾",
           fields: [{ label: "Service Interested In", value: service }],
         },
         {
           heading: "Message",
+          icon: "💬",
           fields: [{ label: "Notes", value: message }],
         },
       ],
@@ -123,13 +125,34 @@ export default function GetInTouchForm() {
     setSubmitted(true);
   }
 
-  function clearError(field) {
+  function setFieldError(field, message) {
     setErrors((current) => {
-      if (!current[field]) return current;
       const next = { ...current };
-      delete next[field];
+      if (message) {
+        next[field] = message;
+      } else {
+        delete next[field];
+      }
       return next;
     });
+  }
+
+  function handleFieldBlur(event) {
+    const { name, value } = event.target;
+    setTouched((current) => ({ ...current, [name]: true }));
+    const validator = fieldValidators[name];
+    if (validator) setFieldError(name, validator(value));
+  }
+
+  function handleFieldChange(event) {
+    const { name, value } = event.target;
+    if (!touched[name]) return;
+    const validator = fieldValidators[name];
+    if (validator) setFieldError(name, validator(value));
+  }
+
+  function clearError(field) {
+    setFieldError(field, null);
   }
 
   return (
@@ -240,7 +263,8 @@ export default function GetInTouchForm() {
                   name="name"
                   placeholder="Enter your full name"
                   error={errors.name}
-                  onChange={() => clearError("name")}
+                  onBlur={handleFieldBlur}
+                  onChange={handleFieldChange}
                 />
                 <FormField
                   label="Email Address"
@@ -249,7 +273,8 @@ export default function GetInTouchForm() {
                   name="email"
                   placeholder="Enter your email address"
                   error={errors.email}
-                  onChange={() => clearError("email")}
+                  onBlur={handleFieldBlur}
+                  onChange={handleFieldChange}
                 />
                 <FormField
                   label="Phone Number"
@@ -258,7 +283,8 @@ export default function GetInTouchForm() {
                   name="phone"
                   placeholder="Enter your phone number"
                   error={errors.phone}
-                  onChange={() => clearError("phone")}
+                  onBlur={handleFieldBlur}
+                  onChange={handleFieldChange}
                 />
                 <FormField label="Company Name" name="company" placeholder="Enter your company name" />
                 <FormField
@@ -275,7 +301,8 @@ export default function GetInTouchForm() {
                   rows={1}
                   placeholder="Tell us about your business needs..."
                   error={errors.message}
-                  onChange={() => clearError("message")}
+                  onBlur={handleFieldBlur}
+                  onChange={handleFieldChange}
                 />
               </div>
 

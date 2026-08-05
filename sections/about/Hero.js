@@ -6,7 +6,7 @@ import Icon from "@/components/ui/Icon";
 export default function Hero() {
   return (
     <Container as="section" className="flex flex-wrap gap-10 pt-12 md:pt-16">
-      <div className="max-w-[480px] flex-1 basis-[420px]">
+      <div className="mx-auto max-w-[480px] flex-1 basis-[420px] text-center lg:mx-0 lg:text-left">
         <p className="mb-5 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           About Doobest
         </p>
@@ -14,7 +14,7 @@ export default function Hero() {
           Our Story.
           <br className="hidden sm:block" /> <span className="text-maroon">Your Success.</span>
         </h1>
-        <span className="mb-6 block h-[3px] w-13 bg-maroon" aria-hidden="true" />
+        <span className="mx-auto mb-6 block h-[3px] w-13 bg-maroon lg:mx-0" aria-hidden="true" />
         <p className="mb-5 text-[14.5px] leading-relaxed text-body">
           Doobest Consultancy (Pvt) Ltd is a professional accounting and
           financial consultancy firm incorporated under the Companies Act No.
@@ -26,7 +26,7 @@ export default function Hero() {
           taxation and company secretarial services that help organizations
           stay compliant and make informed business decisions.
         </p>
-        <div className="flex flex-wrap items-center gap-6">
+        <div className="flex flex-wrap items-center justify-center gap-6 lg:justify-start">
           <Button href="#our-journey">Our Journey</Button>
           <Button
             href="#"

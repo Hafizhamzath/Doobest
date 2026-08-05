@@ -49,7 +49,7 @@ const leaders = [
 export default function LeadershipGrid() {
   return (
     <Container id="our-leadership" as="section" className="flex flex-wrap gap-8 pb-14 md:pb-16">
-      <div className="max-w-[300px] flex-1 basis-[260px]">
+      <div className="mx-auto max-w-[300px] flex-1 basis-[260px] text-center lg:mx-0 lg:text-left">
         <p className="mb-3 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
           Team Members
         </p>
@@ -58,7 +58,7 @@ export default function LeadershipGrid() {
           <br />
           <span className="text-maroon">Trusted Guidance.</span>
         </h2>
-        <span className="mb-4 block h-[3px] w-11 bg-maroon" aria-hidden="true" />
+        <span className="mx-auto mb-4 block h-[3px] w-11 bg-maroon lg:mx-0" aria-hidden="true" />
         <p className="mb-5 text-sm leading-relaxed text-body">
           Our leadership team brings a blend of expertise, integrity, and
           industry knowledge to deliver excellence at every step.

@@ -14,7 +14,7 @@ export default function OurPrograms() {
   return (
     <section id="our-programs" className="bg-ink py-16 md:py-20">
       <Container className="flex flex-wrap gap-10">
-        <div className="flex-1 basis-[260px] lg:max-w-[360px]">
+        <div className="flex-1 basis-[260px] text-center lg:text-left lg:max-w-[360px]">
           <p className="mb-4 text-xs font-bold tracking-[0.2em] text-gold uppercase">
             Courses and Programs
           </p>
@@ -22,7 +22,7 @@ export default function OurPrograms() {
             Introducing the Department of Career{" "}
             <em className="font-bold text-[#d99a9a] not-italic">Booster</em> with Master Classes
           </h2>
-          <p className="mb-4 max-w-[360px] text-sm leading-relaxed text-white/60">
+          <p className="mx-auto mb-4 max-w-[360px] text-sm leading-relaxed text-white/60 lg:mx-0">
             The Department of Career Development at Doobest Consultancy is
             established to empower individuals with practical knowledge,
             professional coaching, and industry-relevant skills required to
@@ -31,7 +31,7 @@ export default function OurPrograms() {
             learning and real-world business practices by developing
             technical, analytical, and professional capabilities.
           </p>
-          <p className="mb-6 max-w-[360px] text-sm leading-relaxed text-white/60">
+          <p className="mx-auto mb-6 max-w-[360px] text-sm leading-relaxed text-white/60 lg:mx-0">
             Through practical accounting training, Microsoft Excel &amp;
             Office skill development, data analysis, professional reporting
             skills, and the effective use of modern AI-assisted tools, we aim
@@ -87,11 +87,13 @@ export default function OurPrograms() {
                         item.logo ? (
                           <span
                             key={item.label}
-                            title={item.label}
-                            className="flex h-7 w-7 items-center justify-center rounded-full bg-white ring-1 ring-ink/10"
+                            className="group/logo relative flex h-13 w-13 items-center justify-center rounded-full bg-white ring-1 ring-ink/10 transition-transform duration-200 hover:scale-110 hover:ring-maroon/30 active:scale-110 active:ring-maroon/30"
                           >
-                            <span className="relative h-4 w-4">
-                              <Image src={item.logo} alt={item.label} fill sizes="16px" className="object-contain" />
+                            <span className="relative h-8 w-8">
+                              <Image src={item.logo} alt={item.label} fill sizes="32px" className="object-contain" />
+                            </span>
+                            <span className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded-md bg-ink px-2.5 py-1.5 text-[10.5px] font-semibold whitespace-nowrap text-white opacity-0 shadow-[0_10px_20px_rgba(17,17,17,0.25)] transition-all duration-200 group-hover/logo:-translate-y-0.5 group-hover/logo:opacity-100 group-active/logo:-translate-y-0.5 group-active/logo:opacity-100">
+                              {item.label}
                             </span>
                           </span>
                         ) : (

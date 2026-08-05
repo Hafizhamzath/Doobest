@@ -53,12 +53,14 @@ export default function TeamValues() {
               index < values.length - 1 ? "lg:border-r lg:border-ink/[0.08]" : ""
             }`}
           >
-            <div className="mx-auto mb-4.5 flex h-[76px] w-[76px] items-center justify-center rounded-full border-[1.3px] border-maroon/20 text-maroon transition-all duration-300 group-hover:scale-110 group-hover:border-maroon group-hover:bg-maroon group-hover:text-white">
-              <Icon paths={value.icon.paths} size={26} strokeWidth={1.5} />
+            <div className="rounded-2xl px-2 py-4 transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:scale-[1.04] group-hover:bg-white group-hover:shadow-[0_18px_36px_rgba(100,16,16,0.14)] group-active:-translate-y-1.5 group-active:scale-[1.04] group-active:bg-white group-active:shadow-[0_18px_36px_rgba(100,16,16,0.14)]">
+              <div className="mx-auto mb-4.5 flex h-[76px] w-[76px] items-center justify-center rounded-full border-[1.3px] border-maroon/20 text-maroon transition-all duration-300 group-hover:scale-125 group-hover:border-maroon group-hover:bg-maroon group-hover:text-white group-active:scale-125 group-active:border-maroon group-active:bg-maroon group-active:text-white">
+                <Icon paths={value.icon.paths} size={26} strokeWidth={1.5} />
+              </div>
+              <p className="mb-2.5 font-serif text-lg font-bold text-ink">{value.title}</p>
+              <p className="mb-2.5 text-[12.5px] leading-relaxed text-muted">{value.desc}</p>
+              <span className="mx-auto block h-0.5 w-6 bg-gold transition-all duration-300 group-hover:w-10 group-active:w-10" aria-hidden="true" />
             </div>
-            <p className="mb-2.5 font-serif text-lg font-bold text-ink">{value.title}</p>
-            <p className="mb-2.5 text-[12.5px] leading-relaxed text-muted">{value.desc}</p>
-            <span className="mx-auto block h-0.5 w-6 bg-gold transition-all duration-300 group-hover:w-10" aria-hidden="true" />
           </Reveal>
         ))}
       </div>

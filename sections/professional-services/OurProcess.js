@@ -38,7 +38,7 @@ export default function OurProcess() {
   return (
     <Container as="section" className="py-20 md:py-24">
       <div className="flex flex-wrap items-center gap-10">
-        <div className="flex-1 basis-[280px] lg:max-w-[340px]">
+        <div className="mx-auto flex-1 basis-[280px] text-center lg:mx-0 lg:text-left lg:max-w-[340px]">
           <p className="mb-4 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
             Our Process
           </p>

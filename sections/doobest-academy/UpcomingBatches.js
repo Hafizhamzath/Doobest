@@ -47,7 +47,7 @@ export default function UpcomingBatches() {
   return (
     <section className="bg-ink py-16 md:py-20">
       <Container className="flex flex-wrap gap-10">
-        <div className="flex-1 basis-[260px] lg:max-w-[280px]">
+        <div className="flex-1 basis-[260px] text-center lg:max-w-[280px] lg:text-left">
           <p className="mb-4 text-xs font-bold tracking-[0.2em] text-gold uppercase">
             Upcoming Batches
           </p>

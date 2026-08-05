@@ -37,10 +37,10 @@ export default function WhyChooseCaseStudies() {
   return (
     <Container as="section" className="grid grid-cols-1 gap-14 py-20 md:py-24 lg:grid-cols-[0.85fr_1.3fr]">
       <div>
-        <p className="mb-3.5 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
+        <p className="mb-3.5 text-center text-xs font-bold tracking-[0.2em] text-maroon uppercase lg:text-left">
           Why Choose Doobest
         </p>
-        <h2 className="mb-8 font-serif text-2xl leading-tight font-semibold text-ink md:text-3xl">
+        <h2 className="mb-8 text-center font-serif text-2xl leading-tight font-semibold text-ink lg:text-left md:text-3xl">
           More Than Numbers.
           <br />
           We Build Confidence.
@@ -87,10 +87,10 @@ export default function WhyChooseCaseStudies() {
       </div>
 
       <div>
-        <p className="mb-3.5 text-xs font-bold tracking-[0.2em] text-maroon uppercase">
+        <p className="mb-3.5 text-center text-xs font-bold tracking-[0.2em] text-maroon uppercase lg:text-left">
           Case Studies
         </p>
-        <h2 className="mb-8 font-serif text-2xl leading-tight font-semibold text-ink md:text-3xl">
+        <h2 className="mb-8 text-center font-serif text-2xl leading-tight font-semibold text-ink lg:text-left md:text-3xl">
           Real Results. Stronger Businesses.
         </h2>
 
