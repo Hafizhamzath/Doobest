@@ -45,7 +45,7 @@ export default function UpcomingBatches() {
   const { openEnroll } = useEnrollModal();
 
   return (
-    <section className="bg-ink py-16 md:py-20">
+    <section className="bg-[linear-gradient(135deg,#641010,#2a0808_55%,#000000)] py-16 md:py-20">
       <Container className="flex flex-wrap gap-10">
         <div className="flex-1 basis-[260px] text-center lg:max-w-[280px] lg:text-left">
           <p className="mb-4 text-xs font-bold tracking-[0.2em] text-gold uppercase">
