@@ -5,48 +5,94 @@ import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import FormField from "@/components/ui/FormField";
 import { footerServiceLinks } from "@/constants/footer";
+import { siteConfig } from "@/constants/site";
+import { buildMailtoLink } from "@/lib/mailtoTemplate";
+import { validateRequired, validateEmail, validatePhone } from "@/lib/formValidation";
+
+const fieldValidators = {
+  name: (value) => validateRequired(value, "Please enter your full name."),
+  email: validateEmail,
+  phone: validatePhone,
+  service: (value) => validateRequired(value, "Please select a service."),
+};
 
 function validate(formData) {
   const errors = {};
-  if (!formData.get("name")?.trim()) {
-    errors.name = "Please enter your full name.";
-  }
-  const email = formData.get("email")?.trim();
-  if (!email) {
-    errors.email = "Please enter your email address.";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errors.email = "Please enter a valid email address.";
-  }
-  if (!formData.get("phone")?.trim()) {
-    errors.phone = "Please enter your phone number.";
-  }
-  if (!formData.get("service")?.trim()) {
-    errors.service = "Please select a service.";
-  }
+  Object.entries(fieldValidators).forEach(([field, validator]) => {
+    const message = validator(formData.get(field) ?? "");
+    if (message) errors[field] = message;
+  });
   return errors;
 }
 
 export default function GetStartedForm() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const nextErrors = validate(formData);
     setErrors(nextErrors);
-    if (Object.keys(nextErrors).length === 0) {
-      setSubmitted(true);
-    }
+    if (Object.keys(nextErrors).length > 0) return;
+
+    const name = formData.get("name").trim();
+    const email = formData.get("email").trim();
+    const phone = formData.get("phone").trim();
+    const service = formData.get("service").trim();
+
+    const mailtoLink = buildMailtoLink({
+      to: siteConfig.email,
+      title: `New Get Started Request from ${name}`,
+      titleIcon: "🚀",
+      formName: "Doobest Consultancy — Get Started Form",
+      sections: [
+        {
+          heading: "Contact Details",
+          icon: "👤",
+          fields: [
+            { label: "Name", value: name },
+            { label: "Email", value: email },
+            { label: "Phone", value: phone },
+          ],
+        },
+        {
+          heading: "Request Details",
+          icon: "🧾",
+          fields: [{ label: "How Can We Help", value: service }],
+        },
+      ],
+    });
+
+    window.location.href = mailtoLink;
+    setSubmitted(true);
   }
 
-  function clearError(field) {
+  function setFieldError(field, message) {
     setErrors((current) => {
-      if (!current[field]) return current;
       const next = { ...current };
-      delete next[field];
+      if (message) {
+        next[field] = message;
+      } else {
+        delete next[field];
+      }
       return next;
     });
+  }
+
+  function handleFieldBlur(event) {
+    const { name, value } = event.target;
+    setTouched((current) => ({ ...current, [name]: true }));
+    const validator = fieldValidators[name];
+    if (validator) setFieldError(name, validator(value));
+  }
+
+  function handleFieldChange(event) {
+    const { name, value } = event.target;
+    if (!touched[name]) return;
+    const validator = fieldValidators[name];
+    if (validator) setFieldError(name, validator(value));
   }
 
   return (
@@ -70,10 +116,19 @@ export default function GetStartedForm() {
       </div>
 
       {submitted ? (
-        <p className="rounded-xl border border-maroon/20 bg-cream px-5 py-4 text-sm font-semibold text-maroon">
-          Thank you — we&rsquo;ve received your details and will be in touch
-          shortly.
-        </p>
+        <div className="rounded-xl border border-maroon/20 bg-cream px-5 py-4">
+          <p className="mb-2 text-sm font-semibold text-maroon">
+            Your email app should now open with your request ready to send to{" "}
+            {siteConfig.email}.
+          </p>
+          <p className="text-[12px] leading-relaxed text-muted">
+            If it didn&rsquo;t open automatically, please email us directly at{" "}
+            <a href={`mailto:${siteConfig.email}`} className="font-semibold text-maroon">
+              {siteConfig.email}
+            </a>
+            .
+          </p>
+        </div>
       ) : (
         <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4.5">
           <FormField
@@ -82,7 +137,8 @@ export default function GetStartedForm() {
             name="name"
             placeholder="Enter your full name"
             error={errors.name}
-            onChange={() => clearError("name")}
+            onBlur={handleFieldBlur}
+            onChange={handleFieldChange}
           />
           <FormField
             label="Email Address"
@@ -91,7 +147,8 @@ export default function GetStartedForm() {
             name="email"
             placeholder="Enter your email address"
             error={errors.email}
-            onChange={() => clearError("email")}
+            onBlur={handleFieldBlur}
+            onChange={handleFieldChange}
           />
           <FormField
             label="Phone Number"
@@ -100,7 +157,8 @@ export default function GetStartedForm() {
             name="phone"
             placeholder="Enter your phone number"
             error={errors.phone}
-            onChange={() => clearError("phone")}
+            onBlur={handleFieldBlur}
+            onChange={handleFieldChange}
           />
           <FormField
             label="How Can We Help You?"
@@ -109,7 +167,8 @@ export default function GetStartedForm() {
             name="service"
             options={footerServiceLinks}
             error={errors.service}
-            onChange={() => clearError("service")}
+            onBlur={handleFieldBlur}
+            onChange={handleFieldChange}
           />
 
           <Button type="submit" className="mt-1 w-full justify-center">

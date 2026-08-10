@@ -138,12 +138,9 @@ export default function Process() {
               index < trustPoints.length - 1 ? "lg:border-r lg:border-ink/[0.08]" : ""
             }`}
           >
-            <Icon
-              paths={point.icon.paths}
-              size={30}
-              strokeWidth={1.6}
-              className="mx-auto mb-3.5 text-maroon transition-transform duration-300 group-hover:scale-110"
-            />
+            <div className="mx-auto mb-3.5 flex h-14 w-14 items-center justify-center rounded-full bg-[#F0E6DC] text-maroon transition-all duration-300 group-hover:scale-110 group-hover:bg-maroon group-hover:text-white">
+              <Icon paths={point.icon.paths} size={26} strokeWidth={1.6} />
+            </div>
             <p className="mb-2 text-[13.5px] font-bold text-ink">{point.title}</p>
             <p className="text-xs leading-relaxed text-muted">{point.desc}</p>
           </Reveal>
