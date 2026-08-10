@@ -110,7 +110,7 @@ export default function LearningApproach() {
             className="absolute top-7 right-[8%] left-[8%] hidden h-0 border-t-[1.5px] border-dashed border-maroon/35 sm:block"
           />
           {approachSteps.map((step, index) => (
-            <Reveal key={step.title} delay={index * 90} className="relative z-[1] text-center">
+            <Reveal key={step.title} delay={index * 90} variant="scale" className="relative z-[1] text-center">
               <div className="group cursor-default">
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border-[1.3px] border-maroon/30 bg-cream transition-all duration-300 group-hover:scale-110 group-hover:bg-maroon">
                   <Icon paths={step.icon.paths} size={22} strokeWidth={1.5} className="text-maroon transition-colors duration-300 group-hover:text-white" />
@@ -131,7 +131,7 @@ export default function LearningApproach() {
         </p>
         <div className="grid grid-cols-1 gap-7 sm:grid-cols-2">
           {whyChoose.map((item, index) => (
-            <Reveal key={item.title} delay={index * 70} className="group flex gap-3.5">
+            <Reveal key={item.title} delay={index * 70} variant="left" className="group flex gap-3.5">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-[1.3px] border-gold/40 transition-all duration-300 group-hover:scale-110 group-hover:bg-gold">
                 <Icon paths={item.icon.paths} size={20} strokeWidth={1.5} className="text-gold transition-colors duration-300 group-hover:text-[#2a0808]" />
               </div>

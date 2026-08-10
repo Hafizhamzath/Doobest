@@ -27,8 +27,8 @@ export default function Navbar() {
           <Image
             src={siteConfig.logoLetterTransparent}
             alt="Doobest"
-            width={230}
-            height={108}
+            width={750}
+            height={293}
             className="h-full w-auto object-contain"
             priority
           />

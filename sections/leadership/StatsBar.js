@@ -50,6 +50,7 @@ export default function StatsBar() {
             <Reveal
               key={stat.label}
               delay={index * 90}
+              variant="scale"
               className={`group flex flex-1 basis-[160px] items-center gap-4 ${
                 index < stats.length - 1 ? "sm:border-r sm:border-gold/25 sm:pr-6" : ""
               }`}

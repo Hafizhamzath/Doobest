@@ -3,9 +3,19 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 
-export default function Reveal({ children, delay = 0, className, as: As = "div" }) {
+const VARIANTS = {
+  up: { hidden: "translate-y-7 opacity-0", shown: "translate-y-0 opacity-100" },
+  down: { hidden: "-translate-y-7 opacity-0", shown: "translate-y-0 opacity-100" },
+  left: { hidden: "-translate-x-8 opacity-0", shown: "translate-x-0 opacity-100" },
+  right: { hidden: "translate-x-8 opacity-0", shown: "translate-x-0 opacity-100" },
+  scale: { hidden: "scale-90 opacity-0", shown: "scale-100 opacity-100" },
+  fade: { hidden: "opacity-0", shown: "opacity-100" },
+};
+
+export default function Reveal({ children, delay = 0, variant = "up", className, as: As = "div", ...rest }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
+  const { hidden, shown } = VARIANTS[variant] ?? VARIANTS.up;
 
   useEffect(() => {
     const el = ref.current;
@@ -28,10 +38,11 @@ export default function Reveal({ children, delay = 0, className, as: As = "div" 
       ref={ref}
       className={cn(
         "transition-all duration-700 ease-out",
-        visible ? "translate-y-0 opacity-100" : "translate-y-7 opacity-0",
+        visible ? shown : hidden,
         className
       )}
       style={{ transitionDelay: `${delay}ms` }}
+      {...rest}
     >
       {children}
     </As>

@@ -24,7 +24,7 @@ export default function FAQ() {
         {professionalServicesFaq.map((item, index) => {
           const isOpen = index === openIndex;
           return (
-            <Reveal key={item.question} delay={index * 60}>
+            <Reveal key={item.question} delay={index * 60} variant="fade">
             <div
               className={cn(
                 "overflow-hidden rounded-2xl border bg-white transition-colors duration-300",

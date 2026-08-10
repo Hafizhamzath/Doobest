@@ -27,7 +27,7 @@ const sections = [
 export default function Foreword() {
   return (
     <Container as="section" className="pb-20 md:pb-24">
-      <Reveal className="relative mx-auto max-w-[720px] overflow-hidden rounded-[28px] border border-ink/[0.08] bg-white px-6 py-12 shadow-[0_25px_60px_rgba(17,17,17,0.1)] sm:px-12 sm:py-14">
+      <Reveal variant="fade" className="relative mx-auto max-w-[720px] overflow-hidden rounded-[28px] border border-ink/[0.08] bg-white px-6 py-12 shadow-[0_25px_60px_rgba(17,17,17,0.1)] sm:px-12 sm:py-14">
         <span
           aria-hidden="true"
           className="pointer-events-none absolute top-4 left-6 font-serif text-[110px] leading-none font-bold text-maroon/[0.06] select-none sm:text-[140px]"

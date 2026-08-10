@@ -7,7 +7,7 @@ export const siteConfig = {
     "Professional accounting and business support solutions for modern businesses in Sri Lanka and the UAE.",
   logo: "/assets/LOGO.png",
   logoLetter: "/assets/logo-letter.jpg",
-  logoLetterTransparent: "/assets/logo-letter-transparent.png",
+  logoLetterTransparent: "/assets/logo-letter-transparent-hd.png",
   logoMaroon: "/assets/logo-maroon.png",
   phone: {
     sriLanka: "+94 74 041 0943",

@@ -21,7 +21,7 @@ export default function ToolsCarousel() {
           {[...tools, ...tools].map((tool, index) => (
             <div
               key={`${tool.name}-${index}`}
-              className="flex shrink-0 flex-col items-center gap-2.5 transition-transform duration-300 hover:-translate-y-1"
+              className="flex shrink-0 flex-col items-center gap-2.5 transition-transform duration-300 hover:scale-110"
             >
               <div className="flex h-10 w-24 items-center justify-center sm:h-12 sm:w-28">
                 <Image

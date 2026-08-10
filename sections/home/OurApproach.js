@@ -28,7 +28,7 @@ export default function OurApproach() {
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-4 lg:grid-cols-8 lg:gap-x-3">
             {approachSteps.map((step, index) => (
-              <Reveal key={step.num} delay={index * 90} className="relative text-center">
+              <Reveal key={step.num} delay={index * 90} variant="scale" className="relative text-center">
                 {index < approachSteps.length - 1 && (
                   <span
                     aria-hidden="true"

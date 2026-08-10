@@ -57,7 +57,7 @@ export default function Testimonials() {
         {testimonials.map((testimonial, index) => (
           <Reveal key={testimonial.name} delay={index * 100} className="h-full">
           <div
-            className="flex h-full flex-col rounded-2xl bg-white px-6 py-7 shadow-[0_14px_30px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(100,16,16,0.14)]"
+            className="flex h-full flex-col rounded-2xl border-l-[3px] border-transparent bg-white px-6 py-7 shadow-[0_14px_30px_rgba(17,17,17,0.06)] transition-all duration-300 hover:border-l-gold hover:shadow-[0_18px_36px_rgba(100,16,16,0.14)]"
           >
             <p className="mb-3.5 font-serif text-4xl leading-[0.5] text-maroon" aria-hidden="true">
               &ldquo;

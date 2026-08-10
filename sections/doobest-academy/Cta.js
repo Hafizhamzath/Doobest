@@ -62,7 +62,7 @@ export default function Cta() {
 
         <div className="flex flex-1 basis-[220px] flex-col gap-4 py-6 pr-6 sm:pr-10">
           {ctaPoints.map((point, index) => (
-            <Reveal key={point.label} delay={index * 90} className="group flex items-center gap-3">
+            <Reveal key={point.label} delay={index * 90} variant="left" className="group flex items-center gap-3">
               <Icon paths={point.icon.paths} size={20} strokeWidth={1.6} className="shrink-0 text-gold transition-transform duration-300 group-hover:scale-125" />
               <span className="text-[13.5px] font-semibold text-white">{point.label}</span>
             </Reveal>

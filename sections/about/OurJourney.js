@@ -66,7 +66,12 @@ export default function OurJourney() {
             className="absolute top-2 bottom-2 left-[19px] w-px bg-maroon/25"
           />
           {journey.map((item, index) => (
-            <Reveal key={item.year} delay={index * 110} className="relative flex items-start gap-5">
+            <Reveal
+              key={item.year}
+              delay={index * 110}
+              variant="left"
+              className="relative flex items-start gap-5"
+            >
               <div className="group z-[1] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-maroon text-white transition-all duration-300 hover:scale-110 hover:bg-gold hover:text-maroon">
                 <Icon paths={item.icon.paths} size={18} strokeWidth={1.6} />
               </div>

@@ -90,21 +90,6 @@ export default function Hero() {
         </p>
         <div className="mb-11 flex flex-wrap items-center justify-center gap-7 lg:justify-start">
           <Button href="#our-programs">Explore Courses</Button>
-          <Button
-            href="#"
-            variant="text"
-            arrow={false}
-            icon={
-              <Icon
-                paths={["M6 3h9l3 3v15H6z", "M15 3v3h3", "M9 13h6M9 17h6"]}
-                size={15}
-                strokeWidth={1.8}
-                className="text-maroon"
-              />
-            }
-          >
-            Download Brochure
-          </Button>
         </div>
         <div className="mx-auto grid max-w-[480px] grid-cols-2 gap-6 text-center sm:grid-cols-4 lg:mx-0 lg:text-left">
           {stats.map((stat) => (

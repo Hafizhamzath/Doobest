@@ -34,7 +34,7 @@ export default function AcademyTeaser() {
               <Reveal key={course.title} delay={index * 70}>
               <Link
                 href="/doobest-academy"
-                className="group block overflow-hidden rounded-2xl bg-white shadow-[0_14px_30px_rgba(17,17,17,0.08)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(100,16,16,0.18)]"
+                className="group block overflow-hidden rounded-2xl bg-white shadow-[0_14px_30px_rgba(17,17,17,0.08)] transition-shadow duration-300 hover:shadow-[0_20px_40px_rgba(100,16,16,0.2)]"
               >
                 <div className="relative h-[150px] w-full overflow-hidden">
                   <Image

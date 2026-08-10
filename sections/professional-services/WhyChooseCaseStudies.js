@@ -46,7 +46,7 @@ export default function WhyChooseCaseStudies() {
           We Build Confidence.
         </h2>
 
-        <Reveal className="grid grid-cols-2 overflow-hidden rounded-2xl shadow-[0_14px_34px_rgba(0,0,0,0.08)]">
+        <Reveal variant="fade" className="grid grid-cols-2 overflow-hidden rounded-2xl shadow-[0_14px_34px_rgba(0,0,0,0.08)]">
           <div className="border border-ink/[0.08] bg-white px-4 py-5 sm:px-5">
             <p className="mb-4 text-xs font-bold tracking-wide text-faint uppercase">
               Others

@@ -72,7 +72,7 @@ export default function LeadershipGrid() {
         {leaders.map((leader, index) => (
           <Reveal key={leader.name} delay={index * 80}>
           <div
-            className="group overflow-hidden rounded-2xl border border-ink/[0.06] bg-white shadow-[0_10px_30px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(100,16,16,0.16)]"
+            className="group overflow-hidden rounded-2xl border border-ink/[0.06] bg-white shadow-[0_10px_30px_rgba(17,17,17,0.06)] transition-shadow duration-300 hover:shadow-[0_20px_40px_rgba(100,16,16,0.18)]"
           >
             <div className="relative aspect-[3/4] w-full overflow-hidden">
               <Image

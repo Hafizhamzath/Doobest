@@ -12,7 +12,7 @@ export default function OurPrograms() {
   const { openEnroll } = useEnrollModal();
 
   return (
-    <section id="our-programs" className="bg-ink py-16 md:py-20">
+    <section id="our-programs" className="bg-[linear-gradient(135deg,#641010,#2a0808_55%,#000000)] py-16 md:py-20">
       <Container className="flex flex-wrap gap-10">
         <div className="flex-1 basis-[260px] text-center lg:text-left lg:max-w-[360px]">
           <p className="mb-4 text-xs font-bold tracking-[0.2em] text-gold uppercase">

@@ -65,7 +65,7 @@ export default function Hero() {
         />
         <div className="absolute top-1/2 right-4 z-[2] hidden -translate-y-1/2 flex-col gap-4 sm:right-6 md:flex">
           {heroCards.map((card, index) => (
-            <Reveal key={card.label} delay={index * 150}>
+            <Reveal key={card.label} delay={index * 150} variant="fade">
               <div
                 className="group flex items-center gap-3 rounded-2xl bg-white px-5 py-3.5 whitespace-nowrap shadow-[0_14px_30px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-x-1.5 hover:shadow-[0_18px_36px_rgba(100,16,16,0.28)]"
                 style={{

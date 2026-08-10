@@ -69,7 +69,7 @@ export default function ConsultationProcess() {
 
         <div className="grid flex-[3] basis-[600px] grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
           {processSteps.map((step, index) => (
-            <Reveal key={step.num} delay={index * 90} className="group text-center">
+            <Reveal key={step.num} delay={index * 90} variant="scale" className="group text-center">
               <div className="mx-auto mb-4 flex h-[76px] w-[76px] items-center justify-center rounded-full border-[1.3px] border-gold/40 bg-[#2A0808] text-gold transition-all duration-300 group-hover:scale-110 group-hover:bg-gold group-hover:text-[#2A0808]">
                 <Icon paths={step.icon.paths} size={26} strokeWidth={1.5} />
               </div>

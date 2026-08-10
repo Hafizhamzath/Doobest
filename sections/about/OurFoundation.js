@@ -58,7 +58,7 @@ export default function OurFoundation() {
         {pillars.map((pillar, index) => (
           <Reveal key={pillar.title} delay={index * 100}>
           <div
-            className="group rounded-2xl border border-ink/[0.06] bg-cream/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(100,16,16,0.12)]"
+            className="group rounded-2xl border border-ink/[0.06] bg-cream/60 p-6 transition-all duration-300 hover:border-maroon/30 hover:shadow-[0_18px_36px_rgba(100,16,16,0.12)]"
           >
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#F0E6DC] text-maroon transition-all duration-300 group-hover:scale-110 group-hover:bg-maroon group-hover:text-white">
               <Icon paths={pillar.icon.paths} circles={pillar.icon.circles} size={22} strokeWidth={1.6} />

@@ -13,7 +13,7 @@ const bio = [
 export default function DirectorProfile() {
   return (
     <Container as="section" className="flex flex-wrap gap-12 pb-20 md:pb-24">
-      <Reveal className="min-w-[240px] flex-1 basis-[280px]">
+      <Reveal variant="left" className="min-w-[240px] flex-1 basis-[280px]">
         <div className="sticky top-24 overflow-hidden rounded-[28px] shadow-[0_25px_60px_rgba(17,17,17,0.18)] transition-transform duration-500 hover:scale-[1.02]">
           <div className="relative aspect-[4/5] w-full">
             <Image

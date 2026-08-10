@@ -30,9 +30,11 @@ const contactItems = [
   },
   {
     label: "WhatsApp",
-    lines: ["+971 54 374 8522"],
-    href: "https://wa.me/971543748522",
     whatsapp: true,
+    waLinks: [
+      { text: "+94 74 041 0943 (Sri Lanka)", href: "https://wa.me/94740410943" },
+      { text: "+971 54 374 8522 (UAE)", href: "https://wa.me/971543748522" },
+    ],
   },
   {
     label: "Email Us",
@@ -173,7 +175,7 @@ export default function GetInTouchForm() {
                 ? { href: item.href, target: "_blank", rel: "noopener noreferrer" }
                 : {};
               return (
-                <Reveal key={item.label} delay={index * 80} className="group">
+                <Reveal key={item.label} delay={index * 80} variant="left" className="group">
                   <Wrapper {...wrapperProps} className="flex items-start gap-4">
                     <div
                       className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] transition-transform duration-300 group-hover:scale-110 ${
@@ -196,16 +198,28 @@ export default function GetInTouchForm() {
                       >
                         {item.label}
                       </p>
-                      {item.lines.map((line) => (
-                        <p
-                          key={line}
-                          className={`text-[13.5px] leading-relaxed text-white/85 ${
-                            item.href ? "transition-colors duration-200 group-hover:text-white" : ""
-                          }`}
-                        >
-                          {line}
-                        </p>
-                      ))}
+                      {item.waLinks
+                        ? item.waLinks.map((link) => (
+                            <a
+                              key={link.href}
+                              href={link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block text-[13.5px] leading-relaxed text-white/85 transition-colors duration-200 hover:text-[#25D366]"
+                            >
+                              {link.text}
+                            </a>
+                          ))
+                        : item.lines.map((line) => (
+                            <p
+                              key={line}
+                              className={`text-[13.5px] leading-relaxed text-white/85 ${
+                                item.href ? "transition-colors duration-200 group-hover:text-white" : ""
+                              }`}
+                            >
+                              {line}
+                            </p>
+                          ))}
                     </div>
                   </Wrapper>
                 </Reveal>

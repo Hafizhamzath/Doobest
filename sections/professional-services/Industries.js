@@ -18,9 +18,9 @@ export default function Industries() {
 
         <div className="grid flex-1 basis-[600px] grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5">
           {industries.map((industry, index) => (
-            <Reveal key={industry.name} delay={index * 60}>
-              <div className="group flex flex-col items-center gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] px-2 py-4.5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:bg-white/[0.08]">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#F0E6DC] transition-transform duration-300 group-hover:scale-110">
+            <Reveal key={industry.name} delay={index * 60} variant="scale">
+              <div className="group flex flex-col items-center gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] px-2 py-4.5 transition-all duration-300 hover:border-gold/50 hover:bg-white/[0.08] hover:shadow-[0_0_24px_rgba(201,162,75,0.25)]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#F0E6DC] transition-all duration-300 group-hover:scale-110 group-hover:bg-gold">
                   <Icon
                     paths={industry.icon.paths}
                     circles={industry.icon.circles}

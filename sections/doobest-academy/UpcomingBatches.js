@@ -62,7 +62,7 @@ export default function UpcomingBatches() {
         <div className="grid flex-1 basis-[600px] grid-cols-1 gap-5 sm:grid-cols-2">
           {batches.map((batch, index) => (
             <Reveal key={batch.title} delay={index * 90} className="h-full">
-            <div className="group flex h-full flex-col rounded-2xl bg-cream px-6 py-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(100,16,16,0.14)]">
+            <div className="group flex h-full flex-col rounded-2xl border-l-[3px] border-transparent bg-cream px-6 py-7 transition-all duration-300 hover:border-l-gold hover:shadow-[0_18px_36px_rgba(100,16,16,0.14)]">
               <div className="mb-5 flex items-start justify-between gap-3">
                 <div>
                   <p className="mb-2 text-base leading-tight font-bold text-ink">{batch.title}</p>
