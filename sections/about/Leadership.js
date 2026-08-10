@@ -8,20 +8,20 @@ const leaders = [
   {
     name: "Mohamed Amjath",
     role: "Founder & CEO",
-    desc: "Over 15 years of experience in strategic finance and business advisory.",
+    desc: "8 years of experience in strategic finance and business advisory.",
     photo: "/assets/team-amjath-headshot.jpg",
     linkedin: "https://www.linkedin.com/in/nazeer-amjath-aa8292215",
   },
   {
     name: "Steshan",
-    role: "Partner - Advisory",
+    role: "Finance Manager",
     desc: "Specializes in strategic advisory, risk analysis, and financial consulting.",
     photo: "/assets/team-stasan.jpg",
     linkedin: "https://www.linkedin.com/in/steshanfernando",
   },
   {
     name: "Anujan",
-    role: "Head - Taxation",
+    role: "Senior Accountant",
     desc: "Tax expert with deep knowledge in VAT, corporate tax and international taxation.",
     photo: "/assets/team-anujan.jpg",
     linkedin: "https://www.linkedin.com/in/lokenthiran-anujan-6a4160225",
@@ -56,8 +56,9 @@ export default function Leadership() {
                 alt={`${leader.name} portrait`}
                 fill
                 sizes="155px"
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                className="object-cover object-top grayscale-[45%] transition-all duration-500 ease-out group-hover:scale-110 group-hover:grayscale-0"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-maroon/25 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
             </div>
             <div className="flex min-w-0 flex-col justify-center px-5 py-6">
               <p className="mb-1.5 font-serif text-xl font-bold text-ink transition-colors duration-300 group-hover:text-maroon">
