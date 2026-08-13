@@ -1,10 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
+import { cn } from "@/lib/cn";
 
 const stats = [
   {
@@ -72,6 +73,38 @@ const heroBadges = [
   },
 ];
 
+function HeroBadge({ badge, index }) {
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShown(true), 300 + index * 150);
+    return () => clearTimeout(timer);
+  }, [index]);
+
+  return (
+    <div
+      className={cn(
+        "group pointer-events-auto absolute -translate-x-1/2 cursor-pointer transition-transform duration-[450ms] ease-out hover:-translate-y-[calc(50%+3px)] hover:scale-[1.12]",
+        shown ? "-translate-y-1/2 scale-100" : "translate-y-[calc(-50%+8px)] scale-[0.85]"
+      )}
+      style={badge.style}
+      tabIndex={0}
+    >
+      <div className="flex h-12 w-12 items-center justify-center rounded-full border-[1.3px] border-maroon/30 bg-white shadow-[0_10px_24px_rgba(17,17,17,0.15)] transition-colors duration-300 group-hover:border-maroon group-hover:bg-maroon group-focus-visible:border-maroon group-focus-visible:bg-maroon">
+        <Icon
+          paths={badge.icon.paths}
+          size={20}
+          strokeWidth={1.6}
+          className="text-maroon transition-colors duration-300 group-hover:text-white group-focus-visible:text-white"
+        />
+      </div>
+      <p className="pointer-events-none absolute top-full left-1/2 mt-2 w-max max-w-[110px] -translate-x-1/2 rounded-lg bg-ink px-2.5 py-1.5 text-center text-[10.5px] leading-tight font-bold tracking-wide text-white opacity-0 shadow-[0_10px_20px_rgba(17,17,17,0.25)] transition-all duration-300 group-hover:translate-y-1 group-hover:opacity-100 group-focus-visible:translate-y-1 group-focus-visible:opacity-100">
+        {badge.label}
+      </p>
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
     <Container as="section" className="flex flex-wrap gap-8 pt-12 md:pt-16">
@@ -111,6 +144,7 @@ export default function Hero() {
                 alt="Doobest Academy classroom with career growth presentation screen"
                 fill
                 priority
+                fetchPriority="high"
                 sizes="(min-width: 1024px) 32vw, 90vw"
                 className="object-cover"
               />
@@ -118,28 +152,7 @@ export default function Hero() {
 
             <div className="pointer-events-none absolute inset-0 hidden sm:block">
               {heroBadges.map((badge, index) => (
-                <motion.div
-                  key={badge.label}
-                  initial={{ opacity: 1, scale: 0.85, y: 8 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ delay: 0.3 + index * 0.15, duration: 0.45, ease: "easeOut" }}
-                  whileHover={{ scale: 1.12, y: -3 }}
-                  className="group pointer-events-auto absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer"
-                  style={badge.style}
-                  tabIndex={0}
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border-[1.3px] border-maroon/30 bg-white shadow-[0_10px_24px_rgba(17,17,17,0.15)] transition-colors duration-300 group-hover:border-maroon group-hover:bg-maroon group-focus-visible:border-maroon group-focus-visible:bg-maroon">
-                    <Icon
-                      paths={badge.icon.paths}
-                      size={20}
-                      strokeWidth={1.6}
-                      className="text-maroon transition-colors duration-300 group-hover:text-white group-focus-visible:text-white"
-                    />
-                  </div>
-                  <p className="pointer-events-none absolute top-full left-1/2 mt-2 w-max max-w-[110px] -translate-x-1/2 rounded-lg bg-ink px-2.5 py-1.5 text-center text-[10.5px] leading-tight font-bold tracking-wide text-white opacity-0 shadow-[0_10px_20px_rgba(17,17,17,0.25)] transition-all duration-300 group-hover:translate-y-1 group-hover:opacity-100 group-focus-visible:translate-y-1 group-focus-visible:opacity-100">
-                    {badge.label}
-                  </p>
-                </motion.div>
+                <HeroBadge key={badge.label} badge={badge} index={index} />
               ))}
             </div>
           </div>

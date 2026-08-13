@@ -2,13 +2,15 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { LazyMotion, m } from "framer-motion";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import Reveal from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
 import { services } from "@/constants/services";
+
+const loadLayoutFeatures = () => import("framer-motion").then((mod) => mod.domMax);
 
 function ServiceCard({ service, isSelected, onSelect }) {
   function handleMouseMove(event) {
@@ -39,7 +41,7 @@ function ServiceCard({ service, isSelected, onSelect }) {
         }}
       />
       {isSelected && (
-        <motion.span
+        <m.span
           layoutId="serviceCardActive"
           className="absolute inset-0 z-0 rounded-2xl bg-maroon"
           transition={{ type: "spring", stiffness: 350, damping: 30 }}
@@ -143,14 +145,16 @@ export default function ServicesExplorer() {
             aria-label="Professional services"
             className="grid grid-cols-3 gap-3"
           >
-            {services.map((service, index) => (
-              <ServiceCard
-                key={service.slug}
-                service={service}
-                isSelected={index === selected}
-                onSelect={() => handleSelect(index)}
-              />
-            ))}
+            <LazyMotion features={loadLayoutFeatures} strict>
+              {services.map((service, index) => (
+                <ServiceCard
+                  key={service.slug}
+                  service={service}
+                  isSelected={index === selected}
+                  onSelect={() => handleSelect(index)}
+                />
+              ))}
+            </LazyMotion>
           </Reveal>
 
           <Reveal as="div" delay={180} variant="fade" className="relative">

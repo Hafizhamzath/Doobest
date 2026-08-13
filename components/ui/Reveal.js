@@ -37,7 +37,7 @@ export default function Reveal({ children, delay = 0, variant = "up", className,
     <As
       ref={ref}
       className={cn(
-        "transition-all duration-700 ease-out",
+        "transition-[transform,opacity] duration-700 ease-out",
         visible ? shown : hidden,
         className
       )}

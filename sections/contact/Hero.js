@@ -52,6 +52,7 @@ export default function Hero() {
             alt="Doobest reception area with branded wall signage and seating"
             fill
             priority
+            fetchPriority="high"
             sizes="(min-width: 1024px) 55vw, 90vw"
             className="object-cover object-center"
           />

@@ -21,6 +21,7 @@ export default function Navbar() {
       <div className="flex flex-wrap items-center justify-between gap-3.5 px-6 py-4 lg:px-8">
         <Link
           href="/"
+          prefetch={false}
           onClick={() => setOpen(false)}
           className="relative block h-12 w-auto shrink-0"
         >
@@ -44,6 +45,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={false}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
                   "border-b-2 pb-1.5 text-[13.5px] font-semibold whitespace-nowrap transition-colors hover:text-maroon",
@@ -98,6 +100,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={false}
                 onClick={() => setOpen(false)}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(

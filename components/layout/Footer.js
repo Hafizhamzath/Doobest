@@ -18,7 +18,7 @@ export default function Footer({
     <footer className="bg-ink text-white">
       <Container className="grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-5">
         <div className="sm:col-span-2 lg:col-span-1">
-          <Link href="/" className="mb-4 flex flex-col items-start gap-2.5">
+          <Link href="/" prefetch={false} className="mb-4 flex flex-col items-start gap-2.5">
             <Image
               src={siteConfig.logoMaroon}
               alt="Doobest"
@@ -59,6 +59,7 @@ export default function Footer({
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  prefetch={false}
                   className="text-[13.5px] text-white/70 transition-colors hover:text-white"
                 >
                   {link.label}
@@ -171,6 +172,7 @@ export default function Footer({
                 <li key={link.label}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className="text-[13.5px] text-white/70 transition-colors hover:text-white"
                   >
                     {link.label}

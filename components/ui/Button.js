@@ -50,7 +50,7 @@ export default function Button({
 
   if (href) {
     return (
-      <Link href={href} className={classes} {...props}>
+      <Link href={href} className={classes} prefetch={false} {...props}>
         {content}
       </Link>
     );

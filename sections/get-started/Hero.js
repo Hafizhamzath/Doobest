@@ -69,6 +69,7 @@ export default function Hero() {
           alt="Doobest executive office with branded wall art"
           fill
           priority
+          fetchPriority="high"
           sizes="(min-width: 1024px) 35vw, 90vw"
           className="rounded-t-[100px] object-cover sm:rounded-t-[150px] lg:rounded-t-[200px]"
         />

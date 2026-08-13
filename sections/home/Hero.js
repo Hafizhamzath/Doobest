@@ -97,6 +97,7 @@ export default function Hero() {
             width={1402}
             height={1122}
             priority
+            fetchPriority="high"
             className="h-auto w-full transition-transform duration-700 ease-out hover:scale-[1.03]"
           />
 

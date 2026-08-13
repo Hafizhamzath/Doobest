@@ -35,6 +35,7 @@ export default function Hero() {
             alt="Doobest Consultancy reception desk with branded marble wall signage"
             fill
             priority
+            fetchPriority="high"
             sizes="(min-width: 1024px) 50vw, 90vw"
             className="object-cover"
           />

@@ -60,6 +60,7 @@ export default function Hero() {
           alt="Doobest financial analytics dashboard"
           fill
           priority
+          fetchPriority="high"
           sizes="(min-width: 1024px) 50vw, 100vw"
           className="rounded-tl-[100px] object-cover sm:rounded-tl-[150px] lg:rounded-tl-[200px]"
         />
