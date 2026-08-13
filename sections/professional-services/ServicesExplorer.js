@@ -163,68 +163,70 @@ export default function ServicesExplorer() {
                 className="h-auto w-full drop-shadow-[0_3px_5px_rgba(0,0,0,0.35)]"
               />
             </div>
-            <div
-              key={current.slug}
-              role="tabpanel"
-              style={{ animation: panelAnimation }}
-              className="mt-[4px] rounded-b-2xl rounded-t-sm bg-cream px-6 pt-6 pb-9 shadow-[0_20px_50px_rgba(0,0,0,0.3)] sm:-mt-[26px] sm:px-10 sm:pt-8"
-            >
+            <div style={{ clipPath: "inset(0px -1000px -1000px -1000px)" }}>
               <div
-                className="mb-6 flex items-center gap-3.5"
-                style={{ animation: "panelIn 350ms ease-out both", animationDelay: "80ms" }}
+                key={current.slug}
+                role="tabpanel"
+                style={{ animation: panelAnimation }}
+                className="mt-[4px] rounded-b-2xl rounded-t-sm bg-cream px-6 pt-6 pb-9 shadow-[0_20px_50px_rgba(0,0,0,0.3)] sm:-mt-[26px] sm:px-10 sm:pt-8"
               >
-                <span
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-maroon text-white"
-                  style={{ animation: "stampIn 420ms cubic-bezier(0.34,1.56,0.64,1) both", animationDelay: "80ms" }}
+                <div
+                  className="mb-6 flex items-center gap-3.5"
+                  style={{ animation: "panelIn 350ms ease-out both", animationDelay: "80ms" }}
                 >
-                  <Icon paths={current.icon.paths} size={22} strokeWidth={1.6} />
-                </span>
-                <div>
-                  <p className="text-xs font-bold tracking-[0.2em] text-maroon uppercase">
-                    {current.name}
-                  </p>
-                  <p className="text-[13px] text-muted italic">{current.tagline}</p>
-                </div>
-              </div>
-              <p
-                className="mb-8 max-w-[620px] text-[15px] leading-relaxed text-body"
-                style={{ animation: "panelIn 350ms ease-out both", animationDelay: "150ms" }}
-              >
-                {current.intro}
-              </p>
-              <p
-                className="mb-4 flex items-center gap-2 text-[14.5px] font-bold text-ink"
-                style={{ animation: "panelIn 350ms ease-out both", animationDelay: "210ms" }}
-              >
-                What&apos;s Included
-                <span className="rounded-full bg-maroon/10 px-2.5 py-0.5 text-[11px] font-bold text-maroon">
-                  {current.features.length} items
-                </span>
-              </p>
-              <ul className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-                {current.features.map((item, index) => (
-                  <li
-                    key={item}
-                    style={{ animation: "panelIn 350ms ease-out both", animationDelay: `${260 + index * 35}ms` }}
-                    className="flex items-start gap-2 text-[13.5px] leading-snug text-body"
+                  <span
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-maroon text-white"
+                    style={{ animation: "stampIn 420ms cubic-bezier(0.34,1.56,0.64,1) both", animationDelay: "80ms" }}
                   >
-                    <span className="mt-0.5 shrink-0 text-maroon" aria-hidden="true">
-                      ✓
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div
-                className="mt-7 flex justify-end border-t border-ink/[0.08] pt-6"
-                style={{
-                  animation: "panelIn 350ms ease-out both",
-                  animationDelay: `${260 + current.features.length * 35 + 60}ms`,
-                }}
-              >
-                <Button href="/contact" size="sm">
-                  Learn More
-                </Button>
+                    <Icon paths={current.icon.paths} size={22} strokeWidth={1.6} />
+                  </span>
+                  <div>
+                    <p className="text-xs font-bold tracking-[0.2em] text-maroon uppercase">
+                      {current.name}
+                    </p>
+                    <p className="text-[13px] text-muted italic">{current.tagline}</p>
+                  </div>
+                </div>
+                <p
+                  className="mb-8 max-w-[620px] text-[15px] leading-relaxed text-body"
+                  style={{ animation: "panelIn 350ms ease-out both", animationDelay: "150ms" }}
+                >
+                  {current.intro}
+                </p>
+                <p
+                  className="mb-4 flex items-center gap-2 text-[14.5px] font-bold text-ink"
+                  style={{ animation: "panelIn 350ms ease-out both", animationDelay: "210ms" }}
+                >
+                  What&apos;s Included
+                  <span className="rounded-full bg-maroon/10 px-2.5 py-0.5 text-[11px] font-bold text-maroon">
+                    {current.features.length} items
+                  </span>
+                </p>
+                <ul className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {current.features.map((item, index) => (
+                    <li
+                      key={item}
+                      style={{ animation: "panelIn 350ms ease-out both", animationDelay: `${260 + index * 35}ms` }}
+                      className="flex items-start gap-2 text-[13.5px] leading-snug text-body"
+                    >
+                      <span className="mt-0.5 shrink-0 text-maroon" aria-hidden="true">
+                        ✓
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div
+                  className="mt-7 flex justify-end border-t border-ink/[0.08] pt-6"
+                  style={{
+                    animation: "panelIn 350ms ease-out both",
+                    animationDelay: `${260 + current.features.length * 35 + 60}ms`,
+                  }}
+                >
+                  <Button href="/contact" size="sm">
+                    Learn More
+                  </Button>
+                </div>
               </div>
             </div>
           </Reveal>
