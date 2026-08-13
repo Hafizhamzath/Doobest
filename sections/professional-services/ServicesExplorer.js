@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
@@ -72,9 +72,36 @@ function ServiceCard({ service, isSelected, onSelect }) {
   );
 }
 
+const ROLL_UP_MS = 480;
+const ROLL_DOWN_MS = 280;
+
 export default function ServicesExplorer() {
   const [selected, setSelected] = useState(0);
-  const current = services[selected];
+  const [displayed, setDisplayed] = useState(0);
+  const [phase, setPhase] = useState("idle");
+  const timeoutRef = useRef(null);
+  const current = services[displayed];
+
+  function handleSelect(index) {
+    if (index === selected) return;
+    setSelected(index);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setPhase("up");
+    timeoutRef.current = setTimeout(() => {
+      setDisplayed(index);
+      setPhase("down");
+      timeoutRef.current = setTimeout(() => {
+        setPhase("idle");
+      }, ROLL_DOWN_MS);
+    }, ROLL_UP_MS);
+  }
+
+  const panelAnimation =
+    phase === "up"
+      ? `paperPullUp ${ROLL_UP_MS}ms ease-in forwards`
+      : phase === "down"
+        ? `paperDropIn ${ROLL_DOWN_MS}ms ease-out forwards`
+        : "none";
 
   return (
     <section
@@ -121,20 +148,35 @@ export default function ServicesExplorer() {
                 key={service.slug}
                 service={service}
                 isSelected={index === selected}
-                onSelect={() => setSelected(index)}
+                onSelect={() => handleSelect(index)}
               />
             ))}
           </Reveal>
 
-          <Reveal as="div" delay={180} variant="fade">
+          <Reveal as="div" delay={180} variant="fade" className="relative">
+            <div className="pointer-events-none absolute -top-[62px] left-1/2 z-10 w-[120.5%] -translate-x-1/2 sm:-top-[86px]">
+              <Image
+                src="/assets/scroll-rod.png"
+                alt=""
+                width={1680}
+                height={149}
+                className="h-auto w-full drop-shadow-[0_3px_5px_rgba(0,0,0,0.35)]"
+              />
+            </div>
             <div
               key={current.slug}
               role="tabpanel"
-              style={{ animation: "panelIn 400ms ease-out" }}
-              className="rounded-2xl border-t-2 border-gold bg-cream px-6 py-9 shadow-[0_20px_50px_rgba(0,0,0,0.3)] sm:px-10"
+              style={{ animation: panelAnimation }}
+              className="-mt-[18px] rounded-b-2xl rounded-t-sm bg-cream px-6 pt-6 pb-9 shadow-[0_20px_50px_rgba(0,0,0,0.3)] sm:-mt-[26px] sm:px-10 sm:pt-8"
             >
-              <div className="mb-6 flex items-center gap-3.5">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-maroon text-white">
+              <div
+                className="mb-6 flex items-center gap-3.5"
+                style={{ animation: "panelIn 350ms ease-out both", animationDelay: "80ms" }}
+              >
+                <span
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-maroon text-white"
+                  style={{ animation: "stampIn 420ms cubic-bezier(0.34,1.56,0.64,1) both", animationDelay: "80ms" }}
+                >
                   <Icon paths={current.icon.paths} size={22} strokeWidth={1.6} />
                 </span>
                 <div>
@@ -144,10 +186,16 @@ export default function ServicesExplorer() {
                   <p className="text-[13px] text-muted italic">{current.tagline}</p>
                 </div>
               </div>
-              <p className="mb-8 max-w-[620px] text-[15px] leading-relaxed text-body">
+              <p
+                className="mb-8 max-w-[620px] text-[15px] leading-relaxed text-body"
+                style={{ animation: "panelIn 350ms ease-out both", animationDelay: "150ms" }}
+              >
                 {current.intro}
               </p>
-              <p className="mb-4 flex items-center gap-2 text-[14.5px] font-bold text-ink">
+              <p
+                className="mb-4 flex items-center gap-2 text-[14.5px] font-bold text-ink"
+                style={{ animation: "panelIn 350ms ease-out both", animationDelay: "210ms" }}
+              >
                 What&apos;s Included
                 <span className="rounded-full bg-maroon/10 px-2.5 py-0.5 text-[11px] font-bold text-maroon">
                   {current.features.length} items
@@ -157,7 +205,7 @@ export default function ServicesExplorer() {
                 {current.features.map((item, index) => (
                   <li
                     key={item}
-                    style={{ animation: "panelIn 400ms ease-out both", animationDelay: `${120 + index * 40}ms` }}
+                    style={{ animation: "panelIn 350ms ease-out both", animationDelay: `${260 + index * 35}ms` }}
                     className="flex items-start gap-2 text-[13.5px] leading-snug text-body"
                   >
                     <span className="mt-0.5 shrink-0 text-maroon" aria-hidden="true">
@@ -167,7 +215,13 @@ export default function ServicesExplorer() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-7 flex justify-end border-t border-ink/[0.08] pt-6">
+              <div
+                className="mt-7 flex justify-end border-t border-ink/[0.08] pt-6"
+                style={{
+                  animation: "panelIn 350ms ease-out both",
+                  animationDelay: `${260 + current.features.length * 35 + 60}ms`,
+                }}
+              >
                 <Button href="/contact" size="sm">
                   Learn More
                 </Button>
