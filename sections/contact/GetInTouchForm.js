@@ -217,7 +217,7 @@ export default function GetInTouchForm() {
             </div>
             <div>
               <p className="text-[12.5px] font-bold text-ink">100% Confidential</p>
-              <p className="text-[11px] text-faint">Your information is safe with us.</p>
+              <p className="text-[11px] text-muted">Your information is safe with us.</p>
             </div>
           </div>
 
@@ -314,7 +314,7 @@ export default function GetInTouchForm() {
                   <a href="#">Terms &amp; Conditions</a>
                 </label>
                 {errors.agree && (
-                  <p className="mt-1.5 flex items-center gap-1.5 text-[12px] font-semibold text-[#D64545]">
+                  <p className="mt-1.5 flex items-center gap-1.5 text-[12px] font-semibold text-[#B33636]">
                     <Icon
                       paths={["M12 9v4", "M12 16.5h.01"]}
                       circles={[{ cx: 12, cy: 12, r: 9 }]}

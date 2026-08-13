@@ -32,7 +32,7 @@ export default function ToolsCarousel() {
                   className="h-8 w-auto object-contain sm:h-9"
                 />
               </div>
-              <span className="text-[11px] font-semibold tracking-wide text-faint">
+              <span className="text-[11px] font-semibold tracking-wide text-muted">
                 {tool.name}
               </span>
             </div>

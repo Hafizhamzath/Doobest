@@ -106,9 +106,9 @@ export default function GetStartedForm() {
           />
         </div>
         <div>
-          <h3 className="mb-1.5 font-serif text-xl font-bold text-maroon">
+          <h2 className="mb-1.5 font-serif text-xl font-bold text-maroon">
             Start Your Journey
-          </h3>
+          </h2>
           <p className="text-[12.5px] leading-relaxed text-muted">
             Fill in your details and our team will connect with you shortly.
           </p>
@@ -175,7 +175,7 @@ export default function GetStartedForm() {
             Submit &amp; Get Started
           </Button>
 
-          <p className="flex items-center justify-center gap-2 text-[11.5px] text-faint">
+          <p className="flex items-center justify-center gap-2 text-[11.5px] text-muted">
             <Icon
               paths={[
                 "M12 2a5 5 0 00-5 5v3H6a1 1 0 00-1 1v9a1 1 0 001 1h12a1 1 0 001-1v-9a1 1 0 00-1-1h-1V7a5 5 0 00-5-5zm0 2a3 3 0 013 3v3H9V7a3 3 0 013-3z",

@@ -185,7 +185,7 @@ function ServicesWheel({ active, rotation, transitionMs, onSelect }) {
         }}
       >
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-          <div className="mb-2 flex items-center justify-center gap-2 text-[10px] font-bold tracking-[0.2em] text-gold">
+          <div className="mb-2 flex items-center justify-center gap-2 text-[10px] font-bold tracking-[0.2em] text-[#D4AF5C]">
             <span>{String(active + 1).padStart(2, "0")}</span>
             <span className="inline-block h-px w-5 bg-gold" aria-hidden="true" />
           </div>
