@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import FormField from "@/components/ui/FormField";
 import Reveal from "@/components/ui/Reveal";
+import PhoneChoice from "@/components/ui/PhoneChoice";
 import { footerServiceLinks } from "@/constants/footer";
 import { siteConfig } from "@/constants/site";
 import { buildMailtoLink } from "@/lib/mailtoTemplate";
@@ -20,20 +21,15 @@ const fieldValidators = {
 
 const contactItems = [
   {
-    label: "Call Us",
-    lines: ["+94 74 041 0943 (Sri Lanka)", "+971 54 374 8522 (UAE)"],
+    label: "Call / WhatsApp",
     icon: {
       paths: [
         "M6.6 10.8c1.4 2.8 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1.1z",
       ],
     },
-  },
-  {
-    label: "WhatsApp",
-    whatsapp: true,
-    waLinks: [
-      { text: "+94 74 041 0943 (Sri Lanka)", href: "https://wa.me/94740410943" },
-      { text: "+971 54 374 8522 (UAE)", href: "https://wa.me/971543748522" },
+    contacts: [
+      { country: "Sri Lanka", phone: "+94 74 041 0943", tel: "+94740410943", wa: "https://wa.me/94740410943" },
+      { country: "UAE", phone: "+971 54 374 8522", tel: "+971543748522", wa: "https://wa.me/971543748522" },
     ],
   },
   {
@@ -177,49 +173,35 @@ export default function GetInTouchForm() {
               return (
                 <Reveal key={item.label} delay={index * 80} variant="left" className="group">
                   <Wrapper {...wrapperProps} className="flex items-start gap-4">
-                    <div
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] transition-transform duration-300 group-hover:scale-110 ${
-                        item.whatsapp ? "bg-[#25D366] text-white" : "bg-maroon text-gold"
-                      }`}
-                    >
-                      {item.whatsapp ? (
-                        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                          <path d="M17.6 6.32A7.85 7.85 0 0012.02 4c-4.34 0-7.88 3.53-7.88 7.88 0 1.39.37 2.74 1.06 3.94L4 20l4.3-1.13a7.9 7.9 0 003.71.94h.01c4.34 0 7.88-3.53 7.88-7.88 0-2.1-.82-4.08-2.3-5.56v-.05zm-5.58 12.13h-.01a6.55 6.55 0 01-3.34-.92l-.24-.14-2.48.65.66-2.42-.16-.25a6.55 6.55 0 01-1-3.49c0-3.62 2.95-6.57 6.58-6.57a6.53 6.53 0 014.65 1.93 6.53 6.53 0 011.92 4.64c0 3.63-2.95 6.57-6.58 6.57zm3.6-4.92c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.15-.43.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.3.09-.4.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33h-.38c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.62 0 .96.7 1.88.8 2.01.1.13 1.37 2.1 3.33 2.94.46.2.83.32 1.11.41.47.15.9.13 1.24.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.08-.18-.13-.38-.23z" />
-                        </svg>
-                      ) : (
-                        <Icon paths={item.icon.paths} size={19} strokeWidth={1.8} />
-                      )}
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-maroon text-gold transition-transform duration-300 group-hover:scale-110">
+                      <Icon paths={item.icon.paths} size={19} strokeWidth={1.8} />
                     </div>
-                    <div>
-                      <p
-                        className={`mb-1.5 text-[13px] font-bold ${
-                          item.whatsapp ? "text-[#25D366]" : "text-gold"
-                        }`}
-                      >
-                        {item.label}
-                      </p>
-                      {item.waLinks
-                        ? item.waLinks.map((link) => (
-                            <a
-                              key={link.href}
-                              href={link.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="block text-[13.5px] leading-relaxed text-white/85 transition-colors duration-200 hover:text-[#25D366]"
-                            >
-                              {link.text}
-                            </a>
-                          ))
-                        : item.lines.map((line) => (
-                            <p
-                              key={line}
-                              className={`text-[13.5px] leading-relaxed text-white/85 ${
-                                item.href ? "transition-colors duration-200 group-hover:text-white" : ""
-                              }`}
-                            >
-                              {line}
-                            </p>
+                    <div className="min-w-0 flex-1">
+                      <p className="mb-1.5 text-[13px] font-bold text-gold">{item.label}</p>
+                      {item.contacts ? (
+                        <div className="flex flex-col gap-2">
+                          {item.contacts.map((contact) => (
+                            <PhoneChoice
+                              key={contact.country}
+                              label={`${contact.phone} (${contact.country})`}
+                              tel={contact.tel}
+                              wa={contact.wa}
+                              triggerClassName="text-[13.5px] leading-relaxed text-white/85 transition-colors hover:text-white"
+                            />
                           ))}
+                        </div>
+                      ) : (
+                        item.lines.map((line) => (
+                          <p
+                            key={line}
+                            className={`text-[13.5px] leading-relaxed text-white/85 ${
+                              item.href ? "transition-colors duration-200 group-hover:text-white" : ""
+                            }`}
+                          >
+                            {line}
+                          </p>
+                        ))
+                      )}
                     </div>
                   </Wrapper>
                 </Reveal>

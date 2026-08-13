@@ -154,7 +154,7 @@ export default function ServicesExplorer() {
           </Reveal>
 
           <Reveal as="div" delay={180} variant="fade" className="relative">
-            <div className="pointer-events-none absolute -top-[62px] left-1/2 z-10 w-[120.5%] -translate-x-1/2 sm:-top-[86px]">
+            <div className="pointer-events-none absolute -top-[20px] left-1/2 z-10 w-[120.5%] -translate-x-1/2 sm:-top-[86px]">
               <Image
                 src="/assets/scroll-rod.png"
                 alt=""
@@ -167,7 +167,7 @@ export default function ServicesExplorer() {
               key={current.slug}
               role="tabpanel"
               style={{ animation: panelAnimation }}
-              className="-mt-[18px] rounded-b-2xl rounded-t-sm bg-cream px-6 pt-6 pb-9 shadow-[0_20px_50px_rgba(0,0,0,0.3)] sm:-mt-[26px] sm:px-10 sm:pt-8"
+              className="mt-[4px] rounded-b-2xl rounded-t-sm bg-cream px-6 pt-6 pb-9 shadow-[0_20px_50px_rgba(0,0,0,0.3)] sm:-mt-[26px] sm:px-10 sm:pt-8"
             >
               <div
                 className="mb-6 flex items-center gap-3.5"
