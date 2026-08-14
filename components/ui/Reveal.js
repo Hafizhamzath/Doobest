@@ -12,6 +12,29 @@ const VARIANTS = {
   fade: { hidden: "opacity-0", shown: "opacity-100" },
 };
 
+let sharedObserver;
+const revealCallbacks = new WeakMap();
+
+function getSharedObserver() {
+  if (!sharedObserver) {
+    sharedObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const onVisible = revealCallbacks.get(entry.target);
+          if (onVisible) {
+            onVisible();
+            sharedObserver.unobserve(entry.target);
+            revealCallbacks.delete(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+  }
+  return sharedObserver;
+}
+
 export default function Reveal({ children, delay = 0, variant = "up", className, as: As = "div", ...rest }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -20,17 +43,13 @@ export default function Reveal({ children, delay = 0, variant = "up", className,
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
+    const observer = getSharedObserver();
+    revealCallbacks.set(el, () => setVisible(true));
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      observer.unobserve(el);
+      revealCallbacks.delete(el);
+    };
   }, []);
 
   return (

@@ -22,7 +22,7 @@ const leaders = [
   {
     name: "Anujan",
     role: "Senior Accountant",
-    desc: "Tax expert with deep knowledge in VAT, corporate tax and international taxation.",
+    desc: "Handles daily accounting, bookkeeping, reconciliations, and monthly closings.",
     photo: "/assets/team-anujan.jpg",
     linkedin: "https://www.linkedin.com/in/lokenthiran-anujan-6a4160225",
   },
