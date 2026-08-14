@@ -164,6 +164,7 @@ export default function ServicesExplorer() {
                 alt=""
                 width={1680}
                 height={149}
+                sizes="(min-width: 1024px) 75vw, 100vw"
                 className="h-auto w-full drop-shadow-[0_3px_5px_rgba(0,0,0,0.35)]"
               />
             </div>

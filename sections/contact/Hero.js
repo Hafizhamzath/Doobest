@@ -44,6 +44,7 @@ export default function Hero() {
           alt=""
           width={1535}
           height={1024}
+          sizes="(min-width: 1024px) 30vw, 50vw"
           className="absolute -top-[6%] right-[-2%] z-0 h-[58%] w-[52%] object-cover opacity-95"
         />
         <div className="absolute inset-0 z-[1] overflow-hidden drop-shadow-[0_30px_55px_rgba(17,17,17,0.3)]">
